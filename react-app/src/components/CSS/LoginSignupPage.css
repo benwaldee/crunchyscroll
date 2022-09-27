@@ -1,0 +1,32 @@
+.LoginSignupPage_lower {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+
+
+}
+
+.LoginSignupPage_lower_inner {
+    display: flex;
+    border: solid 1.5px rgba(128, 128, 128, 0.8);
+    padding: 20px;
+    width: 1200px;
+    height: 561px;
+}
+
+.LoginSignupPage_upper {
+    display: flex;
+    justify-content: center;
+    height: 66px;
+    background-color: #23252b;
+    align-items: center;
+}
+
+.LoginSignupPage_upper_inner {
+    display: flex;
+    height: 30px;
+    width: 1240px;
+    justify-content: flex-start;
+
+
+}
