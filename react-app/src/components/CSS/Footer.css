@@ -1,0 +1,37 @@
+.Footer_outer {
+    color: white;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    background: linear-gradient(#0000, #213944);
+    width: 100%;
+    height: 459px;
+
+}
+
+.Footer_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 37px 30px 30px 30px; */
+    column-gap: 170px;
+
+}
+
+.Footer_contentWrap {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+}
+
+.Footer_content {
+    height: 30px;
+    color: #a0a0a0;
+}
+
+.Footer_contentHead {
+    font-weight: bold;
+    margin-bottom: 20px;
+}

@@ -14,7 +14,7 @@ const LoginSignupPage = () => {
 
 
     return (
-        <>
+        <div className='LoginSignupPage_contentWrap'>
             <div className='LoginSignupPage_upper'>
                 <div className='LoginSignupPage_upper_inner'>
                     <div className='LoginSignupPage_logoWrap' onClick={redirectHome}>
@@ -29,7 +29,7 @@ const LoginSignupPage = () => {
                     <LoginForm />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

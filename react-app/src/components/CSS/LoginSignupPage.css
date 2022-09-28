@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     margin-top: 38px;
-
-
+    min-height: 100%;
+    height: 143px;
 }
 
 .LoginSignupPage_lower_inner {
@@ -34,4 +34,9 @@
     width: fit-content;
     cursor: pointer;
     display: flex;
+}
+
+.LoginSignupPage_contentWrap {
+    height: 760px;
+    padding-bottom: 459px;
 }
