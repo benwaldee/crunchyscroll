@@ -11,7 +11,8 @@
     border: solid 1.5px rgba(128, 128, 128, 0.8);
     padding: 20px;
     width: 1200px;
-    height: 561px;
+    height: 500px;
+    background-color: #23252b;
 }
 
 .LoginSignupPage_upper {
