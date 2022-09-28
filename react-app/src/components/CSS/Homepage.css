@@ -1,5 +1,51 @@
-.Homepage_outer {}
+.Homepage_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
 
 .Homepage_storyTitle {
+    color: #e2e2e2;
+    font-weight: bold;
+}
+
+.Homepage_storyWrap {
+    width: 160px;
+    height: 257px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.Homepage_storyWrap:hover {
+    background-color: rgba(255, 255, 255, 0.113);
+}
+
+.Homepage_storyImage {
+    object-fit: cover;
+    width: 145px;
+    height: 200px;
+    margin-top: 8px;
+}
+
+.Homepage_storyTitle {
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 16px;
+}
+
+
+.Homepage_outer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Homepage_h1 {
     color: white;
+    font-weight: normal;
+    margin-top: 60px;
+    margin-bottom: 35px;
+    width: 945px
 }
