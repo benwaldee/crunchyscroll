@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
@@ -49,6 +49,38 @@ const NavBar = () => {
     setToggleDrop(false)
   }
 
+  useEffect(() => {
+    if (!toggleDrop) return;
+
+    //add elements in dropdown to avoid closing
+    let elementArr = []
+    elementArr.push(document.getElementById('NavBar_menuID'))
+    elementArr.push(document.getElementsByClassName('NavBar_dropdown_top')[0])
+    elementArr.push(document.getElementsByClassName('NavBar_dropdown_mid')[0])
+    elementArr.push(document.getElementsByClassName('NavBar_dropdown_bottom')[0])
+    elementArr.push(document.getElementsByClassName('NavBar_profilePicBig')[0])
+    elementArr.push(document.getElementsByClassName('NavBar_dropdown_username')[0])
+    elementArr.push(document.getElementsByClassName('NavBar_logout_diff')[0])
+    let icos = document.getElementsByClassName('NavBar_dropdownIco')
+    for (let ele of icos) {
+      elementArr.push(ele)
+    }
+
+
+
+    const closeMenu = (e) => {
+      for (let ele of elementArr) {
+        if (e.target === ele) { return }
+      }
+      setToggleDrop(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [toggleDrop]);
+
+
   return (
     <>
       <div className='NavBar_outer'>
@@ -72,7 +104,7 @@ const NavBar = () => {
             <img src={user ? userPic : noUser} className='NavBar_profilePic'></img>
             <img src={dropdown} className='NavBar_dropdown'></img>
           </div>
-          {toggleDrop && <div className='NavBar_menu'>
+          {toggleDrop && <div id='NavBar_menuID' className='NavBar_menu'>
             <ul className='NavBar_ul'>
               <div className='NavBar_dropdown_top'>
                 <img className='NavBar_profilePicBig' src={user ? userPic : noUser}></img>
