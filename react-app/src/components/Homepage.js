@@ -31,6 +31,7 @@ const Homepage = () => {
 
     }
 
+    if (storiesArr.length < 1) { return <div></div> }
     return (
         <div className='Homepage_outer'>
             <div className='Homepage_top'>
@@ -44,13 +45,13 @@ const Homepage = () => {
                 </div>
             </div>
             <div className='Homepage_grid'>
-                {storiesArr.map((story) => (
+                {storiesArr?.map((story) => (
                     <div onClick={() => {
-                        redirectStoryPage(story.id)
+                        redirectStoryPage(story?.id)
                         return
                     }} className='Homepage_storyWrap'>
-                        <img className='Homepage_storyImage' src={story.image_url}></img>
-                        < div className='Homepage_storyTitle' > {story.title}</div>
+                        <img className='Homepage_storyImage' src={story?.image_url}></img>
+                        < div className='Homepage_storyTitle' > {story?.title}</div>
                     </div>
                 ))
                 }
