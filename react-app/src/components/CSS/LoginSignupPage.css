@@ -28,6 +28,10 @@
     height: 30px;
     width: 1240px;
     justify-content: flex-start;
+}
 
-
+.LoginSignupPage_logoWrap {
+    width: fit-content;
+    cursor: pointer;
+    display: flex;
 }

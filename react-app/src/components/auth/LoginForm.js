@@ -16,6 +16,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      setEmail('')
+      setPassword('')
     }
   };
 
@@ -27,6 +29,12 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demoLogin = () => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -34,8 +42,10 @@ const LoginForm = () => {
   return (
     <div className='LoginForm_formWrap'>
       <form className='LoginForm_form' onSubmit={onLogin}>
-        <h1 className='LoginForm_title'>Log In</h1>
-        <div className='LoginForm_subtitle'>Already have an account? Log in below.</div>
+        <div className='LoginForm_topformWrap'>
+          <h1 className='LoginForm_title'>Log In</h1>
+          <div className='LoginForm_subtitle'>Already have an account? Log in below.</div>
+        </div>
         {errors && <div className='LoginForm_error'>Incorrect login information</div>}
         <div className='LoginForm_grid'>
           <div className='LoginForm_inputWrap'>
@@ -62,7 +72,8 @@ const LoginForm = () => {
             // required={true}
             />
           </div>
-          <button type='submit'>Login</button>
+          <button className='LoginForm_submit' type='submit'>Login</button>
+          <button className='LoginForm_demo' onClick={(e) => demoLogin(e)}>Demo</button>
         </div>
       </form>
     </div>

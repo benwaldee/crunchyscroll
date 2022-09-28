@@ -93,6 +93,7 @@ const SignUpForm = () => {
             className='SignUpForm_input'
             type='text'
             name='username'
+            placeholder='User Name'
             onChange={(e) => {
 
               updateUsername(e)
@@ -109,6 +110,7 @@ const SignUpForm = () => {
             className='SignUpForm_input'
             type='text'
             name='email'
+            placeholder='Email'
             onChange={(e) => {
 
               updateEmail(e)
@@ -125,6 +127,7 @@ const SignUpForm = () => {
             className='SignUpForm_input'
             type='password'
             name='password'
+            placeholder='Password'
             onChange={(e) => {
 
               updatePassword(e)
@@ -141,6 +144,7 @@ const SignUpForm = () => {
             className='SignUpForm_input'
             type='password'
             name='repeat_password'
+            placeholder='Confirm Password'
             onChange={(e) => {
 
               updateRepeatPassword(e)
