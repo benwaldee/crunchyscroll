@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import '../CSS/LoginForm.css'
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -15,6 +16,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      setEmail('')
+      setPassword('')
     }
   };
 
@@ -26,39 +29,54 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const demoLogin = () => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className='LoginForm_formWrap'>
+      <form className='LoginForm_form' onSubmit={onLogin}>
+        <div className='LoginForm_topformWrap'>
+          <h1 className='LoginForm_title'>Log In</h1>
+          <div className='LoginForm_subtitle'>Already have an account? Log in below.</div>
+        </div>
+        {errors && <div className='LoginForm_error'>Incorrect login information</div>}
+        <div className='LoginForm_grid'>
+          <div className='LoginForm_inputWrap'>
+            <label className='LoginForm_label' htmlFor='email'>Email</label>
+            <input
+              className='LoginForm_input'
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            // required={true}
+            />
+          </div>
+          <div className='LoginForm_inputWrap'>
+            <label className='LoginForm_label' htmlFor='password'>Password</label>
+            <input
+              className='LoginForm_input'
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            // required={true}
+            />
+          </div>
+          <button className='LoginForm_submit' type='submit'>Login</button>
+          <button className='LoginForm_demo' onClick={(e) => demoLogin(e)}>Demo</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
