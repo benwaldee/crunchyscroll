@@ -12,15 +12,41 @@ import watchlist from './images/watchlist.png'
 import userPic from './images/User.png'
 import noUser from './images/NoUser.png'
 import dropdown from './images/dropdown.png'
+//dropdown stuff
+import list from './images/list.png'
+import home from './images/home.png'
+import login from './images/login.png'
+import logout from './images/logout.png'
+import { useDropContext } from '../context/Dropdown';
 
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
   const history = useHistory()
-  const [toggleDrop, setToggleDrop] = useState(false)
+  const { toggleDrop, setToggleDrop } = useDropContext()
 
   const redirectHome = () => {
     history.push('/')
+  }
+
+  const redirectLogin = () => {
+    history.push('/login-signup')
+  }
+
+  const redirectMyStories = () => {
+    if (!user) {
+      history.push('/login-signup')
+    } else { history.push('/mystories') }
+  }
+
+  const redirectList = () => {
+    if (!user) {
+      history.push('/login-signup')
+    } else { history.push('/lists') }
+  }
+
+  const closeDrop = () => {
+    setToggleDrop(false)
   }
 
   return (
@@ -31,12 +57,12 @@ const NavBar = () => {
             <img className='NavBar_logo' src={logo}></img>
             <img className='NavBar_logoTitle' src={sitetitle}></img>
           </div>
-          <div className='NavBar_home'>Home</div>
-          <div className='NavBar_myStories'> My Stories</div>
+          <div onClick={redirectHome} className='NavBar_home'>Home</div>
+          <div onClick={redirectMyStories} className='NavBar_myStories'> My Stories</div>
         </div>
         <div className='NavBar_right'>
           {/* <img src={search} className='NavBar_search'></img> */}
-          <div className='NavBar_watchlistContainer'>
+          <div onClick={redirectList} className='NavBar_watchlistContainer'>
             <img src={watchlist} className='NavBar_watchlist'></img>
           </div>
           <div
@@ -48,20 +74,59 @@ const NavBar = () => {
           </div>
           {toggleDrop && <div className='NavBar_menu'>
             <ul className='NavBar_ul'>
-              <li className='NavBar_li'>
-                <NavLink to='/' exact={true} activeClassName='active'>
-                  Home
-                </NavLink>
-              </li >
-              {!user && <li className='NavBar_li'>
-                <NavLink to='/login-signup' exact={true} activeClassName='active'>
-                  Login/Signup
-                </NavLink>
-              </li>}
+              <div className='NavBar_dropdown_top'>
+                <img className='NavBar_profilePicBig' src={user ? userPic : noUser}></img>
+                <div className='NavBar_dropdown_username'>{user ? user.username : 'Guest'}</div>
+              </div>
+              <div className='NavBar_dropdown_mid'>
+                <li onClick={() => {
+                  setToggleDrop(false)
+                  redirectList()
+                  return
+                }} className='NavBar_li'>
+                  <img className='NavBar_dropdownIco' src={watchlist}></img>
+                  <div className='NavBar_dropdownText'>
+                    Watchlist
+                  </div>
+                </li >
+                <li onClick={() => {
+                  setToggleDrop(false)
+                  redirectList()
+                  return
+                }} className='NavBar_li'>
+                  <img className='NavBar_dropdownIco' src={list}></img>
+                  <div className='NavBar_dropdownText' >
+                    Crunchylists
+                  </div>
+                </li >
+                <li onClick={() => {
+                  setToggleDrop(false)
+                  redirectHome()
+                  return
+                }} className='NavBar_li'>
+                  <img className='NavBar_dropdownIco' src={home}></img>
+                  <div className='NavBar_dropdownText'>
+                    Home
+                  </div>
+                </li >
+              </div>
+              <div className='NavBar_dropdown_bottom'>
+                {!user && <li className='NavBar_li' onClick={() => {
+                  setToggleDrop(false)
+                  redirectLogin()
+                  return
+                }}>
+                  <img className='NavBar_dropdownIco' src={login}></img>
+                  <div className='NavBar_dropdownText' >
+                    Login
+                  </div>
+                </li>}
 
-              {user && <li className='NavBar_li'>
-                <LogoutButton />
-              </li>}
+                {user && <li className='NavBar_logout_diff'>
+                  <img className='NavBar_dropdownIco' src={logout}></img>
+                  <LogoutButton />
+                </li>}
+              </div>
             </ul>
           </div>}
         </div>
