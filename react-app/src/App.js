@@ -34,8 +34,11 @@ function App() {
           </div>
         </Route>
         <Route path='/' exact={true} >
-          <NavBar />
-          <Homepage />
+          <div className='pageWrap'>
+            <NavBar />
+            <Homepage />
+            <Footer />
+          </div>
         </Route>
       </Switch>
 

@@ -1,6 +1,8 @@
 .Homepage_grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    row-gap: 20px;
 }
 
 .Homepage_storyTitle {
@@ -9,8 +11,8 @@
 }
 
 .Homepage_storyWrap {
-    width: 160px;
-    height: 257px;
+    width: 180px;
+    height: 280px;
     display: flex;
     flex-direction: column;
 
@@ -19,12 +21,13 @@
 
 .Homepage_storyWrap:hover {
     background-color: rgba(255, 255, 255, 0.113);
+    cursor: pointer;
 }
 
 .Homepage_storyImage {
     object-fit: cover;
-    width: 145px;
-    height: 200px;
+    width: 160px;
+    height: 220px;
     margin-top: 8px;
 }
 
@@ -40,6 +43,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 600px;
 }
 
 .Homepage_h1 {
@@ -47,5 +51,36 @@
     font-weight: normal;
     margin-top: 60px;
     margin-bottom: 35px;
-    width: 945px
+
+}
+
+.Homepage_randomButtonPic {
+    height: 20px;
+}
+
+.Homepage_randomButtonText {
+    color: #e2e2e2;
+}
+
+.Homepage_randomButton {
+    display: flex;
+    width: 120px;
+    height: 45px;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 35px;
+}
+
+.Homepage_randomButton:hover {
+    background-color: rgba(255, 255, 255, 0.113);
+    cursor: pointer;
+}
+
+.Homepage_top {
+    display: flex;
+    justify-content: space-between;
+    width: 1105px;
+    align-items: center;
 }
