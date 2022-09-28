@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginSignupPage from './components/LoginSignupPage';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -26,13 +27,17 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/login-signup' exact={true}>
-          <LoginSignupPage />
+          <div className='pageWrap'>
+            <LoginSignupPage />
+            <Footer />
+          </div>
         </Route>
         <Route path='/' exact={true} >
           <NavBar />
           <h1>My Home Page</h1>
         </Route>
       </Switch>
+
     </BrowserRouter>
   );
 }

@@ -1,0 +1,24 @@
+.Footer_outer {
+    color: white;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    background: linear-gradient(#0000, #213944);
+    width: 100%;
+    height: 459px;
+
+}
+
+.Footer_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Footer_contentWrap {
+    display: contents;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+}

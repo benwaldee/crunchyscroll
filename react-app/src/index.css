@@ -5,4 +5,10 @@
 
 body {
     margin: 0px;
+
+}
+
+.pageWrap {
+    position: relative;
+    min-height: 100vh;
 }
