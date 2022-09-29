@@ -2,6 +2,8 @@
     color: white;
     font-size: 24px;
     font-weight: bold;
+    word-wrap: break-word;
+    width: 300px;
 }
 
 .MyStories_storyTitle:hover {
@@ -50,6 +52,8 @@
     margin-top: 5px;
     padding-bottom: 20px;
     border-bottom: 1px solid #dadada;
+    word-wrap: break-word;
+
 }
 
 .MyStories_storyTextWrap {
