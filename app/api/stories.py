@@ -61,6 +61,37 @@ def create_story():
             listsList.append(int(list_.id))
     added_story["lists"] = listsList
 
-
-
     return added_story
+
+@stories.route('/',methods=['PUT'])
+def edit_story():
+    data = request.json
+
+    found_story = Story.query.get(int(data["id"]))
+
+    found_story.title = data["title"]
+    found_story.body = data["body"]
+    found_story.image_url = data["image_url"]
+
+
+
+    db.session.add(found_story)
+    db.session.commit()
+
+    edited_story = Story.query.filter(Story.id == int(data["id"])).first()
+    print(edited_story)
+    edited_story = edited_story.to_dict()
+
+
+    # # normalize relational lists
+
+    reviewList=[]
+    listsList=[]
+    for review in edited_story["reviews"]:
+        reviewList.append(int(review.id))
+    edited_story["reviews"] = reviewList
+    for list_ in edited_story["lists"]:
+            listsList.append(int(list_.id))
+    edited_story["lists"] = listsList
+
+    return edited_story

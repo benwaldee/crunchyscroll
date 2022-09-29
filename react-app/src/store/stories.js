@@ -1,6 +1,7 @@
 // types
 const ALL_STORIES = 'stories/get-all'
 const CREATE_STORY = 'stories/create'
+const EDIT_STORY = 'stories/edit'
 
 
 //actions
@@ -15,6 +16,13 @@ const createStory = (newStory) => {
     return {
         type: CREATE_STORY,
         payload: newStory
+    }
+}
+
+const editStory = (editStory) => {
+    return {
+        type: EDIT_STORY,
+        payload: editStory
     }
 }
 
@@ -45,6 +53,22 @@ export const createStoryThunk = (newStory) => async (dispatch) => {
     }
 }
 
+export const editStoryThunk = (editedStory) => async (dispatch) => {
+    const response = await fetch('/api/stories/',
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(editedStory)
+        })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(editStory(data))
+        return JSON.stringify(data)
+    }
+}
+
 let initialState = { allStories: {} }
 const storiesReducer = (state = initialState, action) => {
     let stories
@@ -58,6 +82,11 @@ const storiesReducer = (state = initialState, action) => {
             stories = { ...state, allStories: { ...state.allStories } }
             let newStory = action.payload
             stories.allStories[newStory.id] = newStory
+            return stories
+        case EDIT_STORY:
+            stories = { ...state, allStories: { ...state.allStories } }
+            let editStory = action.payload
+            stories.allStories[editStory.id] = editStory
             return stories
         default:
             return state;

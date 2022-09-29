@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllStoriesThunk } from '../store/stories'
 import CreateStoryModal from './CreateStoryModal';
+import EditStoryModal from './EditStoryModal';
 
 const MyStories = () => {
     const dispatch = useDispatch()
@@ -55,7 +56,12 @@ const MyStories = () => {
                                     <div className='MyStories_storyLists'>This story is in {story?.lists.length} lists!</div>
                                 </div>
                                 <div className='MyStories_storyrightBottomButtons'>
-                                    <div className='MyStories_storyEdit'>Edit</div>
+                                    <EditStoryModal story={{
+                                        id: story.id,
+                                        title: story.title,
+                                        body: story.body,
+                                        image_url: story.image_url
+                                    }} />
                                     <div className='MyStories_storyDelete'>Delete</div>
                                 </div>
                             </div>
