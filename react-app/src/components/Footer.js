@@ -1,10 +1,14 @@
-
-import React from 'react';
 import './CSS/Footer.css'
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
+    const [isLoaded, setIsLoaded] = useState(false)
 
+    useEffect(() => {
+        setIsLoaded(true)
+    }, [])
 
+    if (!isLoaded) { return (<div></div>) }
     return (
         <footer className='Footer_outer'>
             <div className='Footer_grid'>
