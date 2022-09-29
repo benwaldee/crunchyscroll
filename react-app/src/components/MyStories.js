@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllStoriesThunk } from '../store/stories'
 import CreateStoryModal from './CreateStoryModal';
 import EditStoryModal from './EditStoryModal';
+import DeleteStoryModal from './DeleteStoryModal';
 
 const MyStories = () => {
     const dispatch = useDispatch()
@@ -62,7 +63,12 @@ const MyStories = () => {
                                         body: story.body,
                                         image_url: story.image_url
                                     }} />
-                                    <div className='MyStories_storyDelete'>Delete</div>
+                                    <DeleteStoryModal story={{
+                                        id: story.id,
+                                        title: story.title,
+                                        body: story.body,
+                                        image_url: story.image_url
+                                    }} />
                                 </div>
                             </div>
                         </div>

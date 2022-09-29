@@ -95,3 +95,10 @@ def edit_story():
     edited_story["lists"] = listsList
 
     return edited_story
+
+@stories.route('/<id>',methods=['DELETE'])
+def delete_story(id):
+    delete_me_story = Story.query.get(int(id))
+    db.session.delete(delete_me_story)
+    db.session.commit()
+    return id

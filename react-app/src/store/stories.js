@@ -2,6 +2,7 @@
 const ALL_STORIES = 'stories/get-all'
 const CREATE_STORY = 'stories/create'
 const EDIT_STORY = 'stories/edit'
+const DELETE_STORY = 'stories/delete'
 
 
 //actions
@@ -23,6 +24,13 @@ const editStory = (editStory) => {
     return {
         type: EDIT_STORY,
         payload: editStory
+    }
+}
+
+const deleteStory = (storyID) => {
+    return {
+        type: DELETE_STORY,
+        payload: storyID
     }
 }
 
@@ -69,6 +77,17 @@ export const editStoryThunk = (editedStory) => async (dispatch) => {
     }
 }
 
+export const deleteStoryThunk = (id) => async (dispatch) => {
+    const response = await fetch(`/api/stories/${id}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(deleteStory(id));
+        return JSON.stringify(id);
+    }
+}
+
 let initialState = { allStories: {} }
 const storiesReducer = (state = initialState, action) => {
     let stories
@@ -87,6 +106,14 @@ const storiesReducer = (state = initialState, action) => {
             stories = { ...state, allStories: { ...state.allStories } }
             let editStory = action.payload
             stories.allStories[editStory.id] = editStory
+            return stories
+
+        case DELETE_STORY:
+            stories = { ...state, allStories: { ...state.allStories } }
+            let deleteStoryID = action.payload
+
+            delete stories.allStories[deleteStoryID]
+
             return stories
         default:
             return state;
