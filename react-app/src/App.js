@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginSignupPage from './components/LoginSignupPage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import Homepage from './components/Homepage'
 import { authenticate } from './store/session';
 
 function App() {
@@ -33,8 +34,11 @@ function App() {
           </div>
         </Route>
         <Route path='/' exact={true} >
-          <NavBar />
-          <h1>My Home Page</h1>
+          <div className='pageWrap'>
+            <NavBar />
+            <Homepage />
+            <Footer />
+          </div>
         </Route>
       </Switch>
 
