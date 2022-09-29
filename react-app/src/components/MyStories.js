@@ -3,6 +3,7 @@ import "./CSS/MyStories.css"
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllStoriesThunk } from '../store/stories'
+import CreateStoryModal from './CreateStoryModal';
 
 const MyStories = () => {
     const dispatch = useDispatch()
@@ -33,7 +34,7 @@ const MyStories = () => {
         <div className='MyStories_contentWrap'>
             <div className='MyStories_header'>
                 <h1 className='MyStories_h1'> My Stories</h1>
-                <div className='MyStories_addStory'>Add</div>
+                <CreateStoryModal />
             </div>
             <div className='MyStories_mapGrid'>
                 {userStoriesArr?.map((story) => (

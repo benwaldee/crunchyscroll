@@ -8,6 +8,7 @@ import Homepage from './components/Homepage'
 import MyStories from './components/MyStories'
 import { authenticate } from './store/session';
 
+
 function App() {
 
   const [loaded, setLoaded] = useState(false)
