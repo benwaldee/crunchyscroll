@@ -44,6 +44,7 @@ export const getAllStoriesThunk = () => async (dispatch) => {
         return JSON.stringify(data)
     }
 }
+// bug found for user stories not loaded - there was a user before demo
 
 export const createStoryThunk = (newStory) => async (dispatch) => {
     const response = await fetch('/api/stories/',
