@@ -1,5 +1,6 @@
 // types
 const ALL_STORIES = 'stories/get-all'
+const CREATE_STORY = 'stories/create'
 
 
 //actions
@@ -10,16 +11,36 @@ const getAllStories = (stories) => {
     }
 }
 
+const createStory = (newStory) => {
+    return {
+        type: CREATE_STORY,
+        payload: newStory
+    }
+}
+
 
 //thunks
 export const getAllStoriesThunk = () => async (dispatch) => {
     const response = await fetch('/api/stories/')
     if (response.ok) {
         const data = await response.json()
-
-        console.log('IMA response', data)
-
         dispatch(getAllStories(data))
+        return JSON.stringify(data)
+    }
+}
+
+export const createStoryThunk = (newStory) => async (dispatch) => {
+    const response = await fetch('/api/stories/',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newStory)
+        })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(createStory(data))
         return JSON.stringify(data)
     }
 }
@@ -32,6 +53,11 @@ const storiesReducer = (state = initialState, action) => {
         case ALL_STORIES:
             stories = { ...state, allStories: { ...state.allStories } }
             stories.allStories = action.payload
+            return stories
+        case CREATE_STORY:
+            stories = { ...state, allStories: { ...state.allStories } }
+            let newStory = action.payload
+            stories.allStories[newStory.id] = newStory
             return stories
         default:
             return state;

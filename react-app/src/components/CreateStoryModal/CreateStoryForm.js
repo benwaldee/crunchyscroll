@@ -2,6 +2,7 @@ import './CreateStoryForm.css'
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { createStoryThunk } from '../../store/stories'
 
 const CreateStoryForm = ({ setshowAddStoryModal }) => {
     const history = useHistory()
@@ -61,11 +62,12 @@ const CreateStoryForm = ({ setshowAddStoryModal }) => {
             image_url: image
         }
 
-        // dispatch(createStoryThunk())
+        dispatch(createStoryThunk(newStory))
 
         setBody("")
         setTitle("")
         setImage("")
+        setshowAddStoryModal(false)
         return
     })
 
