@@ -32,16 +32,43 @@ const SignUpForm = () => {
       newErr.email = "Email in use or invalid."
 
     }
+
+
+    // lengths
+    if (username.length > 20) {
+      setUsername("")
+      newErr.username = "Username must not exceed 20 characters"
+    }
+    if (email.length > 200) {
+      setEmail('')
+      newErr.email = "Email must not exceed 1000 characters"
+    }
+    if (password.length > 200) {
+      setPassword('')
+      newErr.password = "Password must not exceed 200 characters"
+    }
+    if (repeatPassword.length > 200) {
+      setRepeatPassword('')
+      newErr.repeatPassword = "Password must not exceed 200 characters"
+    }
+
     if (password !== repeatPassword) {
       setRepeatPassword("")
       newErr.repeatPassword = "Passwords must match"
     }
 
-    // lengths
     if (username.length < 1) newErr.username = "Please enter a username."
     if (email.length < 1) newErr.email = "Please enter an email."
-    if (password.length < 1) newErr.password = "Please enter a password."
-    if (repeatPassword.length < 1) newErr.repeatPassword = "Please confirm your password."
+    if (password.length < 7) {
+      setPassword('')
+      newErr.password = "Password must be at least 6 characters"
+
+    }
+    if (repeatPassword.length < 7) {
+      setRepeatPassword('')
+      newErr.repeatPassword = "Password must be at least 6 characters"
+
+    }
 
     setErrors(newErr)
 

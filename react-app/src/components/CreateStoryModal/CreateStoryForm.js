@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 const CreateStoryForm = ({ setshowAddStoryModal }) => {
     const history = useHistory()
+    const dispatch = useDispatch()
     const userID = useSelector(state => state.session.user).id
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
@@ -37,6 +38,15 @@ const CreateStoryForm = ({ setshowAddStoryModal }) => {
         if (body.length < 1) newErr.body = "Please enter a body."
         if (image.length < 1) newErr.image = "Please provide an image ."
 
+        if (title.length > 50) {
+            setTitle('')
+            newErr.title = "Title must be less than 50 characters"
+        }
+        if (image.length > 1000) {
+            setImage('')
+            newErr.image = "Image URL must be less than 1000 characters"
+        }
+
         setErrors(newErr)
 
         if (Object.values(newErr).length > 0) {
@@ -44,7 +54,14 @@ const CreateStoryForm = ({ setshowAddStoryModal }) => {
             return
         }
 
-        console.log(title, body, image)
+        const newStory = {
+            user_id: userID,
+            title,
+            body,
+            image_url: image
+        }
+
+        // dispatch(createStoryThunk())
 
         setBody("")
         setTitle("")
