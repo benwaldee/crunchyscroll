@@ -37,7 +37,7 @@ const deleteStory = (storyID) => {
 
 //thunks
 export const getAllStoriesThunk = () => async (dispatch) => {
-    const response = await fetch('/api/stories')
+    const response = await fetch('/api/stories/')
     if (response.ok) {
         const data = await response.json()
         dispatch(getAllStories(data))
