@@ -39,7 +39,13 @@ const MyStories = () => {
             <div className='MyStories_mapGrid'>
                 {userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
-                        <img onClick={() => redirectStory(story.id)} className='MyStories_storyImage' src={story?.image_url}></img>
+                        <img
+                            onClick={() => redirectStory(story.id)}
+                            className='MyStories_storyImage'
+                            src={story?.image_url}
+                            alt='Story cover photo'
+                            onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
+                        ></img>
                         <div className='MyStories_storyTextWrap'>
                             <div onClick={() => redirectStory(story.id)} className='MyStories_storyTitle'>{story?.title}</div>
                             <div className='MyStories_storyBody'>{`${story?.body.slice(0, 200)}...`}</div>
