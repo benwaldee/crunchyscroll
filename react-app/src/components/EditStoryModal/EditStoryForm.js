@@ -37,7 +37,7 @@ const EditStoryForm = ({ setShowEditStoryModal, story }) => {
         // lengths
         if (title.length < 1) newErr.title = "Please enter a title."
         if (body.length < 1) newErr.body = "Please enter a body."
-        if (image.length < 1) newErr.image = "Please provide an image ."
+        if (image.length < 1) newErr.image = "Please provide an image."
 
         if (title.length > 50) {
             setTitle('')
