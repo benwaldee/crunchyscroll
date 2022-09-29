@@ -1,0 +1,143 @@
+.MyStories_storyTitle {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.MyStories_storyTitle:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.MyStories_mapGrid {
+    border-top: 1px solid rgba(255, 255, 255, 0.776);
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 100px;
+    row-gap: 50px;
+}
+
+.MyStories_contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 600px;
+}
+
+.MyStories_storyImage {
+    object-fit: cover;
+    height: 270px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.MyStories_storyImage:hover {
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.MyStories_storyWrap {
+    display: flex;
+    margin-top: 20px;
+}
+
+.MyStories_storyBody {
+    color: #dadada;
+    width: 300px;
+    margin-top: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dadada;
+}
+
+.MyStories_storyTextWrap {
+    margin-left: 20px;
+}
+
+.MyStories_storyReviews {
+    margin-top: 20px;
+    color: #dadada;
+    background-color: #23252b;
+    width: 170px;
+    padding: 10px;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.MyStories_storyLists {
+    color: #dadada;
+    width: 170px;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    background-color: #23252b;
+}
+
+.MyStories_storyDelete,
+.MyStories_storyEdit {
+    background-color: #f47521;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+    margin-bottom: 2px;
+    color: black;
+
+}
+
+.MyStories_storyEdit:hover,
+.MyStories_addStory:hover {
+    background-color: #f59e65;
+    cursor: pointer;
+}
+
+.MyStories_storyDelete:hover {
+    background-color: rgb(182, 35, 35);
+    cursor: pointer;
+    color: rgb(91, 1, 1);
+}
+
+
+.MyStories_storyrightBottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.MyStories_storyrightBottomButtons {
+    margin-top: 21px;
+    margin-left: 25px;
+}
+
+.MyStories_h1 {
+    color: white;
+}
+
+.MyStories_addStory {
+    background-color: #f47521;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+    margin-bottom: 2px;
+    color: black;
+    margin-right: 50px;
+}
+
+.MyStories_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1300px;
+
+    margin-bottom: 0px;
+}

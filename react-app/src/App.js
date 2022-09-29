@@ -5,6 +5,7 @@ import LoginSignupPage from './components/LoginSignupPage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage'
+import MyStories from './components/MyStories'
 import { authenticate } from './store/session';
 
 function App() {
@@ -37,6 +38,13 @@ function App() {
           <div className='pageWrap'>
             <NavBar />
             <Homepage />
+            <Footer />
+          </div>
+        </Route>
+        <Route path='/mystories' exact={true} >
+          <div className='pageWrap'>
+            <NavBar />
+            <MyStories />
             <Footer />
           </div>
         </Route>
