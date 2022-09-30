@@ -21,7 +21,7 @@ const MyStories = () => {
     }
 
     const redirectStory = (id) => {
-        history.push(`/story/${id}`)
+        history.push(`/stories/${id}`)
     }
 
     useEffect(() => {

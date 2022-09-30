@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage'
 import MyStories from './components/MyStories'
+import StoryByID from './components/StoryByID'
 import { authenticate } from './store/session';
 
 
@@ -47,6 +48,12 @@ function App() {
             <NavBar />
             <MyStories />
             <Footer />
+          </div>
+        </Route>
+        <Route path='/stories/:id' exact={true}  >
+          <div className='pageWrap'>
+            <NavBar />
+            <StoryByID />
           </div>
         </Route>
       </Switch>

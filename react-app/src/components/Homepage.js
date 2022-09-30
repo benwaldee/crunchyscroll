@@ -17,7 +17,7 @@ const Homepage = () => {
     }, [dispatch])
 
     const redirectStoryPage = (id) => {
-        history.push(`/story/${id}`)
+        history.push(`/stories/${id}`)
     }
 
     const randomChoice = () => {
