@@ -17,14 +17,15 @@
     top: 0;
     left: 0;
     object-fit: cover;
+    filter: brightness(50%);
 }
 
 .StoryByID_mainImage {
     position: absolute;
     left: 50%;
-    top: 3px;
+    top: 0px;
     width: 700px;
-    height: 492px;
+    height: 500px;
     margin-left: -350px;
 
 }

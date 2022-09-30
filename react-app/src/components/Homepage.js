@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './CSS/Homepage.css'
 import { getAllStoriesThunk } from '../store/stories'
+import { clearReviews } from '../store/reviews'
 import { useHistory } from 'react-router-dom';
 import random from './images/random.png'
-
 const Homepage = () => {
     const dispatch = useDispatch()
     const storiesArr = Object.values(useSelector((state) => state?.stories?.allStories))
@@ -13,6 +13,7 @@ const Homepage = () => {
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
+        dispatch(clearReviews())
 
     }, [dispatch])
 

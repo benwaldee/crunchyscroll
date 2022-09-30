@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getAllStoriesThunk } from '../store/stories'
+import { getStoryReviewsThunk } from '../store/reviews.js'
 
 const StoryByID = () => {
     const history = useHistory()
@@ -13,6 +14,7 @@ const StoryByID = () => {
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
+        dispatch(getStoryReviewsThunk(id))
     }, [dispatch])
 
 
@@ -24,7 +26,7 @@ const StoryByID = () => {
             </div>
             <div className='StoryByID_subHeader'>
                 <div className='StoryByID_subHeaderLeft'>
-                    <h1 className='StoryByID_title'>{story.title}</h1>
+                    <h1 className='StoryByID_title'>{story?.title}</h1>
                     <div className='StoryByID_ratingWrap'>
                         <div className='StoryByID_stars'></div>
                         <div className='StoryByID_rating'></div>

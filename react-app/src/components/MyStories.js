@@ -6,6 +6,7 @@ import { getAllStoriesThunk } from '../store/stories'
 import CreateStoryModal from './CreateStoryModal';
 import EditStoryModal from './EditStoryModal';
 import DeleteStoryModal from './DeleteStoryModal';
+import { clearReviews } from '../store/reviews'
 
 const MyStories = () => {
     const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const MyStories = () => {
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
-
+        dispatch(clearReviews())
     }, [dispatch])
 
 
