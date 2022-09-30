@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getAllStoriesThunk } from '../store/stories'
 import { getStoryReviewsThunk } from '../store/reviews.js'
+import { getUserListsThunk } from '../store/lists.js'
 import Stars from './Stars'
 import watchlist from './images/watchlist.png'
+import { useState } from "react";
 
 const StoryByID = () => {
     const history = useHistory()
@@ -22,11 +24,13 @@ const StoryByID = () => {
         }, 0)
         .toFixed(2)
 
-    console.log("avgRating", avgRating)
+    //need to make get user lists thunk to know what to default this to
+    const [addedToWatchlist, setAddedToWatchlist] = useState(false)
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
         dispatch(getStoryReviewsThunk(id))
+        dispatch(getUserListsThunk())
     }, [dispatch])
 
 

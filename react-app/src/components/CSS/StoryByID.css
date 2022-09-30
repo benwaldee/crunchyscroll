@@ -6,18 +6,20 @@
     top: 0;
     left: 0;
     overflow: hidden;
+    border: none;
 
 }
 
 .StoryByID_backgroundImage {
     width: 100%;
     height: 500px;
-    filter: blur(5px);
+    filter: blur(7px) brightness(50%);
     position: relative;
     top: 0;
     left: 0;
     object-fit: cover;
-    filter: brightness(50%);
+    border: none;
+
 }
 
 .StoryByID_mainImage {
@@ -27,6 +29,8 @@
     width: 700px;
     height: 500px;
     margin-left: -350px;
+    border: 0;
+    outline: none;
 
 }
 
