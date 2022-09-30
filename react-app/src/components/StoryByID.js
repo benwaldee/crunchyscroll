@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { getAllStoriesThunk } from '../store/stories'
 import { getStoryReviewsThunk } from '../store/reviews.js'
 import Stars from './Stars'
+import watchlist from './images/watchlist.png'
 
 const StoryByID = () => {
     const history = useHistory()
@@ -52,7 +53,11 @@ const StoryByID = () => {
                         <div className='StoryByID_reviews'>{Object.values(reviews).length} reviews</div>
                     </div>
                     <div className='StoryByID_listWrap'>
-                        <div className='StoryByID_watchlist'> </div>
+                        <div className='StoryByID_watchlistWrap'>
+                            <img className='StoryByID_watchlistIco' src={watchlist}></img>
+                            <div className='StoryByID_watchlist'>ADD TO WATCHLIST</div>
+                        </div>
+
                         <div className='StoryByID_crunchylist'></div>
                     </div>
                 </div>

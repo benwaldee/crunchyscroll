@@ -35,17 +35,17 @@
     display: flex;
     justify-content: center;
     height: 350px;
-    background-color: rgba(0, 255, 255, 0.431);
+    /* background-color: rgba(0, 255, 255, 0.431); */
 }
 
 .StoryByID_subHeaderLeft {
-    background-color: rgba(255, 153, 0, 0.431);
+    /* background-color: rgba(255, 153, 0, 0.431); */
     height: 100%;
     width: 600px
 }
 
 .StoryByID_subHeaderRight {
-    background-color: rgba(0, 255, 47, 0.27);
+    /* background-color: rgba(0, 255, 47, 0.27); */
     height: 100%;
     width: 400px
 }
@@ -96,4 +96,32 @@
     padding-left: 10px;
     border-left: 1px solid rgba(255, 255, 255, 0.372);
     color: #dadada;
+}
+
+.StoryByID_watchlistIco {
+    height: 17px;
+    width: 20px;
+}
+
+.StoryByID_watchlistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: 2px solid #f47521;
+    width: 180px;
+}
+
+.StoryByID_watchlistWrap:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.081);
+}
+
+.StoryByID_watchlist {
+    color: #f47521;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
 }
