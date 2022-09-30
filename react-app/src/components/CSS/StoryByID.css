@@ -112,6 +112,7 @@
     padding-bottom: 7px;
     border: 2px solid #f47521;
     width: 180px;
+    caret-color: transparent;
 }
 
 .StoryByID_watchlistWrap:hover {

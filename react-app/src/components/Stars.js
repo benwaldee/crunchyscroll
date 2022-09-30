@@ -11,7 +11,7 @@ const Stars = ({ avgRating, reviews }) => {
 
     console.log(avgRating)
     console.log(reviews)
-    if (Object.values(reviews).length === 0) { return <div className="Stars_noRatings"> No Ratings yet</div> }
+    if (Object.values(reviews).length === 0) { return <div className="Stars_noRatings"> No ratings yet</div> }
     return (
         <>
             {avgRating < 1 && avgRating < 0.25 && <img className="Stars_empty1 Stars_star" src={starEmpty}></img>}

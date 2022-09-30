@@ -3,7 +3,12 @@
 }
 
 .Stars_noRatings {
-    color: #dadada;
+    color: black;
+    height: 25px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Stars_empty1,

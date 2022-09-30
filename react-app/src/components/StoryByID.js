@@ -48,7 +48,7 @@ const StoryByID = () => {
                         </div >
                         <div className='StoryByID_avgRatingWrap'>
                             <div className='StoryByID_rating'>Average Rating:</div>
-                            <div className='StoryByID_numRating'>{avgRating}</div>
+                            <div className='StoryByID_numRating'>{Object.values(reviews).length ? avgRating : `N/A`}</div>
                         </div>
                         <div className='StoryByID_reviews'>{Object.values(reviews).length} reviews</div>
                     </div>
