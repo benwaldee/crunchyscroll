@@ -28,7 +28,7 @@ const Homepage = () => {
         }
         let idSelection = storyIDArr[Math.floor(Math.random() * storyIDArr.length)];
 
-        history.push(`/story/${idSelection}`)
+        history.push(`/stories/${idSelection}`)
 
     }
 
