@@ -71,7 +71,7 @@ const StoryByID = () => {
             <div className='StoryByID_subHeader'>
                 <div className='StoryByID_subHeaderLeft'>
                     {story && <h1 className='StoryByID_title'>{story?.title}</h1>}
-                    {!story && <h1 className='StoryByID_titleBlank'></h1>}
+                    {!story && <h1 className='StoryByID_titleBlank'>Ttitle Coming</h1>}
                     <div className='StoryByID_ratingWrap'>
                         <div className='StoryByID_stars'>
                             {story && <Stars avgRating={avgRating} reviews={reviews} />}
@@ -103,7 +103,10 @@ const StoryByID = () => {
                             <div className='StoryByID_removeWatchlist'>REMOVE FROM WATCHLIST</div>
                         </div>}
 
-                        <div className='StoryByID_crunchylist'></div>
+                        <div className='StoryByID_crunchylistWrap'>
+                            <div className='StoryByID_crunchylistPlus'>+</div>
+                            <div className='StoryByID_crunchylistText'>ADD TO CRUNCHYLIST</div>
+                        </div>
                     </div>
                 </div>
                 <div className='StoryByID_subHeaderRight'></div>

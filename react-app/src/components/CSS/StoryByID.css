@@ -48,7 +48,8 @@
 .StoryByID_subHeaderLeft {
     /* background-color: rgba(255, 153, 0, 0.431); */
     height: 100%;
-    width: 600px
+    width: 600px;
+    margin-left: 40px;
 }
 
 .StoryByID_subHeaderRight {
@@ -128,6 +129,11 @@
     background-color: rgba(255, 255, 255, 0.081);
 }
 
+.StoryByID_crunchylistWrap:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.081);
+}
+
 .StoryByID_watchlist {
     color: #f47521;
     font-size: 14px;
@@ -136,13 +142,15 @@
 }
 
 .StoryByID_titleBlank {
-    height: 45px;
-    width: 600px;
+    color: transparent;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .StoryByID_starsBlank {
     height: 25px;
-    width: 130px;
+    width: 127px;
 }
 
 .StoryByID_removeWatchlistWrap {
@@ -164,6 +172,39 @@
 
 .StoryByID_removeWatchlist {
     color: #f47521;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.StoryByID_crunchylistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 0px;
+    padding-right: 15px;
+
+    width: fit-content;
+    caret-color: transparent;
+    align-items: center;
+    margin-left: 20px;
+}
+
+
+.StoryByID_listWrap {
+    display: flex;
+}
+
+.StoryByID_crunchylistPlus {
+    color: #dadada;
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.StoryByID_crunchylistText {
+    color: #dadada;
+
     font-size: 14px;
     font-weight: bold;
     margin-left: 10px;
