@@ -10,6 +10,7 @@ import Stars from './Stars'
 import watchlist from './images/watchlist.png'
 import remove from './images/remove.png'
 import { useState } from "react";
+import AddToListModal from "./AddListModal";
 
 const StoryByID = () => {
     const history = useHistory()
@@ -18,7 +19,7 @@ const StoryByID = () => {
     const user = useSelector(state => state.session.user)
     const story = useSelector(state => state?.stories?.allStories[Number(id)])
     const reviews = useSelector(state => state?.reviews?.storyReviews)
-
+    const listsDict = useSelector(state => state?.lists?.userLists)
     //grab watchlist
     const watchlistObj = Object.values(useSelector(state => state?.lists?.userLists))
         .filter(list => list.watchlist === true)[0]
@@ -43,6 +44,12 @@ const StoryByID = () => {
     }, [dispatch])
 
     const handleStoryAddWatchlist = (updateObj) => {
+
+        if (!user) {
+            history.push("/login-signup")
+            return
+        }
+
         dispatch(addStoryListThunk(updateObj))
             .then(() => dispatch(getAllStoriesThunk()))
             .then(() => dispatch(getUserListsThunk()))
@@ -51,6 +58,10 @@ const StoryByID = () => {
     }
 
     const handleStoryRemoveWatchlist = (updateObj) => {
+        if (!user) {
+            history.push("/login-signup")
+            return
+        }
         dispatch(removeStoryListThunk(updateObj))
             .then(() => dispatch(getAllStoriesThunk()))
             .then(() => dispatch(getUserListsThunk()))
@@ -87,7 +98,7 @@ const StoryByID = () => {
                         {!watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryAddWatchlist(
                             {
                                 story_id: Number(id),
-                                list_id: watchlistObj.id
+                                list_id: watchlistObj?.id
                             }
                         )} className='StoryByID_watchlistWrap'>
                             <img className='StoryByID_watchlistIco' src={watchlist}></img>
@@ -96,17 +107,14 @@ const StoryByID = () => {
                         {watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryRemoveWatchlist(
                             {
                                 story_id: Number(id),
-                                list_id: watchlistObj.id
+                                list_id: watchlistObj?.id
                             }
                         )} className='StoryByID_removeWatchlistWrap'>
                             <img className='StoryByID_removeIco' src={remove}></img>
                             <div className='StoryByID_removeWatchlist'>REMOVE FROM WATCHLIST</div>
                         </div>}
 
-                        <div className='StoryByID_crunchylistWrap'>
-                            <div className='StoryByID_crunchylistPlus'>+</div>
-                            <div className='StoryByID_crunchylistText'>ADD TO CRUNCHYLIST</div>
-                        </div>
+                        <AddToListModal listsDict={listsDict} id={id} user={user} />
                     </div>
                 </div>
                 <div className='StoryByID_subHeaderRight'></div>
