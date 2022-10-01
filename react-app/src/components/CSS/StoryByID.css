@@ -122,7 +122,8 @@
     caret-color: transparent;
 }
 
-.StoryByID_watchlistWrap:hover {
+.StoryByID_watchlistWrap:hover,
+.StoryByID_removeWatchlistWrap:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.081);
 }
@@ -142,4 +143,28 @@
 .StoryByID_starsBlank {
     height: 25px;
     width: 130px;
+}
+
+.StoryByID_removeWatchlistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    border: 2px solid #f47521;
+    width: fit-content;
+    caret-color: transparent;
+}
+
+.StoryByID_removeIco {
+    height: 15px;
+    width: 15px;
+}
+
+.StoryByID_removeWatchlist {
+    color: #f47521;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
 }

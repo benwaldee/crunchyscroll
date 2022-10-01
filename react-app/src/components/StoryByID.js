@@ -5,8 +5,10 @@ import React, { useEffect } from 'react';
 import { getAllStoriesThunk } from '../store/stories'
 import { getStoryReviewsThunk } from '../store/reviews.js'
 import { getUserListsThunk } from '../store/lists.js'
+import { addStoryListThunk, removeStoryListThunk } from '../store/lists.js'
 import Stars from './Stars'
 import watchlist from './images/watchlist.png'
+import remove from './images/remove.png'
 import { useState } from "react";
 
 const StoryByID = () => {
@@ -16,6 +18,10 @@ const StoryByID = () => {
     const user = useSelector(state => state.session.user)
     const story = useSelector(state => state?.stories?.allStories[Number(id)])
     const reviews = useSelector(state => state?.reviews?.storyReviews)
+
+    //grab watchlist
+    const watchlistObj = Object.values(useSelector(state => state?.lists?.userLists))
+        .filter(list => list.watchlist === true)[0]
     //turn reviews into arr, map to just arr of stars, reduce to avg of stars
     const avgRating = Object.values(useSelector(state => state?.reviews?.storyReviews))
         .map(review => review?.stars)
@@ -24,14 +30,33 @@ const StoryByID = () => {
         }, 0)
         .toFixed(2)
 
+
+    console.log("SHOULDBETRUE", watchlistObj?.stories?.includes(Number(id)))
+
     //need to make get user lists thunk to know what to default this to
-    const [addedToWatchlist, setAddedToWatchlist] = useState(false)
+    const [inWatchlist, setInWatchlist] = useState(watchlistObj?.stories?.includes(Number(id)))
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
         dispatch(getStoryReviewsThunk(id))
         dispatch(getUserListsThunk())
     }, [dispatch])
+
+    const handleStoryAddWatchlist = (updateObj) => {
+        dispatch(addStoryListThunk(updateObj))
+            .then(() => dispatch(getAllStoriesThunk()))
+            .then(() => dispatch(getUserListsThunk()))
+
+        setInWatchlist(true)
+    }
+
+    const handleStoryRemoveWatchlist = (updateObj) => {
+        dispatch(removeStoryListThunk(updateObj))
+            .then(() => dispatch(getAllStoriesThunk()))
+            .then(() => dispatch(getUserListsThunk()))
+
+        setInWatchlist(false)
+    }
 
 
     return (
@@ -59,10 +84,24 @@ const StoryByID = () => {
                         <div className='StoryByID_reviews'>{Object.values(reviews).length} reviews</div>
                     </div>
                     <div className='StoryByID_listWrap'>
-                        <div className='StoryByID_watchlistWrap'>
+                        {!watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryAddWatchlist(
+                            {
+                                story_id: Number(id),
+                                list_id: watchlistObj.id
+                            }
+                        )} className='StoryByID_watchlistWrap'>
                             <img className='StoryByID_watchlistIco' src={watchlist}></img>
                             <div className='StoryByID_watchlist'>ADD TO WATCHLIST</div>
-                        </div>
+                        </div>}
+                        {watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryRemoveWatchlist(
+                            {
+                                story_id: Number(id),
+                                list_id: watchlistObj.id
+                            }
+                        )} className='StoryByID_removeWatchlistWrap'>
+                            <img className='StoryByID_removeIco' src={remove}></img>
+                            <div className='StoryByID_removeWatchlist'>REMOVE FROM WATCHLIST</div>
+                        </div>}
 
                         <div className='StoryByID_crunchylist'></div>
                     </div>

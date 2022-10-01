@@ -32,3 +32,33 @@ def user_lists():
     # print (norm_user_lists)
     return {listy["id"]: listy for listy in norm_user_lists}
     # return {}
+
+@lists.route('/addstory',methods=['PUT'])
+def add_story_list():
+    update_dict = request.json
+    story_id = int(update_dict["story_id"])
+    list_id = int(update_dict["list_id"])
+
+    story = Story.query.get(story_id)
+    lis = List.query.get(list_id)
+
+    story.lists.append(lis)
+
+    db.session.commit()
+
+    return {}
+
+@lists.route('/removestory',methods=['PUT'])
+def remove_story_list():
+    update_dict = request.json
+    story_id = int(update_dict["story_id"])
+    list_id = int(update_dict["list_id"])
+
+    story = Story.query.get(story_id)
+    lis = List.query.get(list_id)
+
+    story.lists.remove(lis)
+
+    db.session.commit()
+
+    return {}
