@@ -111,6 +111,14 @@ def story_reviews(id):
     # review instances -> objects
     reviews = [review.to_dict() for review in review_me_story.reviews]
 
+    #normalize votes
+    for review in reviews:
+        newVotes= []
+        for vote in review["votes"] :
+            newVotes.append(vote.to_dict())
+        review["votes"] = newVotes
+
+
     #list of normalized instances to dict
     reviewDict = {review["id"]: review for review in reviews}
 
