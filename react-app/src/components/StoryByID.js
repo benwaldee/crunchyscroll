@@ -37,18 +37,20 @@ const StoryByID = () => {
     return (
         <div className='StoryByID_contentWrap'>
             <div className='StoryByID_header'>
-                <img className='StoryByID_backgroundImage' src={story?.image_url}
-                    onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>
-                <img className='StoryByID_mainImage' src={story?.image_url}
+                {story && <img className='StoryByID_backgroundImage' src={story?.image_url}
+                    onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>}
+                {story && <img className='StoryByID_mainImage' src={story?.image_url}
                     onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
-                ></img>
+                ></img>}
             </div>
             <div className='StoryByID_subHeader'>
                 <div className='StoryByID_subHeaderLeft'>
-                    <h1 className='StoryByID_title'>{story?.title}</h1>
+                    {story && <h1 className='StoryByID_title'>{story?.title}</h1>}
+                    {!story && <h1 className='StoryByID_titleBlank'></h1>}
                     <div className='StoryByID_ratingWrap'>
                         <div className='StoryByID_stars'>
-                            <Stars avgRating={avgRating} reviews={reviews} />
+                            {story && <Stars avgRating={avgRating} reviews={reviews} />}
+                            {!story && <div className="StoryByID_starsBlank"></div>}
                         </div >
                         <div className='StoryByID_avgRatingWrap'>
                             <div className='StoryByID_rating'>Average Rating:</div>

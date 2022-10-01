@@ -5,6 +5,7 @@ import { getAllStoriesThunk } from '../store/stories'
 import { clearReviews } from '../store/reviews'
 import { useHistory } from 'react-router-dom';
 import random from './images/random.png'
+import { getUserListsThunk } from '../store/lists.js'
 const Homepage = () => {
     const dispatch = useDispatch()
     const storiesArr = Object.values(useSelector((state) => state?.stories?.allStories))
@@ -14,7 +15,7 @@ const Homepage = () => {
 
         dispatch(getAllStoriesThunk())
         dispatch(clearReviews())
-
+        dispatch(getUserListsThunk())
     }, [dispatch])
 
     const redirectStoryPage = (id) => {

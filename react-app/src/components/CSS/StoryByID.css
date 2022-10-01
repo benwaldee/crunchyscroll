@@ -133,3 +133,13 @@
     font-weight: bold;
     margin-left: 10px;
 }
+
+.StoryByID_titleBlank {
+    height: 45px;
+    width: 600px;
+}
+
+.StoryByID_starsBlank {
+    height: 25px;
+    width: 130px;
+}
