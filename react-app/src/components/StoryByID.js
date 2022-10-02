@@ -32,9 +32,7 @@ const StoryByID = () => {
         }, 0)
         .toFixed(2)
     //grab all stories from state, convert to Arr, filter by userID, get length
-    const userStoriesNum = Object.values(useSelector((state) => state?.stories?.allStories))
-        .filter((story) => story?.user_id === user?.id)
-        .length
+    const userStoriesNum = useSelector(state => state?.stories?.allStories[Number(id)])?.userBookTotal
 
 
     console.log("SHOULDBETRUE", watchlistObj?.stories?.includes(Number(id)))
@@ -76,8 +74,8 @@ const StoryByID = () => {
 
     const contributerCalc = (num) => {
         if (num <= 1) return 'new'
-        if (num > 1 && num < 5) return 'moderate'
-        if (num >= 5 && num < 10) return 'expert'
+        if (num > 1 && num < 5) return 'regular'
+        if (num >= 5 && num < 10) return 'master'
         if (num >= 10) return 'super'
     }
 
@@ -132,7 +130,7 @@ const StoryByID = () => {
                 <div className='StoryByID_subHeaderRight'>
                     <img className='StoryByID_logo' src={logo}></img>
                     <div className='StoryByID_subRTwrap'>
-                        {user?.username} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
+                        {story.userName} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
                         They have written <span className="StoryByID_stNum">{userStoriesNum}</span> {userStoriesNum > 1 ? 'stories' : 'story'}.
                     </div>
                 </div>

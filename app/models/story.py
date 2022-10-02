@@ -31,5 +31,8 @@ class Story(db.Model):
             'body': self.body,
             'image_url': self.image_url,
             'reviews': self.reviews,
-            'lists': self.lists
+            'lists': self.lists,
+            'userBookTotal': len(self.user.stories),
+            'userName':self.user.username
+
         }
