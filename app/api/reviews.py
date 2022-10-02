@@ -4,6 +4,7 @@ from app.models import User,db
 from app.models import Story, List, Review
 from flask_login import current_user, login_user, logout_user, login_required
 import json
+from datetime import datetime
 
 reviews = Blueprint('reviews', __name__)
 
@@ -19,6 +20,7 @@ def edit_review(id):
 
     edit_review.stars=stars
     edit_review.review=review
+    edit_review.updated_at=datetime.now()
 
     db.session.add(edit_review)
     db.session.commit()
