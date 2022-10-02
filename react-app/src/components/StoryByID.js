@@ -22,6 +22,8 @@ const StoryByID = () => {
     const story = useSelector(state => state?.stories?.allStories[Number(id)])
     const reviews = useSelector(state => state?.reviews?.storyReviews)
 
+    const [refresh, toggleRefresh] = useState(false)
+
     //grab user review if any
     const userReview = Object.values(useSelector(state => state?.reviews?.storyReviews))
         .filter((review) => review.user_id === user?.id)
@@ -160,7 +162,7 @@ const StoryByID = () => {
             </div>
 
 
-            <Reviews reviews={reviews} avgRating={avgRating} user={user} userReview={userReview} />
+            <Reviews refresh={refresh} toggleRefresh={toggleRefresh} id={id} reviews={reviews} avgRating={avgRating} user={user} userReview={userReview} />
 
 
         </div >

@@ -224,3 +224,47 @@
     align-items: center;
     justify-content: center;
 }
+
+.Reviews_addHeader {
+    color: #dadadab7;
+    margin-bottom: 20px;
+    caret-color: transparent;
+}
+
+.Reviews_addUsername {
+    color: #f47521;
+    font-weight: bold;
+
+}
+
+.Reviews_addWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Reviews_showAddButton {
+    background-color: #f47521;
+    width: 120px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    margin-left: 50px;
+    caret-color: transparent;
+    margin-bottom: 20px;
+
+}
+
+.Reviews_showAddButton:hover {
+    cursor: pointer;
+    background-color: #f59e64;
+}

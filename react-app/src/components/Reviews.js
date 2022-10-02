@@ -9,9 +9,11 @@ import starEmpty from './images/stars/star-empty.png'
 import starFull from './images/stars/star-full.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { editReviewThunk } from '../store/reviews.js'
+import { addReviewThunk } from '../store/reviews.js'
 import DeleteReviewModal from './DeleteReviewModal'
+import { getStoryReviewsThunk } from '../store/reviews.js'
 
-const Reviews = ({ reviews, avgRating, user, userReview }) => {
+const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refresh }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -21,6 +23,10 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
     const [starsEdit, setStarsEdit] = useState('')
     const [editErrors, setEditErrors] = useState(false)
 
+    const [showAdd, setShowAdd] = useState(false)
+    const [reviewAdd, setReviewAdd] = useState('')
+    const [starsAdd, setStarsAdd] = useState(0)
+    const [addErrors, setAddErrors] = useState(false)
 
     const handleEditSubmit = (e) => {
         e.preventDefault()
@@ -39,12 +45,49 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
 
         dispatch(editReviewThunk(updateObj, revID))
 
-        setStarsEdit('')
+        setStarsAdd('')
         setEditErrors(false)
         setReviewEdit('')
         setShowEdit(false)
     }
 
+    const handleAddSubmit = (e) => {
+        e.preventDefault()
+
+        let newErrors = {}
+
+        if (reviewAdd.length < 1) {
+            newErrors.review = ('Please enter a review.')
+        }
+        if (starsAdd < 1) {
+            newErrors.stars = ('Please provide a star rating.')
+        }
+
+        if (Object.values(newErrors).length > 0) {
+            setAddErrors(newErrors)
+            return
+        }
+
+
+        let addObj = {
+            stars: starsAdd,
+            review: reviewAdd,
+            user_id: user.id,
+            story_id: Number(id)
+        }
+        dispatch(addReviewThunk(addObj))
+            .then(() => dispatch(getStoryReviewsThunk(id)))
+
+        toggleRefresh(!refresh)
+        setStarsAdd(0)
+        setAddErrors(false)
+        setReviewAdd('')
+        setShowAdd(false)
+    }
+
+    useEffect(() => {
+
+    }, [showAdd, showEdit])
 
     return (
         <div className='Reviews_contentWrap'>
@@ -104,6 +147,52 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
                                 <div className="Reviews_editCancel" onClick={() => {
                                     setEditErrors(false)
                                     setShowEdit(false)
+                                }}>Cancel</div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                {!showAdd && userReview.length < 1 &&
+                    <div className="Reviews_addWrap">
+                        <div className="Reviews_addHeader"> Review as <span className="Reviews_addUsername">{user.username}</span></div>
+                        <div
+                            onClick={() => setShowAdd(true)}
+                            className="Reviews_showAddButton"> ADD A REVIEW</div>
+                    </div>
+                }
+                {showAdd && userReview.length < 1 &&
+                    <div className='Reviews_eachReviewWrap'>
+                        <form className="Reviews_editReviewForm" onSubmit={handleAddSubmit}>
+                            <div className="Reviews_editHeader">Create review as <span className="Reviews_editUsername">{user.username}</span></div>
+                            {addErrors.stars && <div className="Reviews_editErrors">{addErrors.stars}</div>}
+                            <div className="Reviews_editStars">
+                                {starsAdd < 1 && <img src={starEmpty} id='noStar1' onClick={() => setStarsAdd(1)} ></img>}
+                                {starsAdd > 0 && <img src={starFull} id='star1' onClick={() => setStarsAdd(1)} ></img>}
+                                {starsAdd < 2 && <img src={starEmpty} id='noStar2' onClick={() => setStarsAdd(2)} ></img>}
+                                {starsAdd > 1 && <img src={starFull} id='star2' onClick={() => setStarsAdd(1)} ></img>}
+                                {starsAdd < 3 && <img src={starEmpty} id='noStar3' onClick={() => setStarsAdd(3)} ></img>}
+                                {starsAdd > 2 && <img src={starFull} id='star3' onClick={() => setStarsAdd(2)} ></img>}
+                                {starsAdd < 4 && <img src={starEmpty} id='noStar4' onClick={() => setStarsAdd(4)} ></img>}
+                                {starsAdd > 3 && <img src={starFull} id='star4' onClick={() => setStarsAdd(3)} ></img>}
+                                {starsAdd < 5 && <img src={starEmpty} id='noStar5' onClick={() => setStarsAdd(5)} ></img>}
+                                {starsAdd > 4 && <img src={starFull} id='star5' onClick={() => setStarsAdd(4)} ></img>}
+                            </div>
+                            {addErrors.review && <div className="Reviews_editErrors">{addErrors.review}</div>}
+                            <textarea
+                                value={reviewAdd}
+                                onChange={(e) => setReviewAdd(e.target.value)}
+                                maxLength={800}
+
+                                className="Reviews_editReviewInput"></textarea>
+                            <div className="Reviews_editReviewChar">{reviewAdd.length}/800</div>
+
+                            <div className="Reviews_editSaveCancelWrap">
+                                <button className="Reviews_editSave">Add</button>
+                                <div className="Reviews_editCancel" onClick={() => {
+                                    setAddErrors(false)
+                                    setReviewAdd('')
+                                    setStarsAdd(0)
+                                    setShowAdd(false)
                                 }}>Cancel</div>
                             </div>
                         </form>

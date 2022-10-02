@@ -8,6 +8,40 @@ from datetime import datetime
 
 reviews = Blueprint('reviews', __name__)
 
+@reviews.route('/',methods=['POST'])
+def add_review():
+
+    data = request.json
+    stars = data["stars"]
+    review = data["review"]
+    user_id = data["user_id"]
+    story_id = data["story_id"]
+
+    new_review = Review(
+        stars=int(stars),
+        review=review,
+        user_id=int(user_id),
+        story_id=int(story_id)
+    )
+
+    db.session.add(new_review)
+    db.session.commit()
+
+    all_reviews = Review.query.all()
+    added_review = all_reviews[-1]
+
+     # review instance -> objects
+    added_review = added_review.to_dict()
+
+    #normalize votes
+    newVotes= []
+    for vote in added_review["votes"] :
+        newVotes.append(vote.to_dict())
+    added_review["votes"] = newVotes
+
+
+    return added_review
+
 
 @reviews.route('/<id>',methods=['PUT'])
 def edit_review(id):
