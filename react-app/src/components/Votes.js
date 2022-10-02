@@ -11,7 +11,7 @@ const Votes = ({ votes, user }) => {
         for (let vote of votes) {
 
 
-            if (Number(vote.user_id) === Number(user.id)) {
+            if (Number(vote.user_id) === Number(user?.id) && user) {
                 setUserVoted(`${vote.vote}`)
                 return
             }

@@ -21,6 +21,12 @@ const StoryByID = () => {
     const user = useSelector(state => state.session.user)
     const story = useSelector(state => state?.stories?.allStories[Number(id)])
     const reviews = useSelector(state => state?.reviews?.storyReviews)
+
+    //grab user review if any
+    const userReview = Object.values(useSelector(state => state?.reviews?.storyReviews))
+        .filter((review) => review.user_id === user?.id)
+
+
     const listsDict = useSelector(state => state?.lists?.userLists)
     //grab watchlist
     const watchlistObj = Object.values(useSelector(state => state?.lists?.userLists))
@@ -154,7 +160,7 @@ const StoryByID = () => {
             </div>
 
 
-            <Reviews reviews={reviews} avgRating={avgRating} user={user} />
+            <Reviews reviews={reviews} avgRating={avgRating} user={user} userReview={userReview} />
 
 
         </div >

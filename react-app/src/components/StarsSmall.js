@@ -10,8 +10,7 @@ import starFull from './images/stars/star-full.png'
 
 const StarsSmall = ({ avgRating, reviews }) => {
 
-    console.log(avgRating)
-    console.log(reviews)
+
     if (Object.values(reviews).length === 0) { return <div className="StarsSmall_noRatings"> No ratings yet</div> }
     return (
         <>
