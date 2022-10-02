@@ -45,7 +45,7 @@ const AddToListPop = ({ setShowAddToListModal, listsDict, id, story }) => {
             <div className='AddToListPop_subTitle'>Click on a list below!</div>
             {Object.values(listsDict).length === 0 &&
                 <>
-                    <div className='AddToListPop_failText'> You have no lists :( </div>
+                    <div className='AddToListPop_failText AddToListPop_failBorder'> You have no lists :( </div>
                     <div className='AddToListPop_failText'> Click your profile and go to "Crunchylists" to make one!  </div>
                 </>
             }
