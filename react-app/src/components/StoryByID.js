@@ -31,14 +31,13 @@ const StoryByID = () => {
             return acc + star / array.length
         }, 0)
         .toFixed(2)
-    //grab all stories from state, convert to Arr, filter by userID, get length
+    //get user boook total from story
     const userStoriesNum = useSelector(state => state?.stories?.allStories[Number(id)])?.userBookTotal
 
-
-    console.log("SHOULDBETRUE", watchlistObj?.stories?.includes(Number(id)))
-
-    //need to make get user lists thunk to know what to default this to
+    //default this to if its in watchlist
     const [inWatchlist, setInWatchlist] = useState(watchlistObj?.stories?.includes(Number(id)))
+
+    const [storyBody, setStoryBody] = useState('StoryByID_bodyClose')
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
@@ -130,18 +129,29 @@ const StoryByID = () => {
                 <div className='StoryByID_subHeaderRight'>
                     <img className='StoryByID_logo' src={logo}></img>
                     <div className='StoryByID_subRTwrap'>
-                        {story.userName} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
+                        {story?.userName} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
                         They have written <span className="StoryByID_stNum">{userStoriesNum}</span> {userStoriesNum > 1 ? 'stories' : 'story'}.
                     </div>
                 </div>
             </div>
             <div className='StoryByID_bodyWrap'>
-                <div className='StoryByID_bodyPrev'></div>
-                <div className='StoryByID_readStory'></div>
+                <div>
+                    <div className={storyBody}>{story?.body}</div>
+                    {storyBody === 'StoryByID_bodyClose' &&
+                        <div
+                            onClick={() => {
+                                setStoryBody('StoryByID_bodyOpen')
+                            }}
+                            className='StoryByID_readMore'>Read More!</div>}
+                    {storyBody !== 'StoryByID_bodyClose' &&
+                        <div
+                            onClick={() => {
+                                setStoryBody('StoryByID_bodyClose')
+                            }}
+                            className='StoryByID_readMore'>Read Less</div>}
+                </div>
             </div>
-            <div className='StoryByID_storyWrap'>
-                <div className='StoryByID_story'></div>
-            </div>
+
 
         </div >
     )
