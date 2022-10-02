@@ -11,6 +11,7 @@ import watchlist from './images/watchlist.png'
 import remove from './images/remove.png'
 import { useState } from "react";
 import AddToListModal from "./AddListModal";
+import logo from './images/transpo-scroll.png'
 
 const StoryByID = () => {
     const history = useHistory()
@@ -30,6 +31,10 @@ const StoryByID = () => {
             return acc + star / array.length
         }, 0)
         .toFixed(2)
+    //grab all stories from state, convert to Arr, filter by userID, get length
+    const userStoriesNum = Object.values(useSelector((state) => state?.stories?.allStories))
+        .filter((story) => story?.user_id === user?.id)
+        .length
 
 
     console.log("SHOULDBETRUE", watchlistObj?.stories?.includes(Number(id)))
@@ -67,6 +72,13 @@ const StoryByID = () => {
             .then(() => dispatch(getUserListsThunk()))
 
         setInWatchlist(false)
+    }
+
+    const contributerCalc = (num) => {
+        if (num <= 1) return 'new'
+        if (num > 1 && num < 5) return 'moderate'
+        if (num >= 5 && num < 10) return 'expert'
+        if (num >= 10) return 'super'
     }
 
 
@@ -117,7 +129,13 @@ const StoryByID = () => {
                         <AddToListModal listsDict={listsDict} id={id} user={user} story={story} />
                     </div>
                 </div>
-                <div className='StoryByID_subHeaderRight'></div>
+                <div className='StoryByID_subHeaderRight'>
+                    <img className='StoryByID_logo' src={logo}></img>
+                    <div className='StoryByID_subRTwrap'>
+                        {user?.username} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
+                        They have written <span className="StoryByID_stNum">{userStoriesNum}</span> {userStoriesNum > 1 ? 'stories' : 'story'}.
+                    </div>
+                </div>
             </div>
             <div className='StoryByID_bodyWrap'>
                 <div className='StoryByID_bodyPrev'></div>
