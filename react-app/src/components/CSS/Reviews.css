@@ -1,0 +1,68 @@
+.Reviews_contentWrap {
+    background-color: rgba(0, 255, 255, 0.317);
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+.Reviews_allReviewsWrap {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+    width: 760px;
+}
+
+.Reviews_myReviewWrap {
+    background-color: aquamarine;
+    height: 100px;
+    width: 760px;
+}
+
+.Reviews_eachReviewWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.Reviews_headerWrap {
+    display: flex;
+}
+
+.Reviews_username {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.Reviews_numReviews {
+    margin-right: 10px;
+    color: #dadadab7;
+
+}
+
+.Reviews_date {
+    color: #dadadab7;
+}
+
+.Reviews_smallStarsWrap {
+    background-color: #f47521;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.Reviews_review {
+    word-wrap: break-word;
+    margin-top: 10px;
+    color: white;
+}

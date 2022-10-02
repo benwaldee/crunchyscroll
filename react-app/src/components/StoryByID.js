@@ -7,6 +7,7 @@ import { getStoryReviewsThunk } from '../store/reviews.js'
 import { getUserListsThunk } from '../store/lists.js'
 import { addStoryListThunk, removeStoryListThunk } from '../store/lists.js'
 import Stars from './Stars'
+import Reviews from './Reviews'
 import watchlist from './images/watchlist.png'
 import remove from './images/remove.png'
 import { useState } from "react";
@@ -151,6 +152,9 @@ const StoryByID = () => {
                             className='StoryByID_readMore'>Read Less</div>}
                 </div>
             </div>
+
+
+            <Reviews reviews={reviews} avgRating={avgRating} user={user} />
 
 
         </div >
