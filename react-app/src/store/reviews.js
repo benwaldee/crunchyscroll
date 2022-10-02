@@ -1,6 +1,7 @@
 // types
 const STORY_REVIEWS = 'reviews/story'
 const CLEAR_REVIEWS = 'reviews/clear'
+const EDIT_REVIEW = 'review/edit'
 
 
 //actions
@@ -18,6 +19,13 @@ export const clearReviews = () => {
     }
 }
 
+export const editReview = (updateObj) => {
+    return {
+        type: EDIT_REVIEW,
+        payload: updateObj
+    }
+}
+
 
 //thunks
 export const getStoryReviewsThunk = (id) => async (dispatch) => {
@@ -25,6 +33,22 @@ export const getStoryReviewsThunk = (id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getStoryReviews(data))
+        return JSON.stringify(data)
+    }
+}
+
+export const editReviewThunk = (updateObj, revID) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${revID}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateObj)
+        })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(editReview(data))
         return JSON.stringify(data)
     }
 }
@@ -41,6 +65,10 @@ const reviewsReducer = (state = initialState, action) => {
         case CLEAR_REVIEWS:
             reviews = { ...state, storyReviews: { ...state.storyReviews } }
             reviews.storyReviews = {}
+            return reviews
+        case EDIT_REVIEW:
+            reviews = { ...state, storyReviews: { ...state.storyReviews } }
+            reviews.storyReviews[action.payload.id] = action.payload
             return reviews
         default:
             return state;

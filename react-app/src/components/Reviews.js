@@ -7,10 +7,8 @@ import edit from './images/edit.png';
 import deleteIco from './images/delete.png';
 import starEmpty from './images/stars/star-empty.png'
 import starFull from './images/stars/star-full.png'
-import { getAllStoriesThunk } from '../store/stories'
-import { getStoryReviewsThunk } from '../store/reviews.js'
-import { getUserListsThunk } from '../store/lists.js'
 import { useDispatch, useSelector } from 'react-redux';
+import { editReviewThunk } from '../store/reviews.js'
 
 const Reviews = ({ reviews, avgRating, user, userReview }) => {
     const history = useHistory()
@@ -30,8 +28,15 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
             return
         }
 
+        let updateObj = {
+            stars: starsEdit,
+            review: reviewEdit
+        }
 
-        console.log('STUFF TO EDIT', starsEdit, reviewEdit)
+        let revID = userReview[0].id
+
+        dispatch(editReviewThunk(updateObj, revID))
+
         setStarsEdit('')
         setEditErrors(false)
         setReviewEdit('')
@@ -43,7 +48,7 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
         <div className='Reviews_contentWrap'>
             {user && <div className='Reviews_myReviewWrap'>
                 {!showEdit && userReview.length > 0 &&
-                    <div className='Reviews_eachReviewWrap '>
+                    <div className='Reviews_eachReviewWrap'>
                         <div className='Reviews_headerWrap'>
                             <div className='Reviews_username' > {userReview[0].user.username}</div>
                             <div className='Reviews_numReviews' > ({userReview[0].user.numReviews} reviews)</div>

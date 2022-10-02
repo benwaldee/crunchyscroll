@@ -18,7 +18,7 @@ const Votes = ({ votes, user }) => {
         }
         setUserVoted(false)
 
-    }, [])
+    }, [user])
 
 
     const [userVoted, setUserVoted] = useState(true)
