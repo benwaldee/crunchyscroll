@@ -9,6 +9,7 @@ import starEmpty from './images/stars/star-empty.png'
 import starFull from './images/stars/star-full.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { editReviewThunk } from '../store/reviews.js'
+import DeleteReviewModal from './DeleteReviewModal'
 
 const Reviews = ({ reviews, avgRating, user, userReview }) => {
     const history = useHistory()
@@ -19,6 +20,7 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
     const [reviewEdit, setReviewEdit] = useState('')
     const [starsEdit, setStarsEdit] = useState('')
     const [editErrors, setEditErrors] = useState(false)
+
 
     const handleEditSubmit = (e) => {
         e.preventDefault()
@@ -67,7 +69,7 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
                                     setShowEdit(true)
                                     return
                                 }} className='Reviews_edit' src={edit}></img>
-                                <img className='Reviews_delete' src={deleteIco}></img>
+                                <DeleteReviewModal reviewID={Number(userReview[0].id)} />
                             </div>
                         </div>
                     </div>
@@ -99,7 +101,10 @@ const Reviews = ({ reviews, avgRating, user, userReview }) => {
 
                             <div className="Reviews_editSaveCancelWrap">
                                 <button className="Reviews_editSave">Save</button>
-                                <div className="Reviews_editCancel" onClick={() => setShowEdit(false)}>Cancel</div>
+                                <div className="Reviews_editCancel" onClick={() => {
+                                    setEditErrors(false)
+                                    setShowEdit(false)
+                                }}>Cancel</div>
                             </div>
                         </form>
                     </div>

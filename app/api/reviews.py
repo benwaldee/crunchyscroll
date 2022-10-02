@@ -38,3 +38,10 @@ def edit_review(id):
 
 
     return return_rev
+
+@reviews.route('/<id>',methods=['DELETE'])
+def delete_review(id):
+    delete_me_review = Review.query.get(int(id))
+    db.session.delete(delete_me_review)
+    db.session.commit()
+    return id

@@ -2,6 +2,7 @@
 const STORY_REVIEWS = 'reviews/story'
 const CLEAR_REVIEWS = 'reviews/clear'
 const EDIT_REVIEW = 'review/edit'
+const DELETE_REVIEW = 'review/delete'
 
 
 //actions
@@ -23,6 +24,13 @@ export const editReview = (updateObj) => {
     return {
         type: EDIT_REVIEW,
         payload: updateObj
+    }
+}
+
+export const deleteReview = (reviewID) => {
+    return {
+        type: DELETE_REVIEW,
+        payload: reviewID
     }
 }
 
@@ -53,6 +61,18 @@ export const editReviewThunk = (updateObj, revID) => async (dispatch) => {
     }
 }
 
+export const deleteReviewThunk = (reviewID) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${reviewID}`, {
+        method: 'DELETE'
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(deleteReview(reviewID));
+        return JSON.stringify(reviewID);
+    }
+}
+
+
 
 let initialState = { storyReviews: {} }
 const reviewsReducer = (state = initialState, action) => {
@@ -69,6 +89,10 @@ const reviewsReducer = (state = initialState, action) => {
         case EDIT_REVIEW:
             reviews = { ...state, storyReviews: { ...state.storyReviews } }
             reviews.storyReviews[action.payload.id] = action.payload
+            return reviews
+        case DELETE_REVIEW:
+            reviews = { ...state, storyReviews: { ...state.storyReviews } }
+            delete reviews.storyReviews[Number(action.payload)]
             return reviews
         default:
             return state;
