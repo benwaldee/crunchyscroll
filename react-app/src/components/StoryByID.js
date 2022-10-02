@@ -114,7 +114,7 @@ const StoryByID = () => {
                             <div className='StoryByID_removeWatchlist'>REMOVE FROM WATCHLIST</div>
                         </div>}
 
-                        <AddToListModal listsDict={listsDict} id={id} user={user} />
+                        <AddToListModal listsDict={listsDict} id={id} user={user} story={story} />
                     </div>
                 </div>
                 <div className='StoryByID_subHeaderRight'></div>

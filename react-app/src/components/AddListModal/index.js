@@ -4,7 +4,7 @@ import AddToListPop from "./AddToListPop";
 import { useHistory, useParams } from 'react-router-dom';
 
 
-function AddToListModal({ listsDict, id, user }) {
+function AddToListModal({ listsDict, id, user, story }) {
     const [showAddToListModal, setShowAddToListModal] = useState(false);
 
 
@@ -25,7 +25,7 @@ function AddToListModal({ listsDict, id, user }) {
             </div>
             {showAddToListModal && (
                 <Modal onClose={() => setShowAddToListModal(false)}>
-                    <AddToListPop setShowAddToListModal={setShowAddToListModal} listsDict={listsDict} id={id} />
+                    <AddToListPop setShowAddToListModal={setShowAddToListModal} listsDict={listsDict} id={id} story={story} />
                 </Modal>
             )}
         </>
