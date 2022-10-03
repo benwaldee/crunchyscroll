@@ -1,0 +1,295 @@
+.StoryByID_contentWrap {
+    padding-bottom: 600px;
+}
+
+.StoryByID_header {
+    width: 100%;
+    /* background-color: rgba(0, 255, 255, 0.262); */
+    height: 500px;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border: none;
+    z-index: -1;
+
+}
+
+.StoryByID_backgroundImage {
+    width: 100%;
+    height: 500px;
+    filter: blur(7px) brightness(50%);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    border: none;
+
+}
+
+.StoryByID_mainImage {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    width: 700px;
+    height: 500px;
+    margin-left: -350px;
+    border: 0;
+    outline: none;
+    z-index: -1;
+
+}
+
+.StoryByID_subHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    margin-bottom: 50px;
+    /* background-color: rgba(0, 255, 255, 0.431); */
+}
+
+.StoryByID_subHeaderLeft {
+    /* background-color: rgba(255, 153, 0, 0.431); */
+    height: fit-content;
+    width: 500px;
+    margin-left: 40px;
+}
+
+
+.StoryByID_title {
+    color: white;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.StoryByID_ratingWrap {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.StoryByID_stars {
+    display: flex;
+    align-items: center;
+    background-color: #f47521;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.StoryByID_avgRatingWrap {
+    display: flex;
+    align-items: center;
+    height: 90%;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.372);
+}
+
+.StoryByID_rating {
+    color: #dadada;
+    font-size: 16px;
+}
+
+.StoryByID_numRating {
+    margin-left: 5px;
+    color: #dadada;
+    font-weight: bold;
+}
+
+.StoryByID_reviews {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.372);
+    color: #dadada;
+}
+
+.StoryByID_watchlistIco {
+    height: 17px;
+    width: 20px;
+}
+
+.StoryByID_watchlistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: 2px solid #f47521;
+    width: 180px;
+    caret-color: transparent;
+}
+
+.StoryByID_watchlistWrap:hover,
+.StoryByID_removeWatchlistWrap:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.081);
+}
+
+.StoryByID_crunchylistWrap:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.081);
+}
+
+.StoryByID_watchlist {
+    color: #f47521;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.StoryByID_titleBlank {
+    color: transparent;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.StoryByID_starsBlank {
+    height: 25px;
+    width: 127px;
+}
+
+.StoryByID_removeWatchlistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    border: 2px solid #f47521;
+    width: fit-content;
+    caret-color: transparent;
+}
+
+.StoryByID_removeIco {
+    height: 15px;
+    width: 15px;
+}
+
+.StoryByID_removeWatchlist {
+    color: #f47521;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.StoryByID_crunchylistWrap {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 0px;
+    padding-right: 15px;
+
+    width: fit-content;
+    caret-color: transparent;
+    align-items: center;
+    margin-left: 20px;
+}
+
+
+.StoryByID_listWrap {
+    display: flex;
+}
+
+.StoryByID_crunchylistPlus {
+    color: #dadada;
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.StoryByID_crunchylistText {
+    color: #dadada;
+
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+.StoryByID_subHeaderRight {
+    color: white;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
+    align-items: center;
+    margin-right: 0px;
+    height: fit-content;
+    width: 300px;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.StoryByID_subRTwrap {
+    width: 70%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.StoryByID_logo {
+    height: 85px;
+}
+
+.StoryByID_contributer {
+    color: #f47521;
+}
+
+.StoryByID_stNum {
+    font-weight: bold;
+}
+
+.StoryByID_bodyWrap {
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.StoryByID_bodyClose {
+    color: white;
+    width: 760px;
+    /* margin-left: 50px; */
+    line-height: 2;
+    font-size: 17px;
+    /* background-color: #23252b4c; */
+    /* padding: 20px; */
+    height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.StoryByID_bodyOpen {
+    color: white;
+    width: 760px;
+    /* margin-left: 50px; */
+    line-height: 2;
+    font-size: 17px;
+    /* background-color: #23252b4c; */
+    /* padding: 20px; */
+    word-wrap: break-word;
+
+}
+
+.StoryByID_readMore {
+    background-color: #f47521;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 0px;
+    margin-bottom: 2px;
+    color: black;
+    /* font-weight: bold; */
+    align-self: flex-start;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}

@@ -1,0 +1,122 @@
+.AddToListPop_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px 30px 15px 20px;
+
+
+}
+
+.AddToListPop_subTitle {
+    padding-bottom: 15px;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.4); */
+    width: 500px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.AddToListPop_h1 {
+    color: white;
+    margin-top: 0px;
+    font-size: 22px;
+    text-align: center;
+    width: 500px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.AddToListPop_close {
+
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+}
+
+.AddToListPop_close:hover {
+    color: rgba(255, 255, 255, 0.498);
+}
+
+.AddToListPop_topWrap {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.AddToListPop_listOuterWrap {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.AddToListPop_listInnerWrap {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    caret-color: transparent;
+}
+
+.AddToListPop_listInnerWrap:hover {
+    background-color: rgba(255, 255, 255, 0.081);
+    cursor: pointer;
+}
+
+.AddToListPop_failText {
+    padding-bottom: 15px;
+
+    width: 500px;
+    color: rgba(255, 255, 255, 0.945);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.AddToListPop_title {
+    color: white;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.AddToListPop_items {
+    color: rgba(255, 255, 255, 0.436);
+    font-size: 14px;
+}
+
+.AddToListPop_plus {
+    font-size: 40px;
+
+    display: flex;
+    align-items: center;
+    color: #f47521;
+}
+
+.AddToListPop_erorr {
+    color: #c32f2d;
+    background-color: rgba(195, 47, 45, .2);
+    width: fit-content;
+    margin-top: 7px;
+    padding: 0px 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+
+}
+
+.AddToListPop_failBorder {
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 20px;
+}

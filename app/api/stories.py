@@ -102,3 +102,24 @@ def delete_story(id):
     db.session.delete(delete_me_story)
     db.session.commit()
     return id
+
+@stories.route('/<id>/reviews')
+def story_reviews(id):
+
+    review_me_story = Story.query.get(int(id))
+
+    # review instances -> objects
+    reviews = [review.to_dict() for review in review_me_story.reviews]
+
+    #normalize votes
+    for review in reviews:
+        newVotes= []
+        for vote in review["votes"] :
+            newVotes.append(vote.to_dict())
+        review["votes"] = newVotes
+
+
+    #list of normalized instances to dict
+    reviewDict = {review["id"]: review for review in reviews}
+
+    return reviewDict

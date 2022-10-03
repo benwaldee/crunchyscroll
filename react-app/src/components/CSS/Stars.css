@@ -1,0 +1,21 @@
+.Stars_star {
+    height: 25px;
+}
+
+.Stars_noRatings {
+    color: black;
+    height: 25px;
+    width: 127px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Stars_empty1,
+.Stars_empty2,
+.Stars_empty3,
+.Stars_empty4,
+.Stars_empty5 {
+    height: 27px;
+    margin-bottom: 1px;
+}

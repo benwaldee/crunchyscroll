@@ -1,0 +1,71 @@
+.Votes_contentWrap {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.Votes_text {
+    color: #dadadab7;
+    font-size: 13px;
+}
+
+.Votes_Yes {
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #2abdbb;
+}
+
+.Votes_No {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #2abdbb;
+}
+
+.Votes_No:hover,
+.Votes_Yes:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.Votes_line {
+    margin-left: 5px;
+    font-size: 19px;
+    color: #dadadab7;
+
+}
+
+
+.Votes_YesLocktrue {
+    color: white;
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.Votes_NoLocktrue {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #dadadab7;
+}
+
+.Votes_YesLockfalse {
+
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #dadadab7;
+}
+
+.Votes_NoLockfalse {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+
+}

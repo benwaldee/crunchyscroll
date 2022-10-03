@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './CSS/Homepage.css'
 import { getAllStoriesThunk } from '../store/stories'
+import { clearReviews } from '../store/reviews'
 import { useHistory } from 'react-router-dom';
 import random from './images/random.png'
-
+import { getUserListsThunk } from '../store/lists.js'
 const Homepage = () => {
     const dispatch = useDispatch()
     const storiesArr = Object.values(useSelector((state) => state?.stories?.allStories))
@@ -13,11 +14,12 @@ const Homepage = () => {
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
-
+        dispatch(clearReviews())
+        dispatch(getUserListsThunk())
     }, [dispatch])
 
     const redirectStoryPage = (id) => {
-        history.push(`/story/${id}`)
+        history.push(`/stories/${id}`)
     }
 
     const randomChoice = () => {
@@ -27,7 +29,7 @@ const Homepage = () => {
         }
         let idSelection = storyIDArr[Math.floor(Math.random() * storyIDArr.length)];
 
-        history.push(`/story/${idSelection}`)
+        history.push(`/stories/${idSelection}`)
 
     }
 
