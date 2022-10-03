@@ -40,7 +40,7 @@
 
 .Votes_YesLocktrue {
     color: white;
-    margin-left: 5px;
+    margin-left: 15px;
     font-size: 13px;
     font-weight: bold;
 }
@@ -55,7 +55,7 @@
 
 .Votes_YesLockfalse {
 
-    margin-left: 5px;
+    margin-left: 15px;
     font-size: 13px;
     font-weight: bold;
     color: #dadadab7;

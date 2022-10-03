@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify,request
 from flask_login import login_required
 from app.models import User,db
-from app.models import Story, List, Review
+from app.models import Story, List, Review, Vote
 from flask_login import current_user, login_user, logout_user, login_required
 import json
 from datetime import datetime
@@ -41,6 +41,27 @@ def add_review():
 
 
     return added_review
+
+@reviews.route('/vote',methods=['POST'])
+def vote_review():
+    data = request.json
+
+    vote = data["vote"]
+    user_id = data["user_id"]
+    review_id = data["review_id"]
+
+    new_vote = Vote(
+        vote=vote,
+        user_id=int(user_id),
+        review_id=int(review_id)
+    )
+
+    db.session.add(new_vote)
+    db.session.commit()
+
+    # not changing state, relies on thunk chains
+    return {}
+
 
 
 @reviews.route('/<id>',methods=['PUT'])

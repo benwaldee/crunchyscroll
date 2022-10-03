@@ -4,6 +4,7 @@ const CLEAR_REVIEWS = 'reviews/clear'
 const EDIT_REVIEW = 'review/edit'
 const DELETE_REVIEW = 'review/delete'
 const ADD_REVIEW = 'review/add'
+const VOTE = 'review/vote'
 
 //actions
 const getStoryReviews = (storyReviews) => {
@@ -38,6 +39,15 @@ export const addReview = (addObj) => {
     return {
         type: ADD_REVIEW,
         payload: addObj
+    }
+}
+
+
+//DOES NOT UPDATE STATE RELIES ON THUNK CHAIN
+export const voteAction = () => {
+    return {
+        type: VOTE,
+        payload: {}
     }
 }
 
@@ -95,6 +105,22 @@ export const deleteReviewThunk = (reviewID) => async (dispatch) => {
     }
 }
 
+export const voteThunk = (voteObj) => async (dispatch) => {
+    const response = await fetch('/api/reviews/vote',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(voteObj)
+        })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(voteAction())
+        return JSON.stringify(data)
+    }
+}
+
 
 
 let initialState = { storyReviews: {} }
@@ -120,6 +146,9 @@ const reviewsReducer = (state = initialState, action) => {
         case ADD_REVIEW:
             reviews = { ...state, storyReviews: { ...state.storyReviews } }
             reviews.storyReviews[action.payload.id] = action.payload
+            return reviews
+        case VOTE:
+            reviews = { ...state, storyReviews: { ...state.storyReviews } }
             return reviews
         default:
             return state;

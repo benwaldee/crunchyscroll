@@ -85,6 +85,7 @@ const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refr
         setShowAdd(false)
     }
 
+
     useEffect(() => {
 
     }, [showAdd, showEdit])
@@ -104,7 +105,7 @@ const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refr
                         </div>
                         <div className='Reviews_review' > {userReview[0].review}</div>
                         <div className='Reviews_bottomWrap'>
-                            <Votes votes={userReview[0].votes} user={user} />
+                            <Votes votes={userReview[0].votes} user={user} id={id} reviewID={userReview[0].id} toggleRefresh={toggleRefresh} refresh={refresh} />
                             <div className='Reviews_editDeleteWrap'>
                                 <img onClick={() => {
                                     setReviewEdit(userReview[0]?.review)
@@ -215,7 +216,7 @@ const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refr
                                 <StarsSmall reviews={reviews} avgRating={review.stars} />
                             </div>
                             <div className='Reviews_review' > {review.review}</div>
-                            <Votes votes={review.votes} user={user} />
+                            <Votes id={id} votes={review.votes} user={user} reviewID={review.id} toggleRefresh={toggleRefresh} refresh={refresh} />
                         </div>
 
                     ))}
