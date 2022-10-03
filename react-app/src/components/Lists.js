@@ -16,6 +16,11 @@ const Lists = () => {
 
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
 
+    const user = useSelector(state => state.session.user)
+    if (!user) {
+        history.replace('/')
+    }
+
     const storiesObj = useSelector((state) => state?.stories?.allStories)
     const watchlistStoriesArr = Object.values(useSelector((state) => state?.lists?.userLists))
         ?.filter((list) => list.watchlist)
