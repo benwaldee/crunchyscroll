@@ -8,6 +8,7 @@ import Homepage from './components/Homepage'
 import MyStories from './components/MyStories'
 import StoryByID from './components/StoryByID'
 import FourOhFour from './components/FourOhFour'
+import Lists from './components/Lists'
 import { authenticate } from './store/session';
 
 
@@ -42,6 +43,13 @@ function App() {
             <NavBar />
             <Homepage />
             <Footer />
+          </div>
+        </Route>
+        <Route path='/lists' exact={true} >
+          <div className='pageWrap'>
+            <NavBar />
+            <Lists />
+
           </div>
         </Route>
         <Route path='/mystories' exact={true} >
