@@ -1,0 +1,93 @@
+.Lists_innerWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.Lists_headerWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.Lists_headerIco {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.Lists_headerTitle {
+    color: white;
+    font-weight: normal;
+    margin-right: 25px;
+}
+
+.Lists_subHeaderWrap {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 900px;
+    height: fit-content;
+    border-bottom: solid 2px rgba(128, 128, 128, 0.8);
+    justify-content: center;
+}
+
+.Lists_crunchylists,
+.Lists_watchlist {
+    color: #dadada;
+    margin-left: 10px;
+    height: 39px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    caret-color: transparent;
+}
+
+.Lists_crunchylists:hover,
+.Lists_watchlist:hover {
+    background-color: rgba(128, 128, 128, 0.262);
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.List_border {
+    border-bottom: 4px solid #f77017;
+    color: #ffffff;
+}
+
+.Lists_watchlistStoryGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 900PX;
+
+}
+
+.Lists_watchlistStoryWrap {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    margin: 5.5px;
+}
+
+.Lists_watchlistStoryWrap:hover {
+    background-color: rgba(128, 128, 128, 0.262);
+    cursor: pointer;
+}
+
+.Lists_watchlistStoryImage {
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.Lists_watchlistStoryTitle {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #dadada;
+    padding-left: 3px;
+}

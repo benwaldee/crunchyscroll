@@ -24,7 +24,9 @@ const Lists = () => {
         ?.filter((list) => !list.watchlist)
 
 
-    console.log(watchlistStoriesArr)
+    const redirectStoryPage = (id) => {
+        history.push(`/stories/${id}`)
+    }
 
 
     useEffect(() => {
@@ -43,12 +45,12 @@ const Lists = () => {
                     <h1 className='Lists_headerTitle'>My Lists</h1>
                 </div>
                 <div className='Lists_subHeaderWrap'>
-                    <div onClick={() => setWatchlistClicked(true)} className='Lists_watchlist'>WATCHLIST</div>
-                    <div onClick={() => setWatchlistClicked(false)} className='Lists_crunchylists'>CRUNCHYLISTS</div>
+                    <div onClick={() => setWatchlistClicked(true)} className={`Lists_watchlist ${watchlistClicked ? 'List_border' : null}`}>WATCHLIST</div>
+                    <div onClick={() => setWatchlistClicked(false)} className={`Lists_crunchylists ${!watchlistClicked ? 'List_border' : null}`} >CRUNCHYLISTS</div>
                 </div>
                 <div className='Lists_watchlistStoryGrid'>
                     {watchlistClicked && watchlistStoriesArr?.map((story) => (
-                        <div className='Lists_watchlistStoryWrap'>
+                        <div onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
                             <img className='Lists_watchlistStoryImage' src={story?.image_url}></img>
                             <div className='Lists_watchlistStoryTitle'>{story?.title}</div>
                         </div>
