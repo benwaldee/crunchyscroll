@@ -7,6 +7,8 @@ import watchlistIco from './images/watchlist.png'
 import { getUserListsThunk } from '../store/lists.js'
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import more from './images/more.png'
+import { useState } from "react";
 
 const Lists = () => {
     const history = useHistory()
@@ -24,11 +26,21 @@ const Lists = () => {
         ?.filter((list) => !list.watchlist)
 
 
+    const [moreToggle, setMoreToggle] = useState(false)
+
+
     const redirectStoryPage = (id) => {
         history.push(`/stories/${id}`)
     }
 
-    const redirectListIDPage = (id) => {
+    const redirectListIDPage = (e, id) => {
+        let more = document.getElementsByClassName('Lists_crunchylistMore')[0]
+
+        if (e.target === more) {
+            setMoreToggle(id)
+            return
+        }
+
         history.push(`/lists/${id}`)
     }
 
@@ -57,6 +69,7 @@ const Lists = () => {
                         <div onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
                             <img className='Lists_watchlistStoryImage' src={story?.image_url}></img>
                             <div className='Lists_watchlistStoryTitle'>{story?.title}</div>
+                            <div className='Lists_watchlistStoryAuthor'>{story?.userName}</div>
                         </div>
                     ))}
                 </div>
@@ -66,10 +79,10 @@ const Lists = () => {
                         <div className='Lists_crunchylistCreate'>CREATE NEW LIST</div>
                         <div className='Lists_crunchylistGrid'>
                             {crunchyListArr.map((list => (
-                                <div onClick={() => redirectListIDPage(list.id)} className='Lists_crunchylistWrap'>
+                                <div onClick={(e) => redirectListIDPage(e, list.id)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
-                                        <img className='Lists_crunchylistMore'></img>
+                                        <img src={more} className='Lists_crunchylistMore'></img>
                                     </div>
                                     <div className='Lists_crunchylistLength'>{list.stories.length} items</div>
                                 </div>)))}

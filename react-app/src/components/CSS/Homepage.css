@@ -15,7 +15,7 @@
     height: 290px;
     display: flex;
     flex-direction: column;
-
+    word-wrap: break-word;
     align-items: center;
 }
 
