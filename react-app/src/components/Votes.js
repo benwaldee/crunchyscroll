@@ -26,7 +26,7 @@ const Votes = ({ votes, user, reviewID, id, toggleRefresh, refresh }) => {
     const handleVote = (bool, id) => {
 
         if (!user) {
-            history.push('login-signup')
+            history.push('/login-signup')
             return
         }
 

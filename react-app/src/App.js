@@ -54,6 +54,7 @@ function App() {
           <div className='pageWrap'>
             <NavBar />
             <StoryByID />
+            <Footer />
           </div>
         </Route>
       </Switch>
