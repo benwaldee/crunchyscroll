@@ -28,6 +28,10 @@ const Lists = () => {
         history.push(`/stories/${id}`)
     }
 
+    const redirectListIDPage = (id) => {
+        history.push(`/lists/${id}`)
+    }
+
 
     useEffect(() => {
 
@@ -62,12 +66,12 @@ const Lists = () => {
                         <div className='Lists_crunchylistCreate'>CREATE NEW LIST</div>
                         <div className='Lists_crunchylistGrid'>
                             {crunchyListArr.map((list => (
-                                <div className='Lists_crunchylistWrap'>
+                                <div onClick={() => redirectListIDPage(list.id)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
                                         <img className='Lists_crunchylistMore'></img>
                                     </div>
-                                    <div className='Lists_crunchylistLength'>{list.stories.length}</div>
+                                    <div className='Lists_crunchylistLength'>{list.stories.length} items</div>
                                 </div>)))}
                         </div>
                     </div>

@@ -40,6 +40,7 @@ const StoryByID = () => {
     //grab watchlist
     const watchlistObj = Object.values(useSelector(state => state?.lists?.userLists))
         .filter(list => list.watchlist === true)[0]
+
     //turn reviews into arr, map to just arr of stars, reduce to avg of stars
     const avgRating = Object.values(useSelector(state => state?.reviews?.storyReviews))
         .map(review => review?.stars)
@@ -47,6 +48,7 @@ const StoryByID = () => {
             return acc + star / array.length
         }, 0)
         .toFixed(2)
+
     //get user boook total from story
     const userStoriesNum = useSelector(state => state?.stories?.allStories[Number(id)])?.userBookTotal
 

@@ -91,3 +91,45 @@
     color: #dadada;
     padding-left: 3px;
 }
+
+.Lists_crunchylistOuter {
+    width: 900px;
+}
+
+.Lists_crunchylistCreate {
+    color: #dadada;
+}
+
+.Lists_crunchylistGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    column-gap: 10px;
+}
+
+.Lists_crunchylistWrap {
+    width: 400px;
+    height: 70px;
+    padding: 25px 20px 0px 20px;
+    background-color: #1b1d21;
+
+}
+
+.Lists_crunchylistWrap:hover {
+    background-color: #23252b;
+    cursor: pointer;
+
+}
+
+.Lists_crunchylistName {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.Lists_crunchylistTop {
+    height: fit-content;
+}
+
+.Lists_crunchylistLength {
+    color: #939393;
+}

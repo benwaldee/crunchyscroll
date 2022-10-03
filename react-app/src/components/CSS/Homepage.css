@@ -12,7 +12,7 @@
 
 .Homepage_storyWrap {
     width: 180px;
-    height: 280px;
+    height: 290px;
     display: flex;
     flex-direction: column;
 
@@ -36,6 +36,15 @@
     margin-top: 10px;
     width: 100%;
     margin-left: 16px;
+}
+
+.Homepage_storyAuthor {
+    font-size: 12px;
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 16px;
+    word-wrap: break-word;
+    color: #dadada9e;
 }
 
 
