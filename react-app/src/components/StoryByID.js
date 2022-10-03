@@ -20,7 +20,14 @@ const StoryByID = () => {
     let { id } = useParams();
     const user = useSelector(state => state.session.user)
     const story = useSelector(state => state?.stories?.allStories[Number(id)])
+    const storyIDs = Object.values(useSelector(state => state?.stories?.allStories))
+        .map((story) => story.id)
     const reviews = useSelector(state => state?.reviews?.storyReviews)
+
+    //404 redirect
+    if (storyIDs.length > 0) {
+        if (!storyIDs?.includes(Number(id))) { history.push('/404BadStory') }
+    }
 
     const [refresh, toggleRefresh] = useState(false)
 

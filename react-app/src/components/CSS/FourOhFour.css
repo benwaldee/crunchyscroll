@@ -1,0 +1,30 @@
+.FourOhFour_h1 {
+    color: white;
+    font-size: 90px;
+    margin-top: 200px;
+    margin-bottom: 70px;
+}
+
+.FourOhFour_contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%
+}
+
+.FourOhFour_text {
+    color: #dadada;
+    font-size: 19px;
+    margin-bottom: 50px;
+}
+
+.FourOhFour_home {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #2abdbb;
+}
+
+.FourOhFour_home:hover {
+    color: #aae5e4;
+}

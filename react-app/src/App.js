@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Homepage from './components/Homepage'
 import MyStories from './components/MyStories'
 import StoryByID from './components/StoryByID'
+import FourOhFour from './components/FourOhFour'
 import { authenticate } from './store/session';
 
 
@@ -54,6 +55,13 @@ function App() {
           <div className='pageWrap'>
             <NavBar />
             <StoryByID />
+            <Footer />
+          </div>
+        </Route>
+        <Route  >
+          <div className='pageWrap'>
+            <NavBar />
+            <FourOhFour />
             <Footer />
           </div>
         </Route>
