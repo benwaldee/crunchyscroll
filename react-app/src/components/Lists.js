@@ -11,6 +11,8 @@ import more from './images/more.png'
 import heart from './images/heart.png'
 import { useState } from "react";
 import CreateListModal from './CreateListModal'
+// import EditListModal from './EditListModal'
+// import DeleteListModal from './DeleteListModal'
 
 const Lists = () => {
     const history = useHistory()
@@ -44,15 +46,19 @@ const Lists = () => {
         history.push(`/`)
     }
 
-    const redirectListIDPage = (e, id) => {
-        let more = document.getElementsByClassName('Lists_crunchylistMore')[0]
+    const redirectListIDPage = (e, list) => {
+        let mores = document.getElementsByClassName('Lists_crunchylistMore')
 
-        if (e.target === more) {
-            setMoreToggle(id)
-            return
+
+        for (let more of mores) {
+            if (e.target === more) {
+
+                moreToggle === list.id ? setMoreToggle(false) : setMoreToggle(list.id)
+                return
+            }
+
         }
-
-        history.push(`/lists/${id}`)
+        history.push(`/lists/${list.id}`)
     }
 
 
@@ -97,10 +103,20 @@ const Lists = () => {
                         <CreateListModal />
                         <div className='Lists_crunchylistGrid'>
                             {crunchyListArr.map((list => (
-                                <div onClick={(e) => redirectListIDPage(e, list.id)} className='Lists_crunchylistWrap'>
+                                <div onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
-                                        <img src={more} className='Lists_crunchylistMore'></img>
+                                        <div className='Lists_crunchylistMoreWrap'>
+                                            <img id={list.id} src={more} className={`Lists_crunchylistMore ${moreToggle === list.id ? "Lists_toggledMore" : null}`}></img>
+                                            {moreToggle === list.id &&
+                                                <div className="Lists_morePop">
+                                                    {/* <EditListModal />
+                                                <DeleteListModal /> */}
+                                                    <div>RENAME</div>
+                                                    <div>DELETE</div>
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
                                     <div className='Lists_crunchylistLength'>{list.stories.length} items</div>
 
