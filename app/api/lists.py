@@ -62,3 +62,23 @@ def remove_story_list():
     db.session.commit()
 
     return {}
+
+@lists.route('/',methods=['POST'])
+def create_list():
+    data = request.json
+
+    new_list = List(
+        user_id=data["user_id"],
+        name=data["name"],
+        watchlist=data["watchlist"]
+    )
+
+    db.session.add(new_list)
+    db.session.commit()
+
+    new_list = List.query.all()[-1]
+
+    new_list = new_list.to_dict()
+    new_list["user_id"] = new_list["user_id"].id
+
+    return new_list

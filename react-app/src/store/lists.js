@@ -2,13 +2,20 @@
 const USER_LISTS = 'lists/user'
 const ADD_STORY_LIST = 'lists/addstory'
 const REMOVE_STORY_LIST = 'lists/removestory'
-
+const CREATE_LIST = 'lists/create'
 
 //actions
 const getUserLists = (userLists) => {
     return {
         type: USER_LISTS,
         payload: userLists
+    }
+}
+
+const createList = (newList) => {
+    return {
+        type: CREATE_LIST,
+        payload: newList
     }
 }
 
@@ -35,6 +42,23 @@ export const getUserListsThunk = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(getUserLists(data))
+        return JSON.stringify(data)
+    }
+}
+
+export const createListThunk = (newList) => async (dispatch) => {
+    const response = await fetch(`/api/lists/`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newList)
+        }
+    )
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(createList(data))
         return JSON.stringify(data)
     }
 }
@@ -84,6 +108,10 @@ const listsReducer = (state = initialState, action) => {
         case ADD_STORY_LIST || REMOVE_STORY_LIST:
             //does not change state, state will be refreshed w other thunks
             lists = { ...state, userLists: { ...state.userLists } }
+            return lists
+        case CREATE_LIST:
+            lists = { ...state, userLists: { ...state.userLists } }
+            lists.userLists[action.payload.id] = action.payload
             return lists
         default:
             return state;

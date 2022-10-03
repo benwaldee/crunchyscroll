@@ -1,0 +1,134 @@
+.CreateListForm_form {
+    background-color: #23252b;
+    border: none;
+    width: 500px;
+
+}
+
+.CreateListForm_formTitle {
+    color: white;
+    margin-bottom: 4px;
+    margin-top: 10px;
+}
+
+.CreateListForm_formSubTitle {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    width: 400px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+}
+
+.CreateListForm_formInputLabel {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.CreateListForm_formInputWrap {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.CreateListForm_formInputWrapTextArea {
+    margin-top: 12px;
+}
+
+.CreateListForm_formInput {
+    width: 450px;
+    height: 30px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: solid 1px rgba(128, 128, 128, 0.8);
+    outline: none;
+}
+
+.CreateListForm_formInputTextArea {
+    width: 450px;
+    padding: 10px 10px;
+    height: 100px;
+    resize: none;
+    font-size: 16px;
+    outline: none;
+
+}
+
+.CreateListForm_formInput:hover,
+.CreateListForm_formInput:focus,
+.CreateListForm_formInputTextArea:hover,
+.CreateListForm_formInputTextArea:focus {
+    border: 1px solid #f47521
+}
+
+.CreateListForm_formSubmit {
+    background-color: #f47521;
+    color: white;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: #b78142 1px solid;
+    font-size: 18px;
+
+    border-radius: 5px;
+    height: 50px;
+    width: 170px;
+    margin-top: 5px;
+}
+
+.CreateListForm_formSubmit:hover {
+    background-color: #f47521b9;
+    cursor: pointer;
+}
+
+.CreateListForm_formInputWrapButton {
+    margin: 0px;
+    height: fit-content;
+}
+
+.CreateListForm_error {
+    color: #c32f2d;
+    background-color: rgba(195, 47, 45, .2);
+    width: 472px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    padding: 5px, 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CreateListForm_bodyTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CreateListForm_charCount {
+    color: #dadada87;
+    margin-top: 3px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-right: 31px;
+
+}
+
+.CreateListForm_close {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+.CreateListForm_close:hover {
+    color: rgba(255, 255, 255, 0.576);
+}
+
+.CreateListForm_formHeaderWrap {
+    display: flex;
+    justify-content: space-between;
+}

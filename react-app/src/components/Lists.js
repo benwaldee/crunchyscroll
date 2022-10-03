@@ -8,7 +8,9 @@ import { getUserListsThunk } from '../store/lists.js'
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import more from './images/more.png'
+import heart from './images/heart.png'
 import { useState } from "react";
+import CreateListModal from './CreateListModal'
 
 const Lists = () => {
     const history = useHistory()
@@ -36,6 +38,10 @@ const Lists = () => {
 
     const redirectStoryPage = (id) => {
         history.push(`/stories/${id}`)
+    }
+
+    const redirectHome = () => {
+        history.push(`/`)
     }
 
     const redirectListIDPage = (e, id) => {
@@ -78,10 +84,17 @@ const Lists = () => {
                         </div>
                     ))}
                 </div>
+                {watchlistClicked && watchlistStoriesArr?.length < 1 &&
+                    <div className='Lists_watchlistEmpty'>
+                        <img src={heart} className='Lists_watchlistFrown'></img>
+                        <div className='Lists_watchlistEmptyText'> Your watchlist needs some love. Let's fill it up with awesome stories.</div>
+                        <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
+                    </div>
+                }
 
                 {!watchlistClicked &&
                     <div className='Lists_crunchylistOuter'>
-                        <div className='Lists_crunchylistCreate'>CREATE NEW LIST</div>
+                        <CreateListModal />
                         <div className='Lists_crunchylistGrid'>
                             {crunchyListArr.map((list => (
                                 <div onClick={(e) => redirectListIDPage(e, list.id)} className='Lists_crunchylistWrap'>
@@ -90,6 +103,7 @@ const Lists = () => {
                                         <img src={more} className='Lists_crunchylistMore'></img>
                                     </div>
                                     <div className='Lists_crunchylistLength'>{list.stories.length} items</div>
+
                                 </div>)))}
                         </div>
                     </div>

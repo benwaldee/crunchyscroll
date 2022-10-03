@@ -125,12 +125,16 @@ const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refr
                             <div className="Reviews_editStars">
                                 {starsEdit < 1 && <img src={starEmpty} id='noStar1' onClick={() => setStarsEdit(1)} ></img>}
                                 {starsEdit > 0 && <img src={starFull} id='star1' onClick={() => setStarsEdit(1)} ></img>}
+
                                 {starsEdit < 2 && <img src={starEmpty} id='noStar2' onClick={() => setStarsEdit(2)} ></img>}
                                 {starsEdit > 1 && <img src={starFull} id='star2' onClick={() => setStarsEdit(1)} ></img>}
+
                                 {starsEdit < 3 && <img src={starEmpty} id='noStar3' onClick={() => setStarsEdit(3)} ></img>}
                                 {starsEdit > 2 && <img src={starFull} id='star3' onClick={() => setStarsEdit(2)} ></img>}
+
                                 {starsEdit < 4 && <img src={starEmpty} id='noStar4' onClick={() => setStarsEdit(4)} ></img>}
                                 {starsEdit > 3 && <img src={starFull} id='star4' onClick={() => setStarsEdit(3)} ></img>}
+
                                 {starsEdit < 5 && <img src={starEmpty} id='noStar5' onClick={() => setStarsEdit(5)} ></img>}
                                 {starsEdit > 4 && <img src={starFull} id='star5' onClick={() => setStarsEdit(4)} ></img>}
                             </div>
