@@ -57,6 +57,8 @@ def remove_story_list():
     story = Story.query.get(story_id)
     lis = List.query.get(list_id)
 
+    print
+
     story.lists.remove(lis)
 
     db.session.commit()

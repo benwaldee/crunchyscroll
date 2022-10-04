@@ -17,6 +17,9 @@ export function DropProvider({ children }) {
     const [showEditListModal, setShowEditListModal] = useState(false);
     const [showDeleteListModal, setShowDeleteListModal] = useState(false)
 
+    //hold list for lsitbyID page
+    const [list, setList] = useState('')
+
     useEffect(() => {
         setValue(dropRef.current);
     }, [])
@@ -28,7 +31,8 @@ export function DropProvider({ children }) {
                 toggleDrop, setToggleDrop,
                 watchlistClicked, setWatchlistClicked,
                 showEditListModal, setShowEditListModal,
-                showDeleteListModal, setShowDeleteListModal
+                showDeleteListModal, setShowDeleteListModal,
+                list, setList
             }}>
                 {children}
             </DropContext.Provider>

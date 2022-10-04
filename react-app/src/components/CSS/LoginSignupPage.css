@@ -34,9 +34,29 @@
     width: fit-content;
     cursor: pointer;
     display: flex;
+    margin-left: 30px;
 }
 
 .LoginSignupPage_contentWrap {
     height: 760px;
     padding-bottom: 459px;
+}
+
+@media screen and (max-width: 1300px) {
+    .LoginSignupPage_lower_inner {
+        display: flex;
+        flex-direction: column;
+        border: solid 1.5px rgba(128, 128, 128, 0.8);
+        padding: 20px;
+        height: 1000px;
+        width: 750px;
+        background-color: #23252b;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .LoginSignupPage_contentWrap {
+        height: 760px;
+        padding-bottom: 950px;
+    }
 }

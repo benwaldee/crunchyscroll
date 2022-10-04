@@ -136,7 +136,7 @@ export const removeStoryListThunk = (updateObj) => async (dispatch) => {
         })
     if (response.ok) {
         const data = await response.json()
-        dispatch(addStoryList(data))
+        dispatch(removeStoryList(data))
         return JSON.stringify(data)
     }
 }

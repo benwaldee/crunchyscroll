@@ -22,6 +22,17 @@
     row-gap: 50px;
 }
 
+@media screen and (max-width:1400px) {
+    .MyStories_mapGrid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 100px;
+        row-gap: 50px;
+    }
+
+}
+
 .MyStories_contentWrap {
     display: flex;
     flex-direction: column;
@@ -126,6 +137,14 @@
     color: white;
 }
 
+@media screen and (max-width:1400px) {
+    .MyStories_h1 {
+        color: white;
+        margin-left: 50px;
+    }
+
+}
+
 .MyStories_addStory {
     background-color: #f47521;
     width: 70px;
@@ -148,5 +167,20 @@
     width: 1300px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.776);
     margin-bottom: 0px;
+    margin-left: 0px;
     padding-bottom: 10px;
+}
+
+@media screen and (max-width:1400px) {
+    .MyStories_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 700px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.776);
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+
+    }
+
 }

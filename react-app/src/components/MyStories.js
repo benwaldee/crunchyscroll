@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./CSS/MyStories.css"
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,11 +7,15 @@ import CreateStoryModal from './CreateStoryModal';
 import EditStoryModal from './EditStoryModal';
 import DeleteStoryModal from './DeleteStoryModal';
 import { clearReviews } from '../store/reviews'
+import heart from './images/heart.png'
 
 const MyStories = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+
+    const [isLoaded, setIsLoaded] = useState(false)
+
     //grab all stories from state, convert to Arr, filter by userID, sort by ID (last added first up)
     const userStoriesArr = Object.values(useSelector((state) => state?.stories?.allStories))
         .filter((story) => story?.user_id === user?.id)
@@ -25,13 +29,20 @@ const MyStories = () => {
         history.push(`/stories/${id}`)
     }
 
+    const redirectHome = () => {
+        history.push(`/`)
+    }
+
     useEffect(() => {
-
         dispatch(getAllStoriesThunk())
+            .then(() => setIsLoaded(true))
         dispatch(clearReviews())
-    }, [dispatch])
 
 
+    }, [])
+
+
+    if (!isLoaded) { return <div className='paddingLoad'></div> }
 
     return (
         <div className='MyStories_contentWrap'>
@@ -39,8 +50,16 @@ const MyStories = () => {
                 <h1 className='MyStories_h1'> My Stories</h1>
                 <CreateStoryModal />
             </div>
+            {isLoaded && userStoriesArr?.length < 1 &&
+
+                <div className='Lists_watchlistEmpty'>
+                    <img src={heart} className='Lists_watchlistFrown'></img>
+                    <div className='Lists_watchlistEmptyText'> You have not written any stories! Click add to write a story or click below to go home.</div>
+                    <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
+                </div>
+            }
             <div className='MyStories_mapGrid'>
-                {userStoriesArr?.map((story) => (
+                {isLoaded && userStoriesArr?.length > 1 && userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
                         <img
                             onClick={() => redirectStory(story.id)}

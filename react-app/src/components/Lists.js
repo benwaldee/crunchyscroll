@@ -26,6 +26,8 @@ const Lists = () => {
     const { showEditListModal, setShowEditListModal } = useDropContext();
     const { showDeleteListModal, setShowDeleteListModal } = useDropContext();
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
+    const { list, setList } = useDropContext()
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const user = useSelector(state => state.session.user)
     if (!user) {
@@ -77,6 +79,7 @@ const Lists = () => {
 
         }
 
+        setList(list)
         history.push(`/lists/${list.id}`)
     }
 
@@ -84,10 +87,11 @@ const Lists = () => {
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
-        dispatch(clearReviews())
-        dispatch(getUserListsThunk())
-        setShowEditListModal(false)
-        setShowDeleteListModal(false)
+            .then(() => dispatch(clearReviews()))
+            .then(() => dispatch(getUserListsThunk()))
+            .then(() => setShowEditListModal(false))
+            .then(() => setShowDeleteListModal(false))
+            .then(() => setIsLoaded(true))
     }, [])
 
     //listeners to close popdown more
@@ -138,7 +142,7 @@ const Lists = () => {
                 </div>
                 <div className='Lists_watchlistStoryGrid'>
                     {watchlistClicked && watchlistStoriesArr?.map((story) => (
-                        <div onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
+                        <div key={story?.id} onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
                             <img className='Lists_watchlistStoryImage' src={story?.image_url} onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>
                             <div className='Lists_watchlistStoryTitle'>{story?.title}</div>
                             <div className='Lists_watchlistStoryAuthor'>{story?.userName}</div>
@@ -157,8 +161,15 @@ const Lists = () => {
                     <div className='Lists_crunchylistOuter'>
                         <CreateListModal />
                         <div className='Lists_crunchylistGrid'>
-                            {crunchyListArr.map((list => (
-                                <div onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
+                            {isLoaded && crunchyListArr?.length < 1 &&
+                                <div className='Lists_watchlistEmpty'>
+                                    <img src={heart} className='Lists_watchlistFrown'></img>
+                                    <div className='Lists_watchlistEmptyText'> You have no Crunchylists! Click "Create New List" to make one</div>
+
+                                </div>
+                            }
+                            {isLoaded && crunchyListArr.map((list => (
+                                <div key={list?.id} onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
                                         <div className='Lists_crunchylistMoreWrap'>

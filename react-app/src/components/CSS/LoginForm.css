@@ -32,6 +32,18 @@
     padding-left: 9px;
 }
 
+@media screen and (max-width: 1300px) {
+    .LoginForm_formWrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-top: solid 1px rgba(128, 128, 128, 0.8);
+        border-left: none;
+        padding-top: 9px;
+    }
+}
+
+
 .LoginForm_subtitle {
     color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
