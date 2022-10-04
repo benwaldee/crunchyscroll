@@ -21,10 +21,10 @@ const createList = (newList) => {
     }
 }
 
-const editList = (editList) => {
+const editList = (editListOb) => {
     return {
         type: EDIT_LIST,
-        payload: editList
+        payload: editListOb
     }
 }
 
@@ -79,14 +79,14 @@ export const createListThunk = (newList) => async (dispatch) => {
     }
 }
 
-export const editListThunk = (editList, id) => async (dispatch) => {
+export const editListThunk = (editListOb, id) => async (dispatch) => {
     const response = await fetch(`/api/lists/${id}`,
         {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(editList)
+            body: JSON.stringify(editListOb)
         }
     )
     if (response.ok) {
