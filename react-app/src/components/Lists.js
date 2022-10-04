@@ -139,7 +139,7 @@ const Lists = () => {
                 <div className='Lists_watchlistStoryGrid'>
                     {watchlistClicked && watchlistStoriesArr?.map((story) => (
                         <div onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
-                            <img className='Lists_watchlistStoryImage' src={story?.image_url}></img>
+                            <img className='Lists_watchlistStoryImage' src={story?.image_url} onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>
                             <div className='Lists_watchlistStoryTitle'>{story?.title}</div>
                             <div className='Lists_watchlistStoryAuthor'>{story?.userName}</div>
                         </div>
