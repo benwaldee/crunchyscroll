@@ -85,6 +85,40 @@ const Lists = () => {
         dispatch(getUserListsThunk())
     }, [dispatch])
 
+    //listeners to close popdown more
+
+
+    useEffect(() => {
+        if (!moreToggle) return;
+
+        //add elements in dropdown to avoid closing
+        let elementArr = []
+
+        let mores = document.getElementsByClassName('Lists_morePop')
+        for (let more of mores) { elementArr.push(more) }
+        let edits = document.getElementsByClassName('Lists_editList')
+        for (let edit of edits) { elementArr.push(edit) }
+        let wraps = document.getElementsByClassName('Lists_crunchylistWrap')
+        for (let wrap of wraps) { elementArr.push(wrap) }
+        let tops = document.getElementsByClassName('Lists_crunchylistTop')
+        for (let top of tops) { elementArr.push(top) }
+        let moreWraps = document.getElementsByClassName('Lists_crunchylistMoreWrap')
+        for (let mWrap of moreWraps) { elementArr.push(mWrap) }
+        let moreDots = document.getElementsByClassName("Lists_crunchylistMore")
+        for (let mDot of moreDots) { elementArr.push(mDot) }
+
+        const closePop = (e) => {
+            for (let ele of elementArr) {
+                if (e.target === ele) { return }
+            }
+            setMoreToggle(false);
+        };
+
+        document.addEventListener('click', closePop);
+
+        return () => document.removeEventListener("click", closePop);
+    }, [moreToggle]);
+
 
     return (
         <div className='Lists_contentWrap'>
