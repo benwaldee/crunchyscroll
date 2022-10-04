@@ -7,6 +7,7 @@ import CreateStoryModal from './CreateStoryModal';
 import EditStoryModal from './EditStoryModal';
 import DeleteStoryModal from './DeleteStoryModal';
 import { clearReviews } from '../store/reviews'
+import heart from './images/heart.png'
 
 const MyStories = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,10 @@ const MyStories = () => {
         history.push(`/stories/${id}`)
     }
 
+    const redirectHome = () => {
+        history.push(`/`)
+    }
+
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
@@ -40,8 +45,15 @@ const MyStories = () => {
                 <CreateStoryModal />
             </div>
             <div className='MyStories_mapGrid'>
-                {userStoriesArr[0] !== 1 && userStoriesArr.length < 1}
-                {userStoriesArr[0] !== 1 && userStoriesArr?.map((story) => (
+                {userStoriesArr?.length < 1 &&
+
+                    <div className='Lists_watchlistEmpty'>
+                        <img src={heart} className='Lists_watchlistFrown'></img>
+                        <div className='Lists_watchlistEmptyText'> You have not written any stories! Click add to write a story or click below to go home.</div>
+                        <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
+                    </div>
+                }
+                {userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
                         <img
                             onClick={() => redirectStory(story.id)}
