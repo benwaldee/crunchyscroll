@@ -82,3 +82,15 @@ body {
     background-color: #f47521b9;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1300px) {
+    .SignUpForm_form {
+        margin-left: 21px;
+        margin-right: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+}
