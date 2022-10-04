@@ -83,7 +83,8 @@ const Lists = () => {
         dispatch(getAllStoriesThunk())
         dispatch(clearReviews())
         dispatch(getUserListsThunk())
-    }, [dispatch])
+        setShowEditListModal(false)
+    }, [])
 
     //listeners to close popdown more
 

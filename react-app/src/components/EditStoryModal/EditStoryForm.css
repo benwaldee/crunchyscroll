@@ -66,7 +66,7 @@
     border-right: none;
     border-bottom: #b78142 1px solid;
     font-size: 18px;
-
+    transition: 0.2s;
     border-radius: 5px;
     height: 50px;
     width: 170px;
@@ -112,6 +112,7 @@
     cursor: pointer;
     justify-content: flex-end;
     height: fit-content;
+    transition: 0.2s;
 }
 
 .EditStoryForm_close:hover {

@@ -3,7 +3,8 @@
     font-size: 24px;
     font-weight: bold;
     word-wrap: break-word;
-    width: 300px;
+    width: fit-content;
+
 }
 
 .MyStories_storyTitle:hover {
@@ -34,6 +35,7 @@
     height: 270px;
     width: 200px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .MyStories_storyImage:hover {
@@ -93,6 +95,7 @@
     padding: 4px;
     margin-bottom: 2px;
     color: black;
+    transition: 0.2s;
 
 }
 
@@ -135,6 +138,7 @@
     margin-bottom: 2px;
     color: black;
     margin-right: 50px;
+    transition: 0.2s;
 }
 
 .MyStories_header {

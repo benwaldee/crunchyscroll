@@ -36,11 +36,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s;
 }
 
 .NavBar_myStories {
     color: #dadada;
-
+    transition: 0.2s;
     margin-right: 5px;
     width: 100px;
     height: 60px;
@@ -74,6 +75,7 @@
     justify-content: center;
     height: 60px;
     width: 70px;
+    transition: 0.2s;
 }
 
 .NavBar_profilePic {
@@ -92,6 +94,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    transition: 0.2s;
 
 }
 
@@ -103,6 +106,7 @@
     justify-content: center;
     position: relative;
     background-color: #141518;
+    transition: 0.2s;
 }
 
 .NavBar_profileDropDark:hover {
@@ -135,6 +139,7 @@
     width: 100%;
     justify-content: flex-start;
     align-items: center;
+    transition: 0.2s;
 
 }
 

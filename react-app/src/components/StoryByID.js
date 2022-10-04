@@ -26,7 +26,7 @@ const StoryByID = () => {
 
     //404 redirect
     if (storyIDs.length > 0) {
-        if (!storyIDs?.includes(Number(id))) { history.push('/404BadStory') }
+        if (!storyIDs?.includes(Number(id))) { history.push('/404') }
     }
 
     const [refresh, toggleRefresh] = useState(false)

@@ -25,6 +25,7 @@
     cursor: pointer;
     text-decoration: underline;
     color: #2abdbb;
+    transition: 0.2s;
 }
 
 .FourOhFour_home:hover {
