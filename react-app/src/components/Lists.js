@@ -13,8 +13,10 @@ import heart from './images/heart.png'
 import { useState } from "react";
 import CreateListModal from './CreateListModal'
 import EditListModal from './EditListModal'
+import DeleteListModal from './DeleteListModal'
 import { Modal } from "../context/Modal";
 import EditListForm from "./EditListModal/EditListForm";
+import DeleteListDiv from "./DeleteListModal/DeleteListDiv"
 
 // import DeleteListModal from './DeleteListModal'
 
@@ -22,6 +24,7 @@ const Lists = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const { showEditListModal, setShowEditListModal } = useDropContext();
+    const { showDeleteListModal, setShowDeleteListModal } = useDropContext();
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
 
     const user = useSelector(state => state.session.user)
@@ -53,7 +56,7 @@ const Lists = () => {
     const redirectListIDPage = (e, list) => {
         let mores = document.getElementsByClassName('Lists_crunchylistMore')
         let editL = document.getElementsByClassName('Lists_editList')[0]
-        let deleteL = document.getElementsByClassName('Lists_deleteList')[0]
+        let deleteL = document.getElementsByClassName('Lists_editList')[1]
         let Wrap = document.getElementsByClassName('Lists_morePop')[0]
 
         let noArr = []
@@ -84,6 +87,7 @@ const Lists = () => {
         dispatch(clearReviews())
         dispatch(getUserListsThunk())
         setShowEditListModal(false)
+        setShowDeleteListModal(false)
     }, [])
 
     //listeners to close popdown more
@@ -162,9 +166,8 @@ const Lists = () => {
                                             {moreToggle === list.id &&
                                                 <div className="Lists_morePop">
                                                     <EditListModal setMoreToggle={setMoreToggle} list={list} user={user} />
-                                                    {/* <DeleteListModal /> */}
-                                                    {/* <div>RENAME</div> */}
-                                                    <div>DELETE</div>
+                                                    <DeleteListModal setMoreToggle={setMoreToggle} list={list} user={user} />
+
                                                 </div>
                                             }
                                         </div>
@@ -180,8 +183,13 @@ const Lists = () => {
                         <EditListForm showEditListModal={showEditListModal} setShowEditListModal={setShowEditListModal} />
                     </Modal>
                 )}
+                {showDeleteListModal && (
+                    <Modal onClose={() => setShowDeleteListModal(false)}>
+                        <DeleteListDiv showDeleteListModal={showDeleteListModal} setShowDeleteListModal={setShowDeleteListModal} />
+                    </Modal>
+                )}
             </div>
-        </div>
+        </div >
     )
 }
 

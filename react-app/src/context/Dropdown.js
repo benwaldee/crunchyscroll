@@ -15,6 +15,7 @@ export function DropProvider({ children }) {
 
     //list modals
     const [showEditListModal, setShowEditListModal] = useState(false);
+    const [showDeleteListModal, setShowDeleteListModal] = useState(false)
 
     useEffect(() => {
         setValue(dropRef.current);
@@ -26,7 +27,8 @@ export function DropProvider({ children }) {
                 value,
                 toggleDrop, setToggleDrop,
                 watchlistClicked, setWatchlistClicked,
-                showEditListModal, setShowEditListModal
+                showEditListModal, setShowEditListModal,
+                showDeleteListModal, setShowDeleteListModal
             }}>
                 {children}
             </DropContext.Provider>

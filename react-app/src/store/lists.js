@@ -3,7 +3,8 @@ const USER_LISTS = 'lists/user'
 const ADD_STORY_LIST = 'lists/addstory'
 const REMOVE_STORY_LIST = 'lists/removestory'
 const CREATE_LIST = 'lists/create'
-const EDIT_LIST = 'lists/create'
+const EDIT_LIST = 'lists/edit'
+const DELETE_LIST = 'lists/delete'
 
 //actions
 const getUserLists = (userLists) => {
@@ -24,6 +25,13 @@ const editList = (editList) => {
     return {
         type: EDIT_LIST,
         payload: editList
+    }
+}
+
+const deleteList = (listID) => {
+    return {
+        type: DELETE_LIST,
+        payload: listID
     }
 }
 
@@ -83,7 +91,20 @@ export const editListThunk = (editList, id) => async (dispatch) => {
     )
     if (response.ok) {
         const data = await response.json()
-        dispatch(createList(data))
+        dispatch(editList(data))
+        return JSON.stringify(data)
+    }
+}
+
+export const deleteListThunk = (id) => async (dispatch) => {
+    const response = await fetch(`/api/lists/${id}`,
+        {
+            method: 'DELETE'
+        }
+    )
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(deleteList(data))
         return JSON.stringify(data)
     }
 }
@@ -141,6 +162,10 @@ const listsReducer = (state = initialState, action) => {
         case EDIT_LIST:
             lists = { ...state, userLists: { ...state.userLists } }
             lists.userLists[action.payload.id] = action.payload
+            return lists
+        case DELETE_LIST:
+            lists = { ...state, userLists: { ...state.userLists } }
+            delete lists.userLists[action.payload]
             return lists
         default:
             return state;

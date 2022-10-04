@@ -108,3 +108,14 @@ def edit_list(id):
     print('IM HERERERERR',edit_list)
 
     return edit_list
+
+@lists.route('/<id>',methods=['DELETE'])
+def delete_list(id):
+
+
+    delete_list = List.query.get(int(id))
+
+    db.session.delete(delete_list)
+    db.session.commit()
+
+    return id
