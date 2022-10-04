@@ -13,8 +13,6 @@ const EditListForm = ({ setShowEditListModal, showEditListModal }) => {
 
     const [error, setError] = useState('')
 
-    console.log('opened modal')
-
     const handleSubmit = (e => {
         e.preventDefault()
 
