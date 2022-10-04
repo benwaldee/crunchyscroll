@@ -1,0 +1,96 @@
+.ListByID_outer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 900px;
+    margin-top: 40px;
+}
+
+.ListByID_contentWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.ListByID_back {
+    color: #f47521;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.ListByID_backWrap {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.ListByID_backWrap:hover {
+    background-color: #141519;
+    cursor: pointer;
+}
+
+.ListByID_carat {
+    height: 13px;
+    margin-right: 5px;
+}
+
+.ListByID_h1 {
+    font-weight: normal;
+    color: white;
+    margin-top: 40px;
+}
+
+.ListByID_storyWrap {
+    display: flex;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: solid 2px #4a4e58;
+    width: 900px;
+}
+
+.ListByID_image {
+    width: 270px;
+    height: 160px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.ListByID_halfWrap {
+    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    word-wrap: break-word;
+    margin-right: 210px;
+}
+
+.ListByID_storyName {
+    color: #fff;
+}
+
+.ListByID_storyName:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.ListByID_storyAuthor {
+    color: #A0A0A0;
+}
+
+.ListByID_storyRemove {
+    height: 26px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: 0.2s;
+
+}
+
+.ListByID_storyRemove:hover {
+    background-color: #141519;
+    cursor: pointer;
+}

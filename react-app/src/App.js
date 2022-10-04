@@ -9,6 +9,7 @@ import MyStories from './components/MyStories'
 import StoryByID from './components/StoryByID'
 import FourOhFour from './components/FourOhFour'
 import Lists from './components/Lists'
+import ListByID from './components/ListByID'
 import { authenticate } from './store/session';
 
 
@@ -50,6 +51,13 @@ function App() {
             <NavBar />
             <Lists />
             <Footer />
+          </div>
+        </Route>
+        <Route path='/lists/:id' exact={true} >
+          <div className='pageWrap'>
+            <NavBar />
+            <ListByID />
+
           </div>
         </Route>
         <Route path='/mystories' exact={true} >

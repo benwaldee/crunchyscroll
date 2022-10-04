@@ -26,6 +26,7 @@ const Lists = () => {
     const { showEditListModal, setShowEditListModal } = useDropContext();
     const { showDeleteListModal, setShowDeleteListModal } = useDropContext();
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
+    const { list, setList } = useDropContext()
 
     const user = useSelector(state => state.session.user)
     if (!user) {
@@ -77,6 +78,7 @@ const Lists = () => {
 
         }
 
+        setList(list)
         history.push(`/lists/${list.id}`)
     }
 
