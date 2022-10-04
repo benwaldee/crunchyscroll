@@ -58,7 +58,8 @@ const ListByID = () => {
 
         dispatch(removeStoryListThunk(updateObj))
             .then(() => toggleLoad(!load))
-
+            .then(() => dispatch(getUserListsThunk()))
+            .then(() => dispatch(getAllStoriesThunk()))
 
     }
 
