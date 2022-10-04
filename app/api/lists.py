@@ -82,3 +82,29 @@ def create_list():
     new_list["user_id"] = new_list["user_id"].id
 
     return new_list
+
+@lists.route('/<id>',methods=['PUT'])
+def edit_list(id):
+    data = request.json
+
+    edit_list = List.query.get(int(id))
+
+    edit_list.name = data["name"]
+
+    db.session.add(edit_list)
+    db.session.commit()
+
+
+
+    edit_list = edit_list.to_dict()
+    edit_list["user_id"] = edit_list["user_id"].id
+
+    stor_list = []
+    for story in edit_list["stories"]:
+        stor_list.append(story.id)
+
+    edit_list["stories"] = stor_list
+
+    print('IM HERERERERR',edit_list)
+
+    return edit_list

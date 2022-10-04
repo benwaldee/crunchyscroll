@@ -8,16 +8,20 @@ import { getUserListsThunk } from '../store/lists.js'
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import more from './images/more.png'
+import whitemore from './images/whitemore.png'
 import heart from './images/heart.png'
 import { useState } from "react";
 import CreateListModal from './CreateListModal'
-// import EditListModal from './EditListModal'
+import EditListModal from './EditListModal'
+import { Modal } from "../context/Modal";
+import EditListForm from "./EditListModal/EditListForm";
+
 // import DeleteListModal from './DeleteListModal'
 
 const Lists = () => {
     const history = useHistory()
     const dispatch = useDispatch()
-
+    const { showEditListModal, setShowEditListModal } = useDropContext();
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
 
     const user = useSelector(state => state.session.user)
@@ -48,16 +52,28 @@ const Lists = () => {
 
     const redirectListIDPage = (e, list) => {
         let mores = document.getElementsByClassName('Lists_crunchylistMore')
+        let editL = document.getElementsByClassName('Lists_editList')[0]
+        let deleteL = document.getElementsByClassName('Lists_deleteList')[0]
+        let Wrap = document.getElementsByClassName('Lists_morePop')[0]
 
-
+        let noArr = []
+        noArr.push(editL)
+        noArr.push(deleteL)
+        noArr.push(Wrap)
         for (let more of mores) {
             if (e.target === more) {
-
                 moreToggle === list.id ? setMoreToggle(false) : setMoreToggle(list.id)
+                return
+            }
+        }
+
+        for (let ele of noArr) {
+            if (e.target === ele) {
                 return
             }
 
         }
+
         history.push(`/lists/${list.id}`)
     }
 
@@ -107,12 +123,12 @@ const Lists = () => {
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
                                         <div className='Lists_crunchylistMoreWrap'>
-                                            <img id={list.id} src={more} className={`Lists_crunchylistMore ${moreToggle === list.id ? "Lists_toggledMore" : null}`}></img>
+                                            <img id={list.id} src={moreToggle === list.id ? whitemore : more} className={`Lists_crunchylistMore`}></img>
                                             {moreToggle === list.id &&
                                                 <div className="Lists_morePop">
-                                                    {/* <EditListModal />
-                                                <DeleteListModal /> */}
-                                                    <div>RENAME</div>
+                                                    <EditListModal setMoreToggle={setMoreToggle} list={list} user={user} />
+                                                    {/* <DeleteListModal /> */}
+                                                    {/* <div>RENAME</div> */}
                                                     <div>DELETE</div>
                                                 </div>
                                             }
@@ -124,6 +140,11 @@ const Lists = () => {
                         </div>
                     </div>
                 }
+                {showEditListModal && (
+                    <Modal onClose={() => setShowEditListModal(false)}>
+                        <EditListForm showEditListModal={showEditListModal} setShowEditListModal={setShowEditListModal} />
+                    </Modal>
+                )}
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ const USER_LISTS = 'lists/user'
 const ADD_STORY_LIST = 'lists/addstory'
 const REMOVE_STORY_LIST = 'lists/removestory'
 const CREATE_LIST = 'lists/create'
+const EDIT_LIST = 'lists/create'
 
 //actions
 const getUserLists = (userLists) => {
@@ -16,6 +17,13 @@ const createList = (newList) => {
     return {
         type: CREATE_LIST,
         payload: newList
+    }
+}
+
+const editList = (editList) => {
+    return {
+        type: EDIT_LIST,
+        payload: editList
     }
 }
 
@@ -54,6 +62,23 @@ export const createListThunk = (newList) => async (dispatch) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newList)
+        }
+    )
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(createList(data))
+        return JSON.stringify(data)
+    }
+}
+
+export const editListThunk = (editList, id) => async (dispatch) => {
+    const response = await fetch(`/api/lists/${id}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(editList)
         }
     )
     if (response.ok) {
@@ -110,6 +135,10 @@ const listsReducer = (state = initialState, action) => {
             lists = { ...state, userLists: { ...state.userLists } }
             return lists
         case CREATE_LIST:
+            lists = { ...state, userLists: { ...state.userLists } }
+            lists.userLists[action.payload.id] = action.payload
+            return lists
+        case EDIT_LIST:
             lists = { ...state, userLists: { ...state.userLists } }
             lists.userLists[action.payload.id] = action.payload
             return lists

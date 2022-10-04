@@ -154,7 +154,7 @@
 }
 
 .Lists_crunchylistMore {
-    height: 25px;
+    height: 30px;
     cursor: pointer;
     padding: 10px;
 
@@ -169,15 +169,16 @@
 .Lists_morePop {
     position: absolute;
     z-index: 100;
-    background-color: #3d404a;
-    height: 80px;
-    width: 160px;
-    left: -155px;
-    top: 45px;
-    padding: 20px;
+    background-color: #2e3138;
+    height: fit-content;
+    width: 200px;
+    left: -150px;
+    top: 50px;
+    padding: 10px 0px 10px 0px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    cursor: default;
 
 }
 
@@ -186,10 +187,6 @@
     border-radius: 0px;
 }
 
-.Lists_toggledMore {
-    background-color: #3d404a;
-    border-radius: 0px;
-}
 
 .Lists_watchlistEmpty {
     width: 900px;
@@ -251,4 +248,21 @@
     cursor: pointer;
 
     background-color: rgba(255, 255, 255, 0.081);
+}
+
+.Lists_editList {
+    color: #dadadab5;
+
+    cursor: pointer;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Lists_editList:hover {
+    background-color: #212227;
+
+    color: white;
 }
