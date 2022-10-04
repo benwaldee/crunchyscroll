@@ -112,8 +112,8 @@ const StoryByID = () => {
                     {!story && <h1 className='StoryByID_titleBlank'>Ttitle Coming</h1>}
                     <div className='StoryByID_ratingWrap'>
                         <div className='StoryByID_stars'>
-                            {story && <Stars avgRating={avgRating} reviews={reviews} />}
-                            {!story && <div className="StoryByID_starsBlank"></div>}
+                            {story && storyIDs.length > 0 && <Stars avgRating={avgRating} reviews={reviews} />}
+                            {!story && storyIDs.length === 0 && <div className="StoryByID_starsBlank"></div>}
                         </div >
                         <div className='StoryByID_avgRatingWrap'>
                             <div className='StoryByID_rating'>Average Rating:</div>
