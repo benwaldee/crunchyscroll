@@ -49,7 +49,7 @@ function App() {
           <div className='pageWrap'>
             <NavBar />
             <Lists />
-
+            <Footer />
           </div>
         </Route>
         <Route path='/mystories' exact={true} >

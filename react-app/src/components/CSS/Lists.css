@@ -1,3 +1,7 @@
+.Lists_contentWrap {
+    padding-bottom: 600px;
+}
+
 .Lists_innerWrap {
     display: flex;
     flex-direction: column;
@@ -109,6 +113,7 @@
 
 .Lists_crunchylistOuter {
     width: 900px;
+
 }
 
 .Lists_crunchylistCreate {
