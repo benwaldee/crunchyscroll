@@ -12,3 +12,9 @@ body {
     position: relative;
     min-height: 100vh;
 }
+
+.paddingLoad {
+    padding-bottom: 1000px;
+    height: 500px;
+    width: 1000px;
+}

@@ -96,6 +96,7 @@ const StoryByID = () => {
         if (num >= 10) return 'super'
     }
 
+    if (storyIDs.length < 1) { return <div className='paddingLoad'></div> }
 
     return (
         <div className='StoryByID_contentWrap'>

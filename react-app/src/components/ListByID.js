@@ -12,17 +12,15 @@ import heart from './images/heart.png'
 const ListByID = () => {
     const history = useHistory()
     const dispatch = useDispatch()
-    const { list, setList } = useDropContext()
+    // const { list, setList } = useDropContext()
     const [load, toggleLoad] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
     //did list context and updated list selectors forgetting that i could just
     //grab id from params - refactor late
     let { id } = useParams();
 
-    if (Number(list.id) !== Number(id)) {
-        history.push('/404')
-    }
 
-    const updatedList = useSelector(state => state?.lists?.userLists[list.id])
+    const list = useSelector(state => state?.lists?.userLists[Number(id)])
 
     const user = useSelector(state => state?.session?.user)
     if (!user) {
@@ -31,7 +29,17 @@ const ListByID = () => {
 
 
     const listStories = Object.values(useSelector(state => state?.stories?.allStories))
-        .filter(story => updatedList?.stories?.includes(Number(story.id)))
+        .filter(story => list?.stories?.includes(Number(story.id)))
+
+    if (listStories.length > 0) {
+
+        if (Number(list.id) !== Number(id)) {
+            history.push('/404')
+        }
+    }
+
+
+
 
 
     const redirectList = () => {
@@ -59,6 +67,10 @@ const ListByID = () => {
         dispatch(getUserListsThunk())
     }, [load])
 
+    useEffect(() => {
+        setIsLoaded(true)
+    }, [])
+
 
     return (
 
@@ -69,11 +81,11 @@ const ListByID = () => {
                     <div className='ListByID_back'>BACK TO CRUNCHYLISTS</div>
                 </div>
                 <div className='ListByID_headerWrap'>
-                    <h1 className='ListByID_h1'>{list.name}</h1>
+                    <h1 className='ListByID_h1'>{list?.name}</h1>
                 </div>
                 <div className='ListByID_bodyWrap'>
-                    {listStories.length < 1 &&
-                        <div className='Lists_watchlistEmpty'>
+                    {isLoaded && listStories.length < 1 &&
+                        < div className='Lists_watchlistEmpty'>
                             <img src={heart} className='Lists_watchlistFrown'></img>
                             <div className='Lists_watchlistEmptyText'> Your crunchylist needs some love. Let's fill it up with awesome stories.</div>
                             <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
@@ -98,7 +110,7 @@ const ListByID = () => {
                 </div>
             </div>
 
-        </div>
+        </div >
 
     );
 }

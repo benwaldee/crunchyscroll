@@ -40,7 +40,8 @@ const MyStories = () => {
                 <CreateStoryModal />
             </div>
             <div className='MyStories_mapGrid'>
-                {userStoriesArr?.map((story) => (
+                {userStoriesArr[0] !== 1 && userStoriesArr.length < 1}
+                {userStoriesArr[0] !== 1 && userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
                         <img
                             onClick={() => redirectStory(story.id)}
