@@ -35,6 +35,8 @@ const AddToListPop = ({ setShowAddToListModal, listsDict, id, story }) => {
         setShowAddToListModal(false)
     }
 
+    console.log(listsDict)
+
     return (
         <div className='AddToListPop_wrap'>
             <div className='AddToListPop_topWrap'>
@@ -43,10 +45,10 @@ const AddToListPop = ({ setShowAddToListModal, listsDict, id, story }) => {
                 <div onClick={() => setShowAddToListModal(false)} className='AddToListPop_close'>X</div>
             </div>
             <div className='AddToListPop_subTitle'>Click on a list below!</div>
-            {Object.values(listsDict).length === 0 &&
+            {Object.values(listsDict).filter(list => !list.watchlist) < 1 &&
                 <>
                     <div className='AddToListPop_failText AddToListPop_failBorder'> You have no lists :( </div>
-                    <div className='AddToListPop_failText'> Click your profile and go to "Crunchylists" to make one!  </div>
+                    <div className='AddToListPop_failTextsub'> Click your profile and go to "Crunchylists" to make one!  </div>
                 </>
             }
             {Object.values(listsDict).length !== 0 && < div className='AddToListPop_listOuterWrap'>

@@ -27,6 +27,7 @@ const Lists = () => {
     const { showDeleteListModal, setShowDeleteListModal } = useDropContext();
     const { watchlistClicked, setWatchlistClicked } = useDropContext()
     const { list, setList } = useDropContext()
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const user = useSelector(state => state.session.user)
     if (!user) {
@@ -86,10 +87,11 @@ const Lists = () => {
     useEffect(() => {
 
         dispatch(getAllStoriesThunk())
-        dispatch(clearReviews())
-        dispatch(getUserListsThunk())
-        setShowEditListModal(false)
-        setShowDeleteListModal(false)
+            .then(() => dispatch(clearReviews()))
+            .then(() => dispatch(getUserListsThunk()))
+            .then(() => setShowEditListModal(false))
+            .then(() => setShowDeleteListModal(false))
+            .then(() => setIsLoaded(true))
     }, [])
 
     //listeners to close popdown more
@@ -159,7 +161,14 @@ const Lists = () => {
                     <div className='Lists_crunchylistOuter'>
                         <CreateListModal />
                         <div className='Lists_crunchylistGrid'>
-                            {crunchyListArr.map((list => (
+                            {isLoaded && crunchyListArr?.length < 1 &&
+                                <div className='Lists_watchlistEmpty'>
+                                    <img src={heart} className='Lists_watchlistFrown'></img>
+                                    <div className='Lists_watchlistEmptyText'> You have no Crunchylists! Click "Create New List" to make one</div>
+
+                                </div>
+                            }
+                            {isLoaded && crunchyListArr.map((list => (
                                 <div key={list?.id} onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>

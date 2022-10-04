@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
+import { createListThunk } from '../../store/lists'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState({
@@ -79,8 +80,16 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
-      if (data) {
+      if (data === 'bad news') {
         setErrors({ email: "Email in use or invalid." })
+        return
+      }
+      else {
+        dispatch(createListThunk({
+          user_id: Number(data.id),
+          name: "Watchlist",
+          watchlist: true
+        }))
       }
 
     }

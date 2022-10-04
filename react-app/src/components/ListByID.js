@@ -64,12 +64,11 @@ const ListByID = () => {
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
-        dispatch(getUserListsThunk())
-    }, [load])
-
-    useEffect(() => {
-        setIsLoaded(true)
+            .then(() => dispatch(getUserListsThunk()))
+            .then(() => setIsLoaded(true))
     }, [])
+
+
 
 
     return (
@@ -91,7 +90,7 @@ const ListByID = () => {
                             <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
                         </div>
                     }
-                    {listStories.length > 0 && listStories.map(story => (
+                    {isLoaded && listStories.length > 0 && listStories.map(story => (
                         <div className='ListByID_storyWrap'>
                             <img
                                 onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
