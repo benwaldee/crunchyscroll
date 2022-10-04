@@ -64,9 +64,9 @@ const ListByID = () => {
 
         <div className='ListByID_contentWrap'>
             <div className='ListByID_outer'>
-                <div className='ListByID_backWrap'>
+                <div onClick={redirectList} className='ListByID_backWrap'>
                     <img src={back} className='ListByID_carat'></img>
-                    <div onClick={redirectList} className='ListByID_back'>BACK TO CRUNCHYLISTS</div>
+                    <div className='ListByID_back'>BACK TO CRUNCHYLISTS</div>
                 </div>
                 <div className='ListByID_headerWrap'>
                     <h1 className='ListByID_h1'>{list.name}</h1>
