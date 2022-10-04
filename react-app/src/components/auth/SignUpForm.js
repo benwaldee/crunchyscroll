@@ -59,12 +59,12 @@ const SignUpForm = () => {
 
     if (username.length < 1) newErr.username = "Please enter a username."
     if (email.length < 1) newErr.email = "Please enter an email."
-    if (password.length < 7) {
+    if (password.length < 6) {
       setPassword('')
       newErr.password = "Password must be at least 6 characters"
 
     }
-    if (repeatPassword.length < 7) {
+    if (repeatPassword.length < 6) {
       setRepeatPassword('')
       newErr.repeatPassword = "Password must be at least 6 characters"
 
