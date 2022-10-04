@@ -62,3 +62,60 @@ def remove_story_list():
     db.session.commit()
 
     return {}
+
+@lists.route('/',methods=['POST'])
+def create_list():
+    data = request.json
+
+    new_list = List(
+        user_id=data["user_id"],
+        name=data["name"],
+        watchlist=data["watchlist"]
+    )
+
+    db.session.add(new_list)
+    db.session.commit()
+
+    new_list = List.query.all()[-1]
+
+    new_list = new_list.to_dict()
+    new_list["user_id"] = new_list["user_id"].id
+
+    return new_list
+
+@lists.route('/<id>',methods=['PUT'])
+def edit_list(id):
+    data = request.json
+
+    edit_list = List.query.get(int(id))
+
+    edit_list.name = data["name"]
+
+    db.session.add(edit_list)
+    db.session.commit()
+
+
+
+    edit_list = edit_list.to_dict()
+    edit_list["user_id"] = edit_list["user_id"].id
+
+    stor_list = []
+    for story in edit_list["stories"]:
+        stor_list.append(story.id)
+
+    edit_list["stories"] = stor_list
+
+    print('IM HERERERERR',edit_list)
+
+    return edit_list
+
+@lists.route('/<id>',methods=['DELETE'])
+def delete_list(id):
+
+
+    delete_list = List.query.get(int(id))
+
+    db.session.delete(delete_list)
+    db.session.commit()
+
+    return id

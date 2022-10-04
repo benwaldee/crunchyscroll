@@ -1,16 +1,17 @@
-.EditStoryForm_form {
+.EditListForm_form {
     background-color: #23252b;
     border: none;
-    width: 500px
+    width: 500px;
+
 }
 
-.EditStoryForm_formTitle {
+.EditListForm_formTitle {
     color: white;
     margin-bottom: 4px;
     margin-top: 10px;
 }
 
-.EditStoryForm_formSubTitle {
+.EditListForm_formSubTitle {
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     width: 400px;
@@ -18,21 +19,24 @@
     font-size: 16px;
 }
 
-.EditStoryForm_formInputLabel {
+.EditListForm_formInputLabel {
     color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
     margin-bottom: 2px;
 }
 
-.EditStoryForm_formInputWrap {
+.EditListForm_formInputWrap {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.EditListForm_formInputWrapTextArea {
     margin-top: 12px;
 }
 
-.EditStoryForm_formInputWrapTextArea {
-    margin-top: 12px;
-}
-
-.EditStoryForm_formInput {
+.EditListForm_formInput {
     width: 450px;
     height: 30px;
     padding: 10px 10px;
@@ -41,7 +45,7 @@
     outline: none;
 }
 
-.EditStoryForm_formInputTextArea {
+.EditListForm_formInputTextArea {
     width: 450px;
     padding: 10px 10px;
     height: 100px;
@@ -51,14 +55,14 @@
 
 }
 
-.EditStoryForm_formInput:hover,
-.EditStoryForm_formInput:focus,
-.EditStoryForm_formInputTextArea:hover,
-.EditStoryForm_formInputTextArea:focus {
+.EditListForm_formInput:hover,
+.EditListForm_formInput:focus,
+.EditListForm_formInputTextArea:hover,
+.EditListForm_formInputTextArea:focus {
     border: 1px solid #f47521
 }
 
-.EditStoryForm_formSubmit {
+.EditListForm_formSubmit {
     background-color: #f47521;
     color: white;
     border-left: none;
@@ -70,23 +74,25 @@
     border-radius: 5px;
     height: 50px;
     width: 170px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
-.EditStoryForm_formSubmit:hover {
+.EditListForm_formSubmit:hover {
     background-color: #f47521b9;
     cursor: pointer;
 }
 
-.EditStoryForm_formInputWrapButton {
+.EditListForm_formInputWrapButton {
     margin: 0px;
+    height: fit-content;
 }
 
-.EditStoryForm_error {
+.EditListForm_error {
     color: #c32f2d;
     background-color: rgba(195, 47, 45, .2);
     width: 472px;
     margin-top: 7px;
+    margin-bottom: 10px;
     padding: 5px, 5px;
     height: 30px;
     display: flex;
@@ -94,17 +100,21 @@
     justify-content: center;
 }
 
-.EditStoryForm_bodyTop {
+.EditListForm_bodyTop {
     display: flex;
     justify-content: space-between;
 }
 
-.EditStoryForm_charCount {
+.EditListForm_charCount {
     color: #dadada87;
-    margin-right: 30px;
+    margin-top: 3px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-right: 31px;
+
 }
 
-.EditStoryForm_close {
+.EditListForm_close {
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -115,11 +125,11 @@
     transition: 0.2s;
 }
 
-.EditStoryForm_close:hover {
+.EditListForm_close:hover {
     color: rgba(255, 255, 255, 0.576);
 }
 
-.EditStoryForm_formHeaderWrap {
+.EditListForm_formHeaderWrap {
     display: flex;
     justify-content: space-between;
 }

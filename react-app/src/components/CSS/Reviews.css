@@ -77,12 +77,14 @@
 .Reviews_edit {
     height: 25px;
     padding: 10px;
+    transition: 0.2s;
 }
 
 .Reviews_delete {
     height: 25px;
     margin-left: 10px;
     padding: 10px;
+    transition: 0.2s;
 }
 
 .Reviews_myReviewWrap {
@@ -188,6 +190,7 @@
     outline: none;
     border: none;
     caret-color: transparent;
+    transition: 0.2s;
 }
 
 .Reviews_editSave:hover,
@@ -211,6 +214,7 @@
     border: none;
     margin-left: 50px;
     caret-color: transparent;
+    transition: 0.2s;
 }
 
 .Reviews_editErrors {
@@ -261,6 +265,7 @@
     margin-left: 50px;
     caret-color: transparent;
     margin-bottom: 20px;
+    transition: 0.2s;
 
 }
 

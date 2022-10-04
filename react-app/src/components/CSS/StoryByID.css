@@ -121,6 +121,7 @@
     border: 2px solid #f47521;
     width: 180px;
     caret-color: transparent;
+    transition: 0.2s;
 }
 
 .StoryByID_watchlistWrap:hover,
@@ -131,7 +132,7 @@
 
 .StoryByID_crunchylistWrap:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.081);
+    background-color: #141519;
 }
 
 .StoryByID_watchlist {
@@ -163,6 +164,7 @@
     border: 2px solid #f47521;
     width: fit-content;
     caret-color: transparent;
+    transition: 0.2s;
 }
 
 .StoryByID_removeIco {
@@ -182,7 +184,7 @@
     margin-top: 20px;
     padding-left: 0px;
     padding-right: 15px;
-
+    transition: 0.2s;
     width: fit-content;
     caret-color: transparent;
     align-items: center;

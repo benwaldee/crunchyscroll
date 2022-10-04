@@ -1,16 +1,17 @@
-.EditStoryForm_form {
+.CreateListForm_form {
     background-color: #23252b;
     border: none;
-    width: 500px
+    width: 500px;
+
 }
 
-.EditStoryForm_formTitle {
+.CreateListForm_formTitle {
     color: white;
     margin-bottom: 4px;
     margin-top: 10px;
 }
 
-.EditStoryForm_formSubTitle {
+.CreateListForm_formSubTitle {
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     width: 400px;
@@ -18,21 +19,24 @@
     font-size: 16px;
 }
 
-.EditStoryForm_formInputLabel {
+.CreateListForm_formInputLabel {
     color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
     margin-bottom: 2px;
 }
 
-.EditStoryForm_formInputWrap {
+.CreateListForm_formInputWrap {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.CreateListForm_formInputWrapTextArea {
     margin-top: 12px;
 }
 
-.EditStoryForm_formInputWrapTextArea {
-    margin-top: 12px;
-}
-
-.EditStoryForm_formInput {
+.CreateListForm_formInput {
     width: 450px;
     height: 30px;
     padding: 10px 10px;
@@ -41,7 +45,7 @@
     outline: none;
 }
 
-.EditStoryForm_formInputTextArea {
+.CreateListForm_formInputTextArea {
     width: 450px;
     padding: 10px 10px;
     height: 100px;
@@ -51,14 +55,14 @@
 
 }
 
-.EditStoryForm_formInput:hover,
-.EditStoryForm_formInput:focus,
-.EditStoryForm_formInputTextArea:hover,
-.EditStoryForm_formInputTextArea:focus {
+.CreateListForm_formInput:hover,
+.CreateListForm_formInput:focus,
+.CreateListForm_formInputTextArea:hover,
+.CreateListForm_formInputTextArea:focus {
     border: 1px solid #f47521
 }
 
-.EditStoryForm_formSubmit {
+.CreateListForm_formSubmit {
     background-color: #f47521;
     color: white;
     border-left: none;
@@ -70,23 +74,25 @@
     border-radius: 5px;
     height: 50px;
     width: 170px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
-.EditStoryForm_formSubmit:hover {
+.CreateListForm_formSubmit:hover {
     background-color: #f47521b9;
     cursor: pointer;
 }
 
-.EditStoryForm_formInputWrapButton {
+.CreateListForm_formInputWrapButton {
     margin: 0px;
+    height: fit-content;
 }
 
-.EditStoryForm_error {
+.CreateListForm_error {
     color: #c32f2d;
     background-color: rgba(195, 47, 45, .2);
     width: 472px;
     margin-top: 7px;
+    margin-bottom: 10px;
     padding: 5px, 5px;
     height: 30px;
     display: flex;
@@ -94,17 +100,21 @@
     justify-content: center;
 }
 
-.EditStoryForm_bodyTop {
+.CreateListForm_bodyTop {
     display: flex;
     justify-content: space-between;
 }
 
-.EditStoryForm_charCount {
+.CreateListForm_charCount {
     color: #dadada87;
-    margin-right: 30px;
+    margin-top: 3px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-right: 31px;
+
 }
 
-.EditStoryForm_close {
+.CreateListForm_close {
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -112,14 +122,13 @@
     cursor: pointer;
     justify-content: flex-end;
     height: fit-content;
-    transition: 0.2s;
 }
 
-.EditStoryForm_close:hover {
+.CreateListForm_close:hover {
     color: rgba(255, 255, 255, 0.576);
 }
 
-.EditStoryForm_formHeaderWrap {
+.CreateListForm_formHeaderWrap {
     display: flex;
     justify-content: space-between;
 }

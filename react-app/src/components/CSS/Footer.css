@@ -29,6 +29,16 @@
 .Footer_content {
     height: 30px;
     color: #a0a0a0;
+    text-decoration: none;
+    transition: 0.3s;
+    caret-color: transparent;
+    width: fit-content;
+}
+
+.Footer_content:hover {
+
+    color: #ffffffdc;
+    text-decoration: underline;
 }
 
 .Footer_contentHead {

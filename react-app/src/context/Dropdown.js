@@ -10,6 +10,12 @@ export function DropProvider({ children }) {
     const [value, setValue] = useState();
     const [toggleDrop, setToggleDrop] = useState(false);
 
+    //not for dropdown, used to render lists
+    const [watchlistClicked, setWatchlistClicked] = useState(true)
+
+    //list modals
+    const [showEditListModal, setShowEditListModal] = useState(false);
+    const [showDeleteListModal, setShowDeleteListModal] = useState(false)
 
     useEffect(() => {
         setValue(dropRef.current);
@@ -19,7 +25,10 @@ export function DropProvider({ children }) {
         <>
             <DropContext.Provider value={{
                 value,
-                toggleDrop, setToggleDrop
+                toggleDrop, setToggleDrop,
+                watchlistClicked, setWatchlistClicked,
+                showEditListModal, setShowEditListModal,
+                showDeleteListModal, setShowDeleteListModal
             }}>
                 {children}
             </DropContext.Provider>

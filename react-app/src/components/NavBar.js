@@ -24,6 +24,7 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user)
   const history = useHistory()
   const { toggleDrop, setToggleDrop } = useDropContext()
+  const { watchlistClicked, setWatchlistClicked } = useDropContext()
 
   const redirectHome = () => {
     history.push('/')
@@ -42,7 +43,19 @@ const NavBar = () => {
   const redirectList = () => {
     if (!user) {
       history.push('/login-signup')
-    } else { history.push('/lists') }
+    } else {
+      setWatchlistClicked(true)
+      history.push('/lists')
+    }
+  }
+
+  const redirectCrunchList = () => {
+    if (!user) {
+      history.push('/login-signup')
+    } else {
+      setWatchlistClicked(false)
+      history.push('/lists')
+    }
   }
 
   const closeDrop = () => {
@@ -123,7 +136,7 @@ const NavBar = () => {
                 </li >
                 <li onClick={() => {
                   setToggleDrop(false)
-                  redirectList()
+                  redirectCrunchList()
                   return
                 }} className='NavBar_li'>
                   <img className='NavBar_dropdownIco' src={list}></img>

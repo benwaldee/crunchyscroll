@@ -74,7 +74,7 @@
     border-right: none;
     border-bottom: #b78142 1px solid;
     font-size: 20px;
-
+    transition: 0.2s;
     border-radius: 5px;
     height: 70px;
     width: 322px
@@ -94,7 +94,7 @@
     border-right: none;
     border-bottom: #b78142 1px solid;
     font-size: 20px;
-
+    transition: 0.2s;
     border-radius: 5px;
     height: 70px;
     width: 322px;

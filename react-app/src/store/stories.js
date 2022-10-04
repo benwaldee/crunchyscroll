@@ -112,9 +112,7 @@ const storiesReducer = (state = initialState, action) => {
         case DELETE_STORY:
             stories = { ...state, allStories: { ...state.allStories } }
             let deleteStoryID = action.payload
-
             delete stories.allStories[deleteStoryID]
-
             return stories
         default:
             return state;
