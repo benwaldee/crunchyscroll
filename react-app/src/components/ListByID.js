@@ -7,12 +7,20 @@ import back from './images/back.png'
 import deleteIco from './images/delete.png'
 import { getAllStoriesThunk } from '../store/stories'
 import { getUserListsThunk, removeStoryListThunk } from '../store/lists.js'
+import heart from './images/heart.png'
 
 const ListByID = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const { list, setList } = useDropContext()
     const [load, toggleLoad] = useState(false)
+    //did list context and updated list selectors forgetting that i could just
+    //grab id from params - refactor late
+    let { id } = useParams();
+
+    if (Number(list.id) !== Number(id)) {
+        history.push('/404')
+    }
 
     const updatedList = useSelector(state => state?.lists?.userLists[list.id])
 
@@ -28,6 +36,10 @@ const ListByID = () => {
 
     const redirectList = () => {
         history.push('/lists')
+    }
+
+    const redirectHome = () => {
+        history.push('/')
     }
 
     const redirectStory = (id) => {
@@ -60,7 +72,14 @@ const ListByID = () => {
                     <h1 className='ListByID_h1'>{list.name}</h1>
                 </div>
                 <div className='ListByID_bodyWrap'>
-                    {listStories.map(story => (
+                    {listStories.length < 1 &&
+                        <div className='Lists_watchlistEmpty'>
+                            <img src={heart} className='Lists_watchlistFrown'></img>
+                            <div className='Lists_watchlistEmptyText'> Your crunchylist needs some love. Let's fill it up with awesome stories.</div>
+                            <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
+                        </div>
+                    }
+                    {listStories.length > 0 && listStories.map(story => (
                         <div className='ListByID_storyWrap'>
                             <img onClick={() => redirectStory(story.id)} src={story.image_url} className='ListByID_image'></img>
                             <div className='ListByID_halfWrap'>
