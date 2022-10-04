@@ -93,7 +93,9 @@ const ListByID = () => {
                     }
                     {listStories.length > 0 && listStories.map(story => (
                         <div className='ListByID_storyWrap'>
-                            <img onClick={() => redirectStory(story.id)} src={story.image_url} className='ListByID_image'></img>
+                            <img
+                                onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
+                                onClick={() => redirectStory(story.id)} src={story.image_url} className='ListByID_image'></img>
                             <div className='ListByID_halfWrap'>
                                 <div onClick={() => redirectStory(story.id)} className='ListByID_storyName'>{story.title}</div>
                                 <div className='ListByID_storyAuthor'>{story.userName}</div>

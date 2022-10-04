@@ -140,7 +140,7 @@ const Lists = () => {
                 </div>
                 <div className='Lists_watchlistStoryGrid'>
                     {watchlistClicked && watchlistStoriesArr?.map((story) => (
-                        <div onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
+                        <div key={story?.id} onClick={() => redirectStoryPage(story.id)} className='Lists_watchlistStoryWrap'>
                             <img className='Lists_watchlistStoryImage' src={story?.image_url} onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>
                             <div className='Lists_watchlistStoryTitle'>{story?.title}</div>
                             <div className='Lists_watchlistStoryAuthor'>{story?.userName}</div>
@@ -160,7 +160,7 @@ const Lists = () => {
                         <CreateListModal />
                         <div className='Lists_crunchylistGrid'>
                             {crunchyListArr.map((list => (
-                                <div onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
+                                <div key={list?.id} onClick={(e) => redirectListIDPage(e, list)} className='Lists_crunchylistWrap'>
                                     <div className='Lists_crunchylistTop'>
                                         <div className='Lists_crunchylistName'>{list.name}</div>
                                         <div className='Lists_crunchylistMoreWrap'>

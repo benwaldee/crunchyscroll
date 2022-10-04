@@ -31,12 +31,13 @@ const MyStories = () => {
     }
 
     useEffect(() => {
-
         dispatch(getAllStoriesThunk())
         dispatch(clearReviews())
     }, [dispatch])
 
 
+
+    console.log('rendering user stories', userStoriesArr)
 
     return (
         <div className='MyStories_contentWrap'>
@@ -53,7 +54,7 @@ const MyStories = () => {
                         <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
                     </div>
                 }
-                {userStoriesArr?.map((story) => (
+                {userStoriesArr?.length > 1 && userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
                         <img
                             onClick={() => redirectStory(story.id)}
