@@ -130,7 +130,7 @@
 
 .Lists_crunchylistWrap {
     width: 410px;
-    height: 70px;
+    height: fit-content;
     padding: 15px 5px 10px 20px;
     background-color: #1b1d21;
     transition: 0.2s;
@@ -145,6 +145,9 @@
 .Lists_crunchylistName {
     color: #ffffff;
     font-size: 17px;
+    width: 350px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
 }
 
 .Lists_crunchylistTop {
@@ -159,7 +162,7 @@
 
 .Lists_crunchylistLength {
     color: #939393;
-
+    margin-bottom: 5px;
 }
 
 .Lists_crunchylistMore {

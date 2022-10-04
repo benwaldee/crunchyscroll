@@ -63,6 +63,8 @@
     font-weight: normal;
     font-size: 40px;
     margin-bottom: 10px;
+    width: 500px;
+    word-wrap: break-word;
 }
 
 .StoryByID_ratingWrap {
