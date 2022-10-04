@@ -21,6 +21,8 @@ const MyStories = () => {
         .filter((story) => story?.user_id === user?.id)
         .sort((a, b) => Number(b.id) - Number(a.id))
 
+    console.log(userStoriesArr)
+
     if (!user) {
         history.replace('/')
     }
@@ -59,7 +61,7 @@ const MyStories = () => {
                 </div>
             }
             <div className='MyStories_mapGrid'>
-                {isLoaded && userStoriesArr?.length > 1 && userStoriesArr?.map((story) => (
+                {isLoaded && userStoriesArr?.length > 0 && userStoriesArr?.map((story) => (
                     <div key={story.id} className='MyStories_storyWrap'>
                         <img
                             onClick={() => redirectStory(story.id)}
