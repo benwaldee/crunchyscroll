@@ -74,3 +74,6 @@
 
 ![image](https://cdn.discordapp.com/attachments/586690728751661146/1027319265235320932/unknown.png)
 
+## Future Plans
+
+* I would like to implement the bonus features I had planned out. Light mode would be a great option for a dark themed application, and a search bar would be a neat component to add functionality to the site.
