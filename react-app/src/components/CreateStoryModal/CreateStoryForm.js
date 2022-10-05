@@ -30,8 +30,13 @@ const CreateStoryForm = ({ setshowAddStoryModal }) => {
 
         if (!image.endsWith('.png') && !image.endsWith('.webp') && !image.endsWith('.jpg') && !image.endsWith('.jpeg') && !image.endsWith('.svg')) {
             setImage('')
-            newErr.image = 'Please enter a valid image '
+            newErr.image = 'Image must end with jpg/png/webp/jpeg/svg'
 
+        }
+
+        if (!image.startsWith('http://') && !image.startsWith('https://')) {
+            setImage('')
+            newErr.image = 'URL must start with http:// or https://'
         }
 
         // lengths
