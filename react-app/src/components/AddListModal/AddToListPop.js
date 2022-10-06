@@ -67,10 +67,11 @@ const AddToListPop = ({ setShowAddToListModal, listsDict, id, story }) => {
                         }}
                         className='AddToListPop_listInnerWrap'>
                         <div className='AddToListPop_noPlusWrap'>
-                            <div className='AddToListPop_title'>{list.name}</div>
+                            <div className='AddToListPop_title'>{list.name.length > 25 ? `${list.name.slice(0, 25)}...` : list.name}</div>
                             <div className='AddToListPop_items'>{`${list.stories.length} Items`}</div>
                         </div>
-                        {inList && listClickID === list.id && <div className='AddToListPop_erorr'>{story.title} is already added</div>}
+                        {inList && listClickID === list.id && <div className='AddToListPop_erorr'>
+                            {story.title.length > 25 ? `${story.title.slice(0, 25)}...` : story.title} is already added</div>}
                         <div className='AddToListPop_plus'>+</div>
                     </div>
                 ))}
