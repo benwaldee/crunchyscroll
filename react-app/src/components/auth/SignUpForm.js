@@ -33,7 +33,7 @@ const SignUpForm = () => {
       newErr.username = "Username must be 3-30 characters"
     }
     if (!email.includes("@") || !email.includes(".")) {
-      setEmail("")
+      // setEmail("")
       newErr.email = "Email invalid."
 
     }
