@@ -7,7 +7,9 @@ import starThQuart from './images/stars/star-three-quart.png'
 import starFull from './images/stars/star-full.png'
 
 
+
 const Stars = ({ avgRating, reviews }) => {
+    //no need to toggle light or dark, same either way
 
     console.log(avgRating)
     console.log(reviews)

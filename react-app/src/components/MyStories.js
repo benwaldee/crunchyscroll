@@ -8,11 +8,13 @@ import EditStoryModal from './EditStoryModal';
 import DeleteStoryModal from './DeleteStoryModal';
 import { clearReviews } from '../store/reviews'
 import heart from './images/heart.png'
+import { useDropContext } from '../context/Dropdown';
 
 const MyStories = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
+    const { dark } = useDropContext()
 
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -44,41 +46,41 @@ const MyStories = () => {
     }, [])
 
 
-    if (!isLoaded) { return <div className='paddingLoad'></div> }
+    if (!isLoaded) { return <div className={dark ? 'paddingLoad' : 'LIGHTpaddingLoad'}></div> }
 
     return (
-        <div className='MyStories_contentWrap'>
-            <div className='MyStories_header'>
-                <h1 className='MyStories_h1'> My Stories</h1>
+        <div className={dark ? 'MyStories_contentWrap' : 'LIGHTMyStories_contentWrap'}>
+            <div className={dark ? 'MyStories_header' : 'LIGHTMyStories_header'}>
+                <h1 className={dark ? 'MyStories_h1' : 'LIGHTMyStories_h1'}> My Stories</h1>
                 <CreateStoryModal />
             </div>
             {isLoaded && userStoriesArr?.length < 1 &&
 
-                <div className='Lists_watchlistEmpty'>
-                    <img src={heart} className='Lists_watchlistFrown'></img>
-                    <div className='Lists_watchlistEmptyText'> You have not written any stories! Click add to write a story or click below to go home.</div>
-                    <div onClick={redirectHome} className='Lists_watchlistHome'>GO TO HOME FEED</div>
+                <div className={dark ? 'Lists_watchlistEmpty' : 'LIGHTLists_watchlistEmpty'}>
+                    <img src={heart} className={dark ? 'Lists_watchlistFrown' : 'LIGHTLists_watchlistFrown'}></img>
+                    <div className={dark ? 'Lists_watchlistEmptyText' : 'LIGHTLists_watchlistEmptyText'}> You have not written any stories! Click add to write a story or click below to go home.</div>
+                    <div onClick={redirectHome} className={dark ? 'Lists_watchlistHome' : 'LIGHTLists_watchlistHome'}>GO TO HOME FEED</div>
                 </div>
             }
-            <div className='MyStories_mapGrid'>
+            <div className={dark ? 'MyStories_mapGrid' : 'LIGHTMyStories_mapGrid'}>
                 {isLoaded && userStoriesArr?.length > 0 && userStoriesArr?.map((story) => (
-                    <div key={story.id} className='MyStories_storyWrap'>
+                    <div key={story.id} className={dark ? 'MyStories_storyWrap' : 'LIGHTMyStories_storyWrap'}>
                         <img
                             onClick={() => redirectStory(story.id)}
-                            className='MyStories_storyImage'
+                            className={dark ? 'MyStories_storyImage' : 'LIGHTMyStories_storyImage'}
                             src={story?.image_url}
                             alt='Story cover photo'
                             onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
                         ></img>
-                        <div className='MyStories_storyTextWrap'>
-                            <div onClick={() => redirectStory(story.id)} className='MyStories_storyTitle'>{story?.title}</div>
-                            <div className='MyStories_storyBody'>{`${story?.body.slice(0, 200)}...`}</div>
-                            <div className='MyStories_storyrightBottom'>
-                                <div className='MyStories_storyrightBottomTable'>
-                                    <div className='MyStories_storyReviews'>Reviews: {story?.reviews.length}</div>
-                                    <div className='MyStories_storyLists'>This story is in {story?.lists.length} lists!</div>
+                        <div className={dark ? 'MyStories_storyTextWrap' : 'LIGHTMyStories_storyTextWrap'}>
+                            <div onClick={() => redirectStory(story.id)} className={dark ? 'MyStories_storyTitle' : 'LIGHTMyStories_storyTitle'}>{story?.title}</div>
+                            <div className={dark ? 'MyStories_storyBody' : 'LIGHTMyStories_storyBody'}>{`${story?.body.slice(0, 200)}...`}</div>
+                            <div className={dark ? 'MyStories_storyrightBottom' : 'LIGHTMyStories_storyrightBottom'}>
+                                <div className={dark ? 'MyStories_storyrightBottomTable' : 'LIGHTMyStories_storyrightBottomTable'}>
+                                    <div className={dark ? 'MyStories_storyReviews' : 'LIGHTMyStories_storyReviews'}>Reviews: {story?.reviews.length}</div>
+                                    <div className={dark ? 'MyStories_storyLists' : 'LIGHTMyStories_storyLists'}>This story is in {story?.lists.length} lists!</div>
                                 </div>
-                                <div className='MyStories_storyrightBottomButtons'>
+                                <div className={dark ? 'MyStories_storyrightBottomButtons' : 'LIGHTMyStories_storyrightBottomButtons'}>
                                     <EditStoryModal story={{
                                         id: story.id,
                                         title: story.title,

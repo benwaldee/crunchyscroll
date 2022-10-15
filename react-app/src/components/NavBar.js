@@ -69,16 +69,33 @@ const NavBar = () => {
 
     //add elements in dropdown to avoid closing
     let elementArr = []
-    elementArr.push(document.getElementById('NavBar_menuID'))
-    elementArr.push(document.getElementsByClassName('NavBar_dropdown_top')[0])
-    elementArr.push(document.getElementsByClassName('NavBar_dropdown_mid')[0])
-    elementArr.push(document.getElementsByClassName('NavBar_dropdown_bottom')[0])
-    elementArr.push(document.getElementsByClassName('NavBar_profilePicBig')[0])
-    elementArr.push(document.getElementsByClassName('NavBar_dropdown_username')[0])
-    elementArr.push(document.getElementsByClassName('NavBar_logout_diff')[0])
-    let icos = document.getElementsByClassName('NavBar_dropdownIco')
-    for (let ele of icos) {
-      elementArr.push(ele)
+
+    if (dark) {
+      elementArr.push(document.getElementById('NavBar_menuID'))
+      elementArr.push(document.getElementsByClassName('NavBar_dropdown_top')[0])
+      elementArr.push(document.getElementsByClassName('NavBar_dropdown_mid')[0])
+      elementArr.push(document.getElementsByClassName('NavBar_dropdown_bottom')[0])
+      elementArr.push(document.getElementsByClassName('NavBar_profilePicBig')[0])
+      elementArr.push(document.getElementsByClassName('NavBar_dropdown_username')[0])
+      elementArr.push(document.getElementsByClassName('NavBar_logout_diff')[0])
+      let icos = document.getElementsByClassName('NavBar_dropdownIco')
+      for (let ele of icos) {
+        elementArr.push(ele)
+      }
+    }
+
+    if (!dark) {
+      elementArr.push(document.getElementById('LIGHTNavBar_menuID'))
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_dropdown_top')[0])
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_dropdown_mid')[0])
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_dropdown_bottom')[0])
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_profilePicBig')[0])
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_dropdown_username')[0])
+      elementArr.push(document.getElementsByClassName('LIGHTNavBar_logout_diff')[0])
+      let icos = document.getElementsByClassName('LIGHTNavBar_dropdownIco')
+      for (let ele of icos) {
+        elementArr.push(ele)
+      }
     }
 
 
@@ -98,45 +115,45 @@ const NavBar = () => {
 
   return (
     <>
-      <div className='NavBar_outer'>
-        <div className='NavBar_left'>
-          <div className='NavBar_logoWrap' onClick={redirectHome}>
-            <img className='NavBar_logo' src={logo}></img>
-            <img className='NavBar_logoTitle' src={sitetitle}></img>
+      <div className={dark ? 'NavBar_outer' : 'LIGHTNavBar_outer'}>
+        <div className={dark ? 'NavBar_left' : 'LIGHTNavBar_left'}>
+          <div className={dark ? 'NavBar_logoWrap' : 'LIGHTNavBar_logoWrap'} onClick={redirectHome}>
+            <img className={dark ? 'NavBar_logo' : 'LIGHTNavBar_logo'} src={logo}></img>
+            <img className={dark ? 'NavBar_logoTitle' : 'LIGHTNavBar_logoTitle'} src={sitetitle}></img>
           </div>
-          <div onClick={redirectHome} className='NavBar_home'>Home</div>
-          <div onClick={redirectMyStories} className='NavBar_myStories'> My Stories</div>
+          <div onClick={redirectHome} className={dark ? 'NavBar_home' : 'LIGHTNavBar_home'}>Home</div>
+          <div onClick={redirectMyStories} className={dark ? 'NavBar_myStories' : 'LIGHTNavBar_myStories'}> My Stories</div>
         </div>
-        <div className='NavBar_right'>
-          {/* <img src={search} className='NavBar_search'></img> */}
-          <div onClick={() => setDark(!dark)} className='NavBar_watchlistContainer'>
-            {dark && <img src={sun} className='NavBar_watchlist'></img>}
-            {!dark && <img src={moon} className='NavBar_watchlist'></img>}
+        <div className={dark ? 'NavBar_right' : 'LIGHTNavBar_right'}>
+          {/* <img src={search} className={dark ? 'NavBar_search' : 'LIGHTNavBar_search'}></img> */}
+          <div onClick={() => setDark(!dark)} className={dark ? 'NavBar_watchlistContainer' : 'LIGHTNavBar_watchlistContainer'}>
+            {dark && <img src={sun} className={dark ? 'NavBar_watchlist' : 'LIGHTNavBar_watchlist'}></img>}
+            {!dark && <img src={moon} className={dark ? 'NavBar_watchlist' : 'LIGHTNavBar_watchlist'}></img>}
           </div>
-          <div onClick={redirectList} className='NavBar_watchlistContainer'>
-            <img src={watchlist} className='NavBar_watchlist'></img>
+          <div onClick={redirectList} className={dark ? 'NavBar_watchlistContainer' : 'LIGHTNavBar_watchlistContainer'}>
+            <img src={watchlist} className={dark ? 'NavBar_watchlist' : 'LIGHTNavBar_watchlist'}></img>
           </div>
           <div
-            className={!toggleDrop ? 'NavBar_profileDrop' : 'NavBar_profileDropDark'}
+            className={dark ? (!toggleDrop ? 'NavBar_profileDrop' : 'NavBar_profileDropDark') : (!toggleDrop ? 'LIGHTNavBar_profileDrop' : 'LIGHTNavBar_profileDropDark')}
             onClick={() => setToggleDrop(!toggleDrop)}
           >
             <img src={user ? userPic : noUser} className='NavBar_profilePic'></img>
             <img src={dropdown} className='NavBar_dropdown'></img>
           </div>
-          {toggleDrop && <div id='NavBar_menuID' className='NavBar_menu'>
-            <ul className='NavBar_ul'>
-              <div className='NavBar_dropdown_top'>
-                <img className='NavBar_profilePicBig' src={user ? userPic : noUser}></img>
-                <div className='NavBar_dropdown_username'>{user ? user.username : 'Guest'}</div>
+          {toggleDrop && <div id='LIGHTNavBar_menuID' className={dark ? 'NavBar_menu' : 'LIGHTNavBar_menu'}>
+            <ul className={dark ? 'NavBar_ul' : 'LIGHTNavBar_ul'}>
+              <div className={dark ? 'NavBar_dropdown_top' : 'LIGHTNavBar_dropdown_top'}>
+                <img className={dark ? 'NavBar_profilePicBig' : 'LIGHTNavBar_profilePicBig'} src={user ? userPic : noUser}></img>
+                <div className={dark ? 'NavBar_dropdown_username' : 'LIGHTNavBar_dropdown_username'}>{user ? user.username : 'Guest'}</div>
               </div>
-              <div className='NavBar_dropdown_mid'>
+              <div className={dark ? 'NavBar_dropdown_mid' : 'LIGHTNavBar_dropdown_mid'}>
                 <li onClick={() => {
                   setToggleDrop(false)
                   redirectList()
                   return
-                }} className='NavBar_li'>
-                  <img className='NavBar_dropdownIco' src={watchlist}></img>
-                  <div className='NavBar_dropdownText'>
+                }} className={dark ? 'NavBar_li' : 'LIGHTNavBar_li'}>
+                  <img className={dark ? 'NavBar_dropdownIco' : 'LIGHTNavBar_dropdownIco'} src={watchlist}></img>
+                  <div className={dark ? 'NavBar_dropdownText' : 'LIGHTNavBar_dropdownText'}>
                     Watchlist
                   </div>
                 </li >
@@ -144,9 +161,9 @@ const NavBar = () => {
                   setToggleDrop(false)
                   redirectCrunchList()
                   return
-                }} className='NavBar_li'>
-                  <img className='NavBar_dropdownIco' src={list}></img>
-                  <div className='NavBar_dropdownText' >
+                }} className={dark ? 'NavBar_li' : 'LIGHTNavBar_li'}>
+                  <img className={dark ? 'NavBar_dropdownIco' : 'LIGHTNavBar_dropdownIco'} src={list}></img>
+                  <div className={dark ? 'NavBar_dropdownText' : 'LIGHTNavBar_dropdownText'} >
                     Crunchylists
                   </div>
                 </li >
@@ -154,27 +171,27 @@ const NavBar = () => {
                   setToggleDrop(false)
                   redirectHome()
                   return
-                }} className='NavBar_li'>
-                  <img className='NavBar_dropdownIco' src={home}></img>
-                  <div className='NavBar_dropdownText'>
+                }} className={dark ? 'NavBar_li' : 'LIGHTNavBar_li'}>
+                  <img className={dark ? 'NavBar_dropdownIco' : 'LIGHTNavBar_dropdownIco'} src={home}></img>
+                  <div className={dark ? 'NavBar_dropdownText' : 'LIGHTNavBar_dropdownText'}>
                     Home
                   </div>
                 </li >
               </div>
-              <div className='NavBar_dropdown_bottom'>
-                {!user && <li className='NavBar_li' onClick={() => {
+              <div className={dark ? 'NavBar_dropdown_bottom' : 'LIGHTNavBar_dropdown_bottom'}>
+                {!user && <li className={dark ? 'NavBar_li' : 'LIGHTNavBar_li'} onClick={() => {
                   setToggleDrop(false)
                   redirectLogin()
                   return
                 }}>
-                  <img className='NavBar_dropdownIco' src={login}></img>
-                  <div className='NavBar_dropdownText' >
+                  <img className={dark ? 'NavBar_dropdownIco' : 'LIGHTNavBar_dropdownIco'} src={login}></img>
+                  <div className={dark ? 'NavBar_dropdownText' : 'LIGHTNavBar_dropdownText'} >
                     Login
                   </div>
                 </li>}
 
-                {user && <li className='NavBar_logout_diff'>
-                  <img className='NavBar_dropdownIco' src={logout}></img>
+                {user && <li className={dark ? 'NavBar_logout_diff' : 'LIGHTNavBar_logout_diff'}>
+                  <img className={dark ? 'NavBar_dropdownIco' : 'LIGHTNavBar_dropdownIco'} src={logout}></img>
                   <LogoutButton />
                 </li>}
               </div>
