@@ -17,13 +17,15 @@ import list from './images/list.png'
 import home from './images/home.png'
 import login from './images/login.png'
 import logout from './images/logout.png'
+import sun from './images/sun.png'
+import moon from './images/moon.png'
 import { useDropContext } from '../context/Dropdown';
 
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
   const history = useHistory()
-  const { toggleDrop, setToggleDrop } = useDropContext()
+  const { toggleDrop, setToggleDrop, dark, setDark } = useDropContext()
   const { watchlistClicked, setWatchlistClicked } = useDropContext()
 
   const redirectHome = () => {
@@ -107,6 +109,10 @@ const NavBar = () => {
         </div>
         <div className='NavBar_right'>
           {/* <img src={search} className='NavBar_search'></img> */}
+          <div onClick={() => setDark(!dark)} className='NavBar_watchlistContainer'>
+            {dark && <img src={sun} className='NavBar_watchlist'></img>}
+            {!dark && <img src={moon} className='NavBar_watchlist'></img>}
+          </div>
           <div onClick={redirectList} className='NavBar_watchlistContainer'>
             <img src={watchlist} className='NavBar_watchlist'></img>
           </div>

@@ -76,6 +76,7 @@
     height: 60px;
     width: 70px;
     transition: 0.2s;
+    caret-color: transparent;
 }
 
 .NavBar_profilePic {
