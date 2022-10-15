@@ -140,7 +140,7 @@ const NavBar = () => {
             <img src={user ? userPic : noUser} className='NavBar_profilePic'></img>
             <img src={dropdown} className='NavBar_dropdown'></img>
           </div>
-          {toggleDrop && <div id='LIGHTNavBar_menuID' className={dark ? 'NavBar_menu' : 'LIGHTNavBar_menu'}>
+          {toggleDrop && <div id={dark ? 'NavBar_menuID' : 'LIGHTNavBar_menuID'} className={dark ? 'NavBar_menu' : 'LIGHTNavBar_menu'}>
             <ul className={dark ? 'NavBar_ul' : 'LIGHTNavBar_ul'}>
               <div className={dark ? 'NavBar_dropdown_top' : 'LIGHTNavBar_dropdown_top'}>
                 <img className={dark ? 'NavBar_profilePicBig' : 'LIGHTNavBar_profilePicBig'} src={user ? userPic : noUser}></img>
