@@ -5,10 +5,11 @@ import { useDropContext } from '../../context/Dropdown';
 
 function DeleteListModal({ list, setMoreToggle }) {
     const { showDeleteListModal, setShowDeleteListModal } = useDropContext();
+    const { dark } = useDropContext()
 
     return (
         <>
-            <div className="Lists_editList" onClick={() => {
+            <div className={dark ? "Lists_editList" : "LIGHTLists_editList"} onClick={() => {
                 setMoreToggle(false)
                 setShowDeleteListModal(list)
             }}>

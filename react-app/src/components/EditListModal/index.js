@@ -4,13 +4,13 @@ import EditListForm from "./EditListForm";
 import { useDropContext } from '../../context/Dropdown';
 
 function EditListModal({ list, setMoreToggle }) {
-    const { showEditListModal, setShowEditListModal } = useDropContext();
+    const { showEditListModal, setShowEditListModal, dark } = useDropContext();
 
     console.log("INEDITLISTMODAL")
 
     return (
         <>
-            <div className="Lists_editList" onClick={() => {
+            <div className={dark ? "Lists_editList" : "LIGHTLists_editList"} onClick={() => {
                 setMoreToggle(false)
                 setShowEditListModal(list)
             }}>

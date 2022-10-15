@@ -3,8 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { editStoryThunk } from '../../store/stories'
+import { useDropContext } from '../../context/Dropdown';
 
 const EditStoryForm = ({ setShowEditStoryModal, story }) => {
+    const { dark } = useDropContext()
     const history = useHistory()
     const dispatch = useDispatch()
     const userID = useSelector(state => state.session.user).id
@@ -82,51 +84,51 @@ const EditStoryForm = ({ setShowEditStoryModal, story }) => {
     return (
         <>
 
-            <form className='EditStoryForm_form' onSubmit={handleSubmit}>
-                <div className='EditStoryForm_formHeaderWrap'>
-                    <h1 className='EditStoryForm_formTitle'> Edit your story</h1>
-                    <div onClick={() => setShowEditStoryModal(false)} className='EditStoryForm_close'>X</div>
+            <form className={dark ? 'EditStoryForm_form' : 'LIGHTEditStoryForm_form'} onSubmit={handleSubmit}>
+                <div className={dark ? 'EditStoryForm_formHeaderWrap' : 'LIGHTEditStoryForm_formHeaderWrap'}>
+                    <h1 className={dark ? 'EditStoryForm_formTitle' : 'LIGHTEditStoryForm_formTitle'}> Edit your story</h1>
+                    <div onClick={() => setShowEditStoryModal(false)} className={dark ? 'EditStoryForm_close' : 'LIGHTEditStoryForm_close'}>X</div>
                 </div>
-                <div className='EditStoryForm_formSubTitle'> Change your story below! </div>
-                <div className='EditStoryForm_formInputWrap'>
-                    <div className='EditStoryForm_formInputLabel'>Title</div>
+                <div className={dark ? 'EditStoryForm_formSubTitle' : 'LIGHTEditStoryForm_formSubTitle'}> Change your story below! </div>
+                <div className={dark ? 'EditStoryForm_formInputWrap' : 'LIGHTEditStoryForm_formInputWrap'}>
+                    <div className={dark ? 'EditStoryForm_formInputLabel' : 'LIGHTEditStoryForm_formInputLabel'}>Title</div>
                     <input
-                        className='EditStoryForm_formInput'
+                        className={dark ? 'EditStoryForm_formInput' : 'LIGHTEditStoryForm_formInput'}
                         type='text'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Title'
                     ></input>
-                    {errors?.title && <div className='EditStoryForm_error'>{errors.title}</div>}
+                    {errors?.title && <div className={dark ? 'EditStoryForm_error' : 'LIGHTEditStoryForm_error'}>{errors.title}</div>}
                 </div>
-                <div className='EditStoryForm_formInputWrapTextArea'>
-                    <div className='EditStoryForm_bodyTop'>
-                        <div className='EditStoryForm_formInputLabel'>Body</div>
-                        <div className='EditStoryForm_charCount'>{body.length}/50000</div>
+                <div className={dark ? 'EditStoryForm_formInputWrapTextArea' : 'LIGHTEditStoryForm_formInputWrapTextArea'}>
+                    <div className={dark ? 'EditStoryForm_bodyTop' : 'LIGHTEditStoryForm_bodyTop'}>
+                        <div className={dark ? 'EditStoryForm_formInputLabel' : 'LIGHTEditStoryForm_formInputLabel'}>Body</div>
+                        <div className={dark ? 'EditStoryForm_charCount' : 'LIGHTEditStoryForm_charCount'}>{body.length}/50000</div>
                     </div>
                     <textarea
-                        className='EditStoryForm_formInputTextArea'
+                        className={dark ? 'EditStoryForm_formInputTextArea' : 'LIGHTEditStoryForm_formInputTextArea'}
                         type='text'
                         placeholder='Paste your story here!'
                         value={body}
                         maxLength={50000}
                         onChange={(e) => setBody(e.target.value)}
                     ></textarea>
-                    {errors?.body && <div className='EditStoryForm_error'>{errors.body}</div>}
+                    {errors?.body && <div className={dark ? 'EditStoryForm_error' : 'LIGHTEditStoryForm_error'}>{errors.body}</div>}
                 </div>
-                <div className='EditStoryForm_formInputWrap'>
-                    <div className='EditStoryForm_formInputLabel'>Image </div>
+                <div className={dark ? 'EditStoryForm_formInputWrap' : 'LIGHTEditStoryForm_formInputWrap'}>
+                    <div className={dark ? 'EditStoryForm_formInputLabel' : 'LIGHTEditStoryForm_formInputLabel'}>Image </div>
                     <input
-                        className='EditStoryForm_formInput'
+                        className={dark ? 'EditStoryForm_formInput' : 'LIGHTEditStoryForm_formInput'}
                         type='text'
                         placeholder='Image '
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                     ></input>
-                    {errors?.image && <div className='EditStoryForm_error'>{errors.image}</div>}
+                    {errors?.image && <div className={dark ? 'EditStoryForm_error' : 'LIGHTEditStoryForm_error'}>{errors.image}</div>}
                 </div>
-                <div className='EditStoryForm_formInputWrapButton'>
-                    <button className='EditStoryForm_formSubmit' type='submit'> Save</button>
+                <div className={dark ? 'EditStoryForm_formInputWrapButton' : 'LIGHTEditStoryForm_formInputWrapButton'}>
+                    <button className={dark ? 'EditStoryForm_formSubmit' : 'LIGHTEditStoryForm_formSubmit'} type='submit'> Save</button>
                 </div>
             </form>
         </>
