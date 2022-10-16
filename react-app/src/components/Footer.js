@@ -1,4 +1,5 @@
 import './CSS/Footer.css'
+import './CSS/Light/LIGHTFooter.css'
 import React, { useEffect, useState } from 'react';
 import { useDropContext } from '../context/Dropdown';
 const Footer = () => {

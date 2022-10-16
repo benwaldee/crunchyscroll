@@ -45,7 +45,7 @@
     background-color: #f2f2f2;
 }
 
-@media screen and (max-width: LIGHT1300px) {
+@media screen and (max-width: 1300px) {
     .LIGHTLoginSignupPage_lower_inner {
         display: flex;
         flex-direction: column;
@@ -53,11 +53,11 @@
         padding: 20px;
         height: 1000px;
         width: 750px;
-        background-color: #23252b;
+        background-color: white;
     }
 }
 
-@media screen and (max-width: LIGHT1300px) {
+@media screen and (max-width: 1300px) {
     .LIGHTLoginSignupPage_contentWrap {
         height: 760px;
         padding-bottom: 950px;

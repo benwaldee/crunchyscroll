@@ -210,7 +210,7 @@ const Reviews = ({ reviews, avgRating, user, userReview, id, toggleRefresh, refr
                 {Object.values(reviews)
                     .filter((review) => review.user_id !== user?.id)
                     //sort by number of positive votes
-                    .sort((a, b) => Number(b.votes.filter((vote) => vote.vote).length) - Number(a.votes.filter((vote) => vote.vote).length))
+                    .sort((a, b) => Number((b.votes.filter((vote) => vote.vote).length) / (b.votes.length)) - Number((a.votes.filter((vote) => vote.vote).length)) / (a.votes.length))
                     .map((review) => (
                         <div className={dark ? 'Reviews_eachReviewWrap' : 'LIGHTReviews_eachReviewWrap'}>
                             <div className={dark ? 'Reviews_headerWrap' : 'LIGHTReviews_headerWrap'}>

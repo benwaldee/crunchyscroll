@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import './CSS/NavBar.css'
+import './CSS/Light/LIGHTNavBar.css'
 import { useHistory } from 'react-router-dom';
 import logo from './images/transpo-scroll.png'
 import sitetitle from './images/crunchywords.png'
