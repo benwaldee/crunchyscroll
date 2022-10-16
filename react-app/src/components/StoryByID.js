@@ -1,4 +1,5 @@
 import "./CSS/StoryByID.css"
+import "./CSS/Light/LIGHTStoryByID.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';

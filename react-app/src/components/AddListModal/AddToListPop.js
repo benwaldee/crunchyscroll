@@ -1,4 +1,5 @@
 import './AddToListPop.css'
+import './LIGHTAddToListPop.css'
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addStoryListThunk } from '../../store/lists.js'
