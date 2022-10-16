@@ -1,4 +1,5 @@
 import './DeleteStoryDiv.css'
+import './LIGHTDeleteStoryDiv.css'
 import { useDispatch } from 'react-redux';
 import { useDropContext } from '../../context/Dropdown';
 import { deleteStoryThunk } from '../../store/stories'

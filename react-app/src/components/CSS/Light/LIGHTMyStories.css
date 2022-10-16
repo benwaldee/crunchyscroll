@@ -75,23 +75,23 @@
 
 .LIGHTMyStories_storyReviews {
     margin-top: 20px;
-    color: #dadada;
-    background-color: #23252b;
+    color: #ffffff;
+    background-color: #23252bd6;
     width: 170px;
     padding: 10px;
-    border: 1px solid rgb(63, 63, 63);
+    border: 1px solid rgb(46, 46, 46);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 .LIGHTMyStories_storyLists {
-    color: #dadada;
+    color: #ffffff;
     width: 170px;
-    border: 1px solid rgb(63, 63, 63);
+    border: 1px solid rgb(46, 46, 46);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px;
-    background-color: #23252b;
+    background-color: #23252bd6;
 }
 
 .LIGHTMyStories_storyDelete,
