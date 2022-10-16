@@ -1,4 +1,5 @@
 import './CSS/ListByID.css'
+import './CSS/Light/LIGHTListByID.css'
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
