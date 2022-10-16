@@ -1,4 +1,5 @@
 import "./CSS/Reviews.css"
+import "./CSS/Light/LIGHTReviews.css"
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import StarsSmall from './StarsSmall'

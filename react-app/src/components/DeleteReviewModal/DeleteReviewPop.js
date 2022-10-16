@@ -1,4 +1,5 @@
 import './DeleteReviewPop.css'
+import './LIGHTDeleteReviewPop.css'
 import { useDispatch } from 'react-redux';
 import { useDropContext } from '../../context/Dropdown';
 import { deleteReviewThunk } from '../../store/reviews'
