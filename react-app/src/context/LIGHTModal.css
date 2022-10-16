@@ -1,0 +1,29 @@
+#LIGHTmodal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    z-index: 2;
+}
+
+#LIGHTmodal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#LIGHTmodal-content {
+    position: absolute;
+    background-color: #ffffff;
+    /* border-radius: 4px; */
+    padding: 25px;
+    /* border: 1px solid #000000; */
+}

@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
+import "./LIGHTModal.css";
 import { useDropContext } from '../context/Dropdown';
 const ModalContext = React.createContext();
 

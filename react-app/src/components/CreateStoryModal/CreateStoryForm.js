@@ -1,4 +1,5 @@
 import './CreateStoryForm.css'
+import './LIGHTCreateStoryForm.css'
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';

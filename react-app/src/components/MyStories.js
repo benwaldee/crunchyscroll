@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./CSS/MyStories.css"
+import "./CSS/Light/LIGHTMyStories.css"
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllStoriesThunk } from '../store/stories'

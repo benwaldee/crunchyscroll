@@ -1,4 +1,4 @@
-.Homepage_grid {
+.LIGHTHomepage_grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     column-gap: 10px;
@@ -8,8 +8,8 @@
 
 
 
-.Homepage_storyTitle {
-    color: #e2e2e2;
+.LIGHTHomepage_storyTitle {
+    color: rgba(0, 0, 0, 0.8);
     font-weight: bold;
     width: 160px;
     word-wrap: break-word;
@@ -18,7 +18,7 @@
 
 }
 
-.Homepage_storyWrap {
+.LIGHTHomepage_storyWrap {
     width: 180px;
     height: 290px;
     display: flex;
@@ -29,13 +29,13 @@
     padding-bottom: 10px;
 }
 
-.Homepage_storyWrap:hover {
-    background-color: #141519;
+.LIGHTHomepage_storyWrap:hover {
+    background-color: rgba(82, 82, 82, 0.198);
 
     cursor: pointer;
 }
 
-.Homepage_storyImage {
+.LIGHTHomepage_storyImage {
     object-fit: cover;
     width: 160px;
     height: 220px;
@@ -43,40 +43,40 @@
 }
 
 
-.Homepage_storyAuthor {
+.LIGHTHomepage_storyAuthor {
     font-size: 12px;
     margin-top: 10px;
     width: 100%;
     margin-left: 19px;
     word-wrap: break-word;
-    color: #dadada9e;
+    color: #2d2d2d9e;
 }
 
 
-.Homepage_outer {
+.LIGHTHomepage_outer {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding-bottom: 600px;
 }
 
-.Homepage_h1 {
-    color: white;
+.LIGHTHomepage_h1 {
+    color: rgba(0, 0, 0, 0.8);
     font-weight: normal;
     margin-top: 60px;
     margin-bottom: 35px;
 
 }
 
-.Homepage_randomButtonPic {
+.LIGHTHomepage_randomButtonPic {
     height: 20px;
 }
 
-.Homepage_randomButtonText {
-    color: #e2e2e2;
+.LIGHTHomepage_randomButtonText {
+    color: rgba(0, 0, 0, 0.8);
 }
 
-.Homepage_randomButton {
+.LIGHTHomepage_randomButton {
     display: flex;
     width: 120px;
     height: 45px;
@@ -88,12 +88,12 @@
     transition: 0.2s;
 }
 
-.Homepage_randomButton:hover {
-    background-color: #141519;
+.LIGHTHomepage_randomButton:hover {
+    background-color: rgba(82, 82, 82, 0.198);
     cursor: pointer;
 }
 
-.Homepage_top {
+.LIGHTHomepage_top {
     display: flex;
     justify-content: space-between;
     width: 1105px;
@@ -101,7 +101,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .Homepage_grid {
+    .LIGHTHomepage_grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         column-gap: 10px;
@@ -110,7 +110,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .Homepage_top {
+    .LIGHTHomepage_top {
         display: flex;
         justify-content: space-between;
         width: 900px;
@@ -119,7 +119,7 @@
 }
 
 @media screen and (max-width: 973px) {
-    .Homepage_grid {
+    .LIGHTHomepage_grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 10px;
@@ -128,7 +128,7 @@
 }
 
 @media screen and (max-width: 973px) {
-    .Homepage_top {
+    .LIGHTHomepage_top {
         display: flex;
         justify-content: space-between;
         width: 700px;
@@ -137,7 +137,7 @@
 }
 
 @media screen and (max-width: 783px) {
-    .Homepage_grid {
+    .LIGHTHomepage_grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 10px;
@@ -146,7 +146,7 @@
 }
 
 @media screen and (max-width: 783px) {
-    .Homepage_top {
+    .LIGHTHomepage_top {
         display: flex;
         justify-content: space-between;
         width: 500px;
@@ -155,7 +155,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .Homepage_grid {
+    .LIGHTHomepage_grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 10px;
@@ -164,7 +164,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .Homepage_top {
+    .LIGHTHomepage_top {
         display: flex;
         justify-content: space-between;
         width: 300px;
