@@ -1,6 +1,7 @@
 import LoginForm from './auth/LoginForm';
 import SignUpForm from './auth/SignUpForm';
 import "./CSS/LoginSignupPage.css"
+import "./CSS/Light/LIGHTLoginSignupPage.css"
 import logo from './images/transpo-scroll.png'
 import sitetitle from './images/crunchywords.png'
 import { useHistory } from 'react-router-dom';

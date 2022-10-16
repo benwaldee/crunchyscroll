@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
+import '../CSS/Light/LIGHTSignUpForm.css'
 import { createListThunk } from '../../store/lists'
 import { useDropContext } from '../../context/Dropdown';
 

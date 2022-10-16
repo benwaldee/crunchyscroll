@@ -1,0 +1,96 @@
+.LIGHTSignUpForm_title {
+    color: rgb(46, 46, 46);
+    margin-bottom: 5px;
+}
+
+.LIGHTSignUpForm_subtitle {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+}
+
+.LIGHTSignUpForm_form {
+    margin-left: 21px;
+    margin-right: 40px;
+
+}
+
+.LIGHTSignUpForm_innerFormGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 21fr);
+    margin-top: 30px;
+}
+
+/* LIGHTbody {
+    background-color: black;
+} */
+
+.LIGHTSignUpForm_label {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+}
+
+.LIGHTSignUpForm_input {
+    width: 300px;
+    height: 30px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: solid 1px rgba(128, 128, 128, 0.8);
+    outline: none;
+}
+
+.LIGHTSignUpForm_input:hover,
+.LIGHTSignUpForm_input:focus {
+    border: 1px solid #f47521
+}
+
+.LIGHTSignUpForm_inputWrap {
+    display: flex;
+    flex-direction: column;
+    margin-right: 17px;
+    height: 131px;
+}
+
+.LIGHTSignUpForm_error {
+    color: #c32f2d;
+    background-color: rgba(195, 47, 45, .2);
+    width: 100%;
+    margin-top: 7px;
+    padding: 5px, 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.LIGHTSignUpForm_submit {
+    background-color: #f47521;
+    color: rgb(46, 46, 46);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: #b78142 1px solid;
+    font-size: 20px;
+    transition: 0.2s;
+    border-radius: 5px;
+    height: 70px;
+    width: 322px
+}
+
+.LIGHTSignUpForm_submit:hover {
+    background-color: #f47521b9;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+    .LIGHTSignUpForm_form {
+        margin-left: 21px;
+        margin-right: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+}
