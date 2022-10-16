@@ -1,4 +1,5 @@
 import "./CSS/Votes.css"
+import "./CSS/Light/LIGHTVotes.css"
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { voteThunk } from '../store/reviews'
@@ -50,11 +51,11 @@ const Votes = ({ votes, user, reviewID, id, toggleRefresh, refresh }) => {
     return (
         <div className={dark ? 'Votes_contentWrap' : 'LIGHTVotes_contentWrap'} >
 
-            <div className={dark ? 'Votes_text' : 'Votes_text'} >{totalYes} out of {votes.length} people found this helpful. Was this review helpful to you?  </div>
+            <div className={dark ? 'Votes_text' : 'LIGHTVotes_text'} >{totalYes} out of {votes.length} people found this helpful. Was this review helpful to you?  </div>
             {!userVoted &&
                 <>
                     <div onClick={() => handleVote(true, id)} className={dark ? 'Votes_Yes' : 'LIGHTVotes_Yes'} >YES</div>
-                    <div className='Votes_line'>|</div>
+                    <div className={dark ? 'Votes_line' : 'LIGHTVotes_line'} >|</div>
                     <div onClick={() => handleVote(false, id)} className={dark ? 'Votes_No' : 'LIGHTVotes_No'} >NO</div>
                 </>
             }
