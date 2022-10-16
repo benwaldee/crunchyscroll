@@ -1,17 +1,18 @@
-.NavBar_outer {
+.LIGHTNavBar_outer {
     width: 100%;
-    background-color: #23252b;
+    background-color: white;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
+    border-bottom: solid 1.5px #c1c0c0;
 }
 
 
 
-.NavBar_logoWrap {
+.LIGHTNavBar_logoWrap {
     width: fit-content;
     height: 33px;
     cursor: pointer;
@@ -20,15 +21,15 @@
     margin-right: 20px;
 }
 
-.NavBar_left {
+.LIGHTNavBar_left {
     display: flex;
     height: 60px;
     align-items: center;
     margin-left: 100px;
 }
 
-.NavBar_home {
-    color: #dadada;
+.LIGHTNavBar_home {
+    color: rgba(0, 0, 0, 0.8);
     margin-left: 5px;
 
     width: 90px;
@@ -39,8 +40,8 @@
     transition: 0.2s;
 }
 
-.NavBar_myStories {
-    color: #dadada;
+.LIGHTNavBar_myStories {
+    color: rgba(0, 0, 0, 0.8);
     transition: 0.2s;
     margin-right: 5px;
     width: 100px;
@@ -50,26 +51,26 @@
     align-items: center;
 }
 
-.NavBar_home:hover,
-.NavBar_myStories:hover,
-.NavBar_watchlistContainer:hover,
-.NavBar_profileDrop:hover {
+.LIGHTNavBar_home:hover,
+.LIGHTNavBar_myStories:hover,
+.LIGHTNavBar_watchlistContainer:hover,
+.LIGHTNavBar_profileDrop:hover {
     cursor: pointer;
-    background-color: #141518;
+    background-color: rgba(82, 82, 82, 0.198);
 }
 
-.NavBar_right {
+.LIGHTNavBar_right {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 100px;
 }
 
-.NavBar_watchlist {
+.LIGHTNavBar_watchlist {
     height: 30px;
 }
 
-.NavBar_watchlistContainer {
+.LIGHTNavBar_watchlistContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,16 +80,16 @@
     caret-color: transparent;
 }
 
-.NavBar_profilePic {
+.LIGHTNavBar_profilePic {
     height: 30px;
     margin-right: 10px;
 }
 
-.NavBar_dropdown {
+.LIGHTNavBar_dropdown {
     height: 10px;
 }
 
-.NavBar_profileDrop {
+.LIGHTNavBar_profileDrop {
     width: 80px;
     height: 60px;
     display: flex;
@@ -99,41 +100,41 @@
 
 }
 
-.NavBar_profileDropDark {
+.LIGHTNavBar_profileDropDark {
     width: 80px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background-color: #141518;
+    background-color: #ffffff;
     transition: 0.2s;
 }
 
-.NavBar_profileDropDark:hover {
+.LIGHTNavBar_profileDropDark:hover {
     cursor: pointer;
-    background-color: rgba(22, 23, 27, 0.651)
+    background-color: rgba(82, 82, 82, 0.198);
 }
 
-.NavBar_menu {
+.LIGHTNavBar_menu {
     position: absolute;
     top: 60px;
-
+    border: solid 1.5px #c1c0c0;
     width: 400px;
     z-index: 100;
-    background-color: #141518;
+    background-color: #ffffff;
     margin-right: 180px;
 
 }
 
-.NavBar_ul {
+.LIGHTNavBar_ul {
     margin: 0px;
     padding: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.NavBar_li {
+.LIGHTNavBar_li {
 
     display: flex;
 
@@ -145,57 +146,57 @@
 
 }
 
-.NavBar_li:hover {
-    background-color: #23252b;
+.LIGHTNavBar_li:hover {
+    background-color: rgba(82, 82, 82, 0.198);
     cursor: pointer;
 }
 
-.NavBar_dropdownIco {
+.LIGHTNavBar_dropdownIco {
     height: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.NavBar_dropdownText {
-    color: #dadada;
+.LIGHTNavBar_dropdownText {
+    color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
 }
 
-.NavBar_dropdown_top {
+.LIGHTNavBar_dropdown_top {
     display: flex;
     align-items: center;
     padding-bottom: 10px;
     margin-bottom: 5px;
-    border-bottom: solid 1.5px rgba(128, 128, 128, 0.8);
+    border-bottom: solid 1.5px rgba(168, 168, 168, 0.8);
     ;
 }
 
-.NavBar_profilePicBig {
+.LIGHTNavBar_profilePicBig {
     height: 50px;
     margin-left: 20px;
 }
 
-.NavBar_dropdown_username {
+.LIGHTNavBar_dropdown_username {
     margin-left: 20px;
-    color: #dadada;
+    color: rgba(0, 0, 0, 0.757);
     font-weight: bold;
     font-size: 20px
 }
 
-.NavBar_dropdown_mid {
-    border-bottom: solid 1.5px rgba(128, 128, 128, 0.8);
+.LIGHTNavBar_dropdown_mid {
+    border-bottom: solid 1.5px rgba(168, 168, 168, 0.8);
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
-.NavBar_dropdown_bottom {
+.LIGHTNavBar_dropdown_bottom {
     height: 40px;
     padding-top: 10px;
     display: flex;
     align-items: center;
 }
 
-.NavBar_logout_diff {
+.LIGHTNavBar_logout_diff {
     display: flex;
     align-items: center;
     padding-bottom: 5px;

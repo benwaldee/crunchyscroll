@@ -1,10 +1,14 @@
 import './CreateStoryForm.css'
+import './LIGHTCreateStoryForm.css'
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createStoryThunk } from '../../store/stories'
+import { useDropContext } from '../../context/Dropdown';
 
 const CreateStoryForm = ({ setshowAddStoryModal }) => {
+
+    const { dark } = useDropContext()
     const history = useHistory()
     const dispatch = useDispatch()
     const userID = useSelector(state => state.session.user).id
@@ -80,51 +84,51 @@ const CreateStoryForm = ({ setshowAddStoryModal }) => {
     return (
         <>
 
-            <form className='CreateStoryForm_form' onSubmit={handleSubmit}>
-                <div className='CreateStoryForm_formHeaderWrap'>
-                    <h1 className='CreateStoryForm_formTitle'> Add a story</h1>
-                    <div onClick={() => setshowAddStoryModal(false)} className='CreateStoryForm_close'>X</div>
+            <form className={dark ? 'CreateStoryForm_form' : 'LIGHTCreateStoryForm_form'} onSubmit={handleSubmit}>
+                <div className={dark ? 'CreateStoryForm_formHeaderWrap' : 'LIGHTCreateStoryForm_formHeaderWrap'}>
+                    <h1 className={dark ? 'CreateStoryForm_formTitle' : 'LIGHTCreateStoryForm_formTitle'}> Add a story</h1>
+                    <div onClick={() => setshowAddStoryModal(false)} className={dark ? 'CreateStoryForm_close' : 'LIGHTCreateStoryForm_close'}>X</div>
                 </div>
-                <div className='CreateStoryForm_formSubTitle'> Provide your story title and text below! </div>
-                <div className='CreateStoryForm_formInputWrap'>
-                    <div className='CreateStoryForm_formInputLabel'>Title</div>
+                <div className={dark ? 'CreateStoryForm_formSubTitle' : 'LIGHTCreateStoryForm_formSubTitle'}> Provide your story title and text below! </div>
+                <div className={dark ? 'CreateStoryForm_formInputWrap' : 'LIGHTCreateStoryForm_formInputWrap'}>
+                    <div className={dark ? 'CreateStoryForm_formInputLabel' : 'LIGHTCreateStoryForm_formInputLabel'}>Title</div>
                     <input
-                        className='CreateStoryForm_formInput'
+                        className={dark ? 'CreateStoryForm_formInput' : 'LIGHTCreateStoryForm_formInput'}
                         type='text'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Title'
                     ></input>
-                    {errors?.title && <div className='CreateStoryForm_error'>{errors.title}</div>}
+                    {errors?.title && <div className={dark ? 'CreateStoryForm_error' : 'LIGHTCreateStoryForm_error'}>{errors.title}</div>}
                 </div>
-                <div className='CreateStoryForm_formInputWrapTextArea'>
-                    <div className='CreateStoryForm_bodyTop'>
-                        <div className='CreateStoryForm_formInputLabel'>Body</div>
-                        <div className='CreateStoryForm_charCount'>{body.length}/50000</div>
+                <div className={dark ? 'CreateStoryForm_formInputWrapTextArea' : 'LIGHTCreateStoryForm_formInputWrapTextArea'}>
+                    <div className={dark ? 'CreateStoryForm_bodyTop' : 'LIGHTCreateStoryForm_bodyTop'}>
+                        <div className={dark ? 'CreateStoryForm_formInputLabel' : 'LIGHTCreateStoryForm_formInputLabel'}>Body</div>
+                        <div className={dark ? 'CreateStoryForm_charCount' : 'LIGHTCreateStoryForm_charCount'}>{body.length}/50000</div>
                     </div>
                     <textarea
-                        className='CreateStoryForm_formInputTextArea'
+                        className={dark ? 'CreateStoryForm_formInputTextArea' : 'LIGHTCreateStoryForm_formInputTextArea'}
                         type='text'
                         placeholder='Paste your story here!'
                         value={body}
                         maxLength={50000}
                         onChange={(e) => setBody(e.target.value)}
                     ></textarea>
-                    {errors?.body && <div className='CreateStoryForm_error'>{errors.body}</div>}
+                    {errors?.body && <div className={dark ? 'CreateStoryForm_error' : 'LIGHTCreateStoryForm_error'}>{errors.body}</div>}
                 </div>
-                <div className='CreateStoryForm_formInputWrap'>
-                    <div className='CreateStoryForm_formInputLabel'>Image </div>
+                <div className={dark ? 'CreateStoryForm_formInputWrap' : 'LIGHTCreateStoryForm_formInputWrap'}>
+                    <div className={dark ? 'CreateStoryForm_formInputLabel' : 'LIGHTCreateStoryForm_formInputLabel'}>Image </div>
                     <input
-                        className='CreateStoryForm_formInput'
+                        className={dark ? 'CreateStoryForm_formInput' : 'LIGHTCreateStoryForm_formInput'}
                         type='text'
                         placeholder='Image '
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                     ></input>
-                    {errors?.image && <div className='CreateStoryForm_error'>{errors.image}</div>}
+                    {errors?.image && <div className={dark ? 'CreateStoryForm_error' : 'LIGHTCreateStoryForm_error'}>{errors.image}</div>}
                 </div>
-                <div className='CreateStoryForm_formInputWrapButton'>
-                    <button className='CreateStoryForm_formSubmit' type='submit'> Add Story</button>
+                <div className={dark ? 'CreateStoryForm_formInputWrapButton' : 'LIGHTCreateStoryForm_formInputWrapButton'}>
+                    <button className={dark ? 'CreateStoryForm_formSubmit' : 'LIGHTCreateStoryForm_formSubmit'} type='submit'> Add Story</button>
                 </div>
             </form>
         </>

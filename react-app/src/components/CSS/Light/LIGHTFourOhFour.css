@@ -1,0 +1,33 @@
+.LIGHTFourOhFour_h1 {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 90px;
+    margin-top: 200px;
+    margin-bottom: 70px;
+    caret-color: transparent;
+}
+
+.LIGHTFourOhFour_contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 600px;
+}
+
+.LIGHTFourOhFour_text {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 19px;
+    margin-bottom: 50px;
+}
+
+.LIGHTFourOhFour_home {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #2abdbb;
+    transition: 0.2s;
+}
+
+.LIGHTFourOhFour_home:hover {
+    color: #aae5e4;
+}

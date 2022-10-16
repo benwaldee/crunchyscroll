@@ -11,9 +11,24 @@ body {
 .pageWrap {
     position: relative;
     min-height: 100vh;
+    background-color: black;
+    z-index: 1
+}
+
+.LIGHTpageWrap {
+    background-color: #f2f2f2;
+    position: relative;
+    min-height: 100vh;
+    z-index: 1
 }
 
 .paddingLoad {
+    padding-bottom: 1300px;
+    height: 500px;
+    width: 1000px;
+}
+
+.LIGHTpaddingLoad {
     padding-bottom: 1300px;
     height: 500px;
     width: 1000px;

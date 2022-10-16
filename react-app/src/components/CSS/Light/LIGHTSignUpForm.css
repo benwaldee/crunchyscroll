@@ -1,35 +1,35 @@
-.SignUpForm_title {
-    color: white;
+.LIGHTSignUpForm_title {
+    color: rgb(46, 46, 46);
     margin-bottom: 5px;
 }
 
-.SignUpForm_subtitle {
-    color: rgba(255, 255, 255, 0.8);
+.LIGHTSignUpForm_subtitle {
+    color: rgba(0, 0, 0, 0.8);
     font-size: 16px;
 }
 
-.SignUpForm_form {
+.LIGHTSignUpForm_form {
     margin-left: 21px;
     margin-right: 40px;
 
 }
 
-.SignUpForm_innerFormGrid {
+.LIGHTSignUpForm_innerFormGrid {
     display: grid;
     grid-template-columns: repeat(2, 21fr);
     margin-top: 30px;
 }
 
-/* body {
+/* LIGHTbody {
     background-color: black;
 } */
 
-.SignUpForm_label {
-    color: rgba(255, 255, 255, 0.8);
+.LIGHTSignUpForm_label {
+    color: rgba(0, 0, 0, 0.8);
     font-size: 16px;
 }
 
-.SignUpForm_input {
+.LIGHTSignUpForm_input {
     width: 300px;
     height: 30px;
     padding: 10px 10px;
@@ -38,19 +38,19 @@
     outline: none;
 }
 
-.SignUpForm_input:hover,
-.SignUpForm_input:focus {
+.LIGHTSignUpForm_input:hover,
+.LIGHTSignUpForm_input:focus {
     border: 1px solid #f47521
 }
 
-.SignUpForm_inputWrap {
+.LIGHTSignUpForm_inputWrap {
     display: flex;
     flex-direction: column;
     margin-right: 17px;
     height: 131px;
 }
 
-.SignUpForm_error {
+.LIGHTSignUpForm_error {
     color: #c32f2d;
     background-color: rgba(195, 47, 45, .2);
     width: 100%;
@@ -64,9 +64,9 @@
 
 
 
-.SignUpForm_submit {
+.LIGHTSignUpForm_submit {
     background-color: #f47521;
-    color: white;
+    color: rgb(46, 46, 46);
     border-left: none;
     border-top: none;
     border-right: none;
@@ -78,13 +78,13 @@
     width: 322px
 }
 
-.SignUpForm_submit:hover {
+.LIGHTSignUpForm_submit:hover {
     background-color: #f47521b9;
     cursor: pointer;
 }
 
 @media screen and (max-width: 1300px) {
-    .SignUpForm_form {
+    .LIGHTSignUpForm_form {
         margin-left: 21px;
         margin-right: 40px;
         display: flex;

@@ -1,11 +1,14 @@
 import './EditListForm.css'
+import './LIGHTEditListForm.css'
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { editListThunk } from '../../store/lists'
+import { useDropContext } from '../../context/Dropdown';
 
 
 const EditListForm = ({ setShowEditListModal, showEditListModal }) => {
+    const { dark } = useDropContext()
     const history = useHistory()
     const dispatch = useDispatch()
     const userID = useSelector(state => state.session.user).id
@@ -43,26 +46,26 @@ const EditListForm = ({ setShowEditListModal, showEditListModal }) => {
     return (
         <>
 
-            <form className='EditListForm_form' onSubmit={handleSubmit}>
-                <div className='EditListForm_formHeaderWrap'>
-                    <h1 className='EditListForm_formTitle'> Edit your Crunchylist</h1>
-                    <div onClick={() => setShowEditListModal(false)} className='EditListForm_close'>X</div>
+            <form className={dark ? 'EditListForm_form' : 'LIGHTEditListForm_form'} onSubmit={handleSubmit}>
+                <div className={dark ? 'EditListForm_formHeaderWrap' : 'LIGHTEditListForm_formHeaderWrap'}>
+                    <h1 className={dark ? 'EditListForm_formTitle' : 'LIGHTEditListForm_formTitle'}> Edit your Crunchylist</h1>
+                    <div onClick={() => setShowEditListModal(false)} className={dark ? 'EditListForm_close' : 'LIGHTEditListForm_close'}>X</div>
                 </div>
-                <div className='EditListForm_formSubTitle'> Change your list name below! </div>
-                <div className='EditListForm_formInputWrap'>
+                <div className={dark ? 'EditListForm_formSubTitle' : 'LIGHTEditListForm_formSubTitle'}> Change your list name below! </div>
+                <div className={dark ? 'EditListForm_formInputWrap' : 'LIGHTEditListForm_formInputWrap'}>
 
-                    {error && <div className='EditListForm_error'>{error}</div>}
+                    {error && <div className={dark ? 'EditListForm_error' : 'LIGHTEditListForm_error'}>{error}</div>}
                     <input
-                        className='EditListForm_formInput'
+                        className={dark ? 'EditListForm_formInput' : 'LIGHTEditListForm_formInput'}
                         type='text'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder='Name'
                         maxLength={50}
                     ></input>
-                    <div className='EditListForm_charCount'>{name.length}/50</div>
-                    <div className='EditListForm_formInputWrapButton'>
-                        <button className='EditListForm_formSubmit' type='submit'> Save</button>
+                    <div className={dark ? 'EditListForm_charCount' : 'LIGHTEditListForm_charCount'}>{name.length}/50</div>
+                    <div className={dark ? 'EditListForm_formInputWrapButton' : 'LIGHTEditListForm_formInputWrapButton'}>
+                        <button className={dark ? 'EditListForm_formSubmit' : 'LIGHTEditListForm_formSubmit'} type='submit'> Save</button>
                     </div>
                 </div>
             </form>

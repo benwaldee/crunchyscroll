@@ -1,0 +1,48 @@
+.LIGHTFooter_outer {
+    color: rgba(0, 0, 0, 0.788);
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    background-color: white;
+    background: linear-gradient(#f2f2f2, white);
+    width: 100%;
+    height: 459px;
+
+}
+
+.LIGHTFooter_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 37px 30px 30px 30px; */
+    column-gap: 170px;
+
+}
+
+.LIGHTFooter_contentWrap {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+
+}
+
+.LIGHTFooter_content {
+    height: 30px;
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: 0.3s;
+    caret-color: transparent;
+    width: fit-content;
+}
+
+.LIGHTFooter_content:hover {
+
+    color: #282828dc;
+    text-decoration: underline;
+}
+
+.LIGHTFooter_contentHead {
+    font-weight: bold;
+    margin-bottom: 20px;
+}

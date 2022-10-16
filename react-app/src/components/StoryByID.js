@@ -1,4 +1,5 @@
 import "./CSS/StoryByID.css"
+import "./CSS/Light/LIGHTStoryByID.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
@@ -13,8 +14,10 @@ import remove from './images/remove.png'
 import { useState } from "react";
 import AddToListModal from "./AddListModal";
 import logo from './images/transpo-scroll.png'
+import { useDropContext } from '../context/Dropdown';
 
 const StoryByID = () => {
+    const { dark } = useDropContext()
     const history = useHistory()
     const dispatch = useDispatch()
     let { id } = useParams();
@@ -56,6 +59,7 @@ const StoryByID = () => {
     const [inWatchlist, setInWatchlist] = useState(watchlistObj?.stories?.includes(Number(id)))
 
     const [storyBody, setStoryBody] = useState('StoryByID_bodyClose')
+    const [storyBodyLight, setStoryBodyLight] = useState('LIGHTStoryByID_bodyClose')
 
     useEffect(() => {
         dispatch(getAllStoriesThunk())
@@ -96,79 +100,100 @@ const StoryByID = () => {
         if (num >= 10) return 'super'
     }
 
-    if (storyIDs.length < 1) { return <div className='paddingLoad'></div> }
+    if (storyIDs.length < 1) { return <div className={dark ? 'paddingLoad' : 'LIGHTpaddingLoad'}></div> }
 
     return (
-        <div className='StoryByID_contentWrap'>
-            <div className='StoryByID_header'>
-                {story && <img className='StoryByID_backgroundImage' src={story?.image_url}
+        <div className={dark ? 'StoryByID_contentWrap' : 'LIGHTStoryByID_contentWrap'}>
+            <div className={dark ? 'StoryByID_header' : 'LIGHTStoryByID_header'}>
+                {story && <img className={dark ? 'StoryByID_backgroundImage' : 'LIGHTStoryByID_backgroundImage'} src={story?.image_url}
                     onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}></img>}
-                {story && <img className='StoryByID_mainImage' src={story?.image_url}
+                {story && <img className={dark ? 'StoryByID_mainImage' : 'LIGHTStoryByID_mainImage'} src={story?.image_url}
                     onError={e => { e.currentTarget.src = "http://media.comicbook.com/2018/03/zwru5zwigvntizfbv54x-1088958.jpeg"; }}
                 ></img>}
             </div>
-            <div className='StoryByID_subHeader'>
-                <div className='StoryByID_subHeaderLeft'>
-                    {story && <h1 className='StoryByID_title'>{story?.title}</h1>}
-                    {!story && <h1 className='StoryByID_titleBlank'>Ttitle Coming</h1>}
-                    <div className='StoryByID_ratingWrap'>
-                        <div className='StoryByID_stars'>
+            <div className={dark ? 'StoryByID_subHeader' : 'LIGHTStoryByID_subHeader'}>
+                <div className={dark ? 'StoryByID_subHeaderLeft' : 'LIGHTStoryByID_subHeaderLeft'}>
+                    {story && <h1 className={dark ? 'StoryByID_title' : 'LIGHTStoryByID_title'}>{story?.title}</h1>}
+                    {!story && <h1 className={dark ? 'StoryByID_titleBlank' : 'LIGHTStoryByID_titleBlank'}>Ttitle Coming</h1>}
+                    <div className={dark ? 'StoryByID_ratingWrap' : 'LIGHTStoryByID_ratingWrap'}>
+                        <div className={dark ? 'StoryByID_stars' : 'LIGHTStoryByID_stars'}>
                             {story && storyIDs.length > 0 && <Stars avgRating={avgRating} reviews={reviews} />}
-                            {!story && storyIDs.length === 0 && <div className="StoryByID_starsBlank"></div>}
+                            {!story && storyIDs.length === 0 && <div className={dark ? "StoryByID_starsBlank" : "LIGHTStoryByID_starsBlank"}></div>}
                         </div >
-                        <div className='StoryByID_avgRatingWrap'>
-                            <div className='StoryByID_rating'>Average Rating:</div>
-                            <div className='StoryByID_numRating'>{Object.values(reviews).length ? avgRating : `N/A`}</div>
+                        <div className={dark ? 'StoryByID_avgRatingWrap' : 'LIGHTStoryByID_avgRatingWrap'}>
+                            <div className={dark ? 'StoryByID_rating' : 'LIGHTStoryByID_rating'}>Average Rating:</div>
+                            <div className={dark ? 'StoryByID_numRating' : 'LIGHTStoryByID_numRating'}>{Object.values(reviews).length ? avgRating : `N/A`}</div>
                         </div>
-                        <div className='StoryByID_reviews'>{Object.values(reviews).length} reviews</div>
+                        <div className={dark ? 'StoryByID_reviews' : 'LIGHTStoryByID_reviews'}>{Object.values(reviews).length} reviews</div>
                     </div>
-                    <div className='StoryByID_listWrap'>
+                    <div className={dark ? 'StoryByID_listWrap' : 'LIGHTStoryByID_listWrap'}>
                         {!watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryAddWatchlist(
                             {
                                 story_id: Number(id),
                                 list_id: watchlistObj?.id
                             }
-                        )} className='StoryByID_watchlistWrap'>
-                            <img className='StoryByID_watchlistIco' src={watchlist}></img>
-                            <div className='StoryByID_watchlist'>ADD TO WATCHLIST</div>
+                        )} className={dark ? 'StoryByID_watchlistWrap' : 'LIGHTStoryByID_watchlistWrap'}>
+                            <img className={dark ? 'StoryByID_watchlistIco' : 'LIGHTStoryByID_watchlistIco'} src={watchlist}></img>
+                            <div className={dark ? 'StoryByID_watchlist' : 'LIGHTStoryByID_watchlist'}>ADD TO WATCHLIST</div>
                         </div>}
                         {watchlistObj?.stories?.includes(Number(id)) && <div onClick={() => handleStoryRemoveWatchlist(
                             {
                                 story_id: Number(id),
                                 list_id: watchlistObj?.id
                             }
-                        )} className='StoryByID_removeWatchlistWrap'>
-                            <img className='StoryByID_removeIco' src={remove}></img>
-                            <div className='StoryByID_removeWatchlist'>REMOVE FROM WATCHLIST</div>
+                        )} className={dark ? 'StoryByID_removeWatchlistWrap' : 'LIGHTStoryByID_removeWatchlistWrap'}>
+                            <img className={dark ? 'StoryByID_removeIco' : 'LIGHTStoryByID_removeIco'} src={remove}></img>
+                            <div className={dark ? 'StoryByID_removeWatchlist' : 'LIGHTStoryByID_removeWatchlist'}>REMOVE FROM WATCHLIST</div>
                         </div>}
 
                         <AddToListModal listsDict={listsDict} id={id} user={user} story={story} />
                     </div>
                 </div>
-                <div className='StoryByID_subHeaderRight'>
-                    <img className='StoryByID_logo' src={logo}></img>
-                    <div className='StoryByID_subRTwrap'>
-                        {story?.userName} is a <span className="StoryByID_contributer">{contributerCalc(userStoriesNum)}</span> contributer!
-                        They have written <span className="StoryByID_stNum">{userStoriesNum}</span> {userStoriesNum > 1 ? 'stories' : 'story'}.
+                <div className={dark ? 'StoryByID_subHeaderRight' : 'LIGHTStoryByID_subHeaderRight'}>
+                    <img className={dark ? 'StoryByID_logo' : 'LIGHTStoryByID_logo'} src={logo}></img>
+                    <div className={dark ? 'StoryByID_subRTwrap' : 'LIGHTStoryByID_subRTwrap'}>
+                        {story?.userName} is a <span className={dark ? "StoryByID_contributer" : "LIGHTStoryByID_contributer"}>{contributerCalc(userStoriesNum)}</span> contributer!
+                        They have written <span className={dark ? "StoryByID_stNum" : "LIGHTStoryByID_stNum"}>{userStoriesNum}</span> {userStoriesNum > 1 ? 'stories' : 'story'}.
                     </div>
                 </div>
             </div>
-            <div className='StoryByID_bodyWrap'>
-                <div>
-                    <div className={storyBody}>{story?.body}</div>
-                    {storyBody === 'StoryByID_bodyClose' &&
-                        <div
-                            onClick={() => {
-                                setStoryBody('StoryByID_bodyOpen')
-                            }}
-                            className='StoryByID_readMore'>Read More!</div>}
-                    {storyBody !== 'StoryByID_bodyClose' &&
-                        <div
-                            onClick={() => {
-                                setStoryBody('StoryByID_bodyClose')
-                            }}
-                            className='StoryByID_readMore'>Read Less</div>}
-                </div>
+            <div className={dark ? 'StoryByID_bodyWrap' : 'LIGHTStoryByID_bodyWrap'}>
+                {
+                    dark &&
+                    <div>
+                        <div className={storyBody}>{story?.body}</div>
+                        {storyBody === 'StoryByID_bodyClose' &&
+                            <div
+                                onClick={() => {
+                                    setStoryBody('StoryByID_bodyOpen')
+                                }}
+                                className='StoryByID_readMore'>Read More!</div>}
+                        {storyBody !== 'StoryByID_bodyClose' &&
+                            <div
+                                onClick={() => {
+                                    setStoryBody('StoryByID_bodyClose')
+                                }}
+                                className='StoryByID_readMore'>Read Less</div>}
+                    </div>
+                }
+                {
+                    !dark &&
+                    <div>
+                        <div className={storyBodyLight}>{story?.body}</div>
+                        {storyBodyLight === 'LIGHTStoryByID_bodyClose' &&
+                            <div
+                                onClick={() => {
+                                    setStoryBodyLight('LIGHTStoryByID_bodyOpen')
+                                }}
+                                className='LIGHTStoryByID_readMore'>Read More!</div>}
+                        {storyBodyLight !== 'LIGHTStoryByID_bodyClose' &&
+                            <div
+                                onClick={() => {
+                                    setStoryBodyLight('LIGHTStoryByID_bodyClose')
+                                }}
+                                className='LIGHTStoryByID_readMore'>Read Less</div>}
+                    </div>
+                }
             </div>
 
 

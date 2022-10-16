@@ -1,0 +1,65 @@
+.LIGHTLoginSignupPage_lower {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    min-height: 100%;
+    height: 143px;
+
+}
+
+.LIGHTLoginSignupPage_lower_inner {
+    display: flex;
+    border: solid 1.5px #c1c0c0;
+    padding: 20px;
+    width: 1200px;
+    height: 500px;
+    background-color: white;
+}
+
+.LIGHTLoginSignupPage_upper {
+    display: flex;
+    justify-content: center;
+    height: 66px;
+    background-color: white;
+    align-items: center;
+    border-bottom: solid 1.5px #c1c0c0;
+}
+
+.LIGHTLoginSignupPage_upper_inner {
+    display: flex;
+    height: 30px;
+    width: 1240px;
+    justify-content: flex-start;
+}
+
+.LIGHTLoginSignupPage_logoWrap {
+    width: fit-content;
+    cursor: pointer;
+    display: flex;
+    margin-left: 30px;
+}
+
+.LIGHTLoginSignupPage_contentWrap {
+    height: 760px;
+    padding-bottom: 459px;
+    background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 1300px) {
+    .LIGHTLoginSignupPage_lower_inner {
+        display: flex;
+        flex-direction: column;
+        border: solid 1.5px rgba(128, 128, 128, 0.8);
+        padding: 20px;
+        height: 1000px;
+        width: 750px;
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .LIGHTLoginSignupPage_contentWrap {
+        height: 760px;
+        padding-bottom: 950px;
+    }
+}

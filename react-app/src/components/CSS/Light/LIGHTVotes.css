@@ -1,0 +1,70 @@
+.LIGHTVotes_contentWrap {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.LIGHTVotes_text {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 13px;
+}
+
+.LIGHTVotes_Yes {
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #23a09e;
+}
+
+.LIGHTVotes_No {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #23a09e;
+}
+
+.LIGHTVotes_No:hover,
+.LIGHTVotes_Yes:hover {
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.LIGHTVotes_line {
+    margin-left: 5px;
+    font-size: 19px;
+    color: #b0b0b0
+}
+
+
+.LIGHTVotes_YesLocktrue {
+    color: rgba(0, 0, 0, 0.8);
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.LIGHTVotes_NoLocktrue {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #6b6b6bb7;
+}
+
+.LIGHTVotes_YesLockfalse {
+
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #6b6b6bb7;
+}
+
+.LIGHTVotes_NoLockfalse {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.8);
+
+}

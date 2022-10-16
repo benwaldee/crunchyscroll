@@ -1,3 +1,4 @@
+
 // frontend/src/context/Modal.js
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
@@ -20,6 +21,9 @@ export function DropProvider({ children }) {
     //hold list for lsitbyID page
     const [list, setList] = useState('')
 
+    //lightmode toggle
+    const [dark, setDark] = useState(true)
+
     useEffect(() => {
         setValue(dropRef.current);
     }, [])
@@ -32,7 +36,8 @@ export function DropProvider({ children }) {
                 watchlistClicked, setWatchlistClicked,
                 showEditListModal, setShowEditListModal,
                 showDeleteListModal, setShowDeleteListModal,
-                list, setList
+                list, setList,
+                dark, setDark
             }}>
                 {children}
             </DropContext.Provider>

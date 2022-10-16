@@ -3,9 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../CSS/SignUpForm.css'
+import '../CSS/Light/LIGHTSignUpForm.css'
 import { createListThunk } from '../../store/lists'
+import { useDropContext } from '../../context/Dropdown';
 
 const SignUpForm = () => {
+  const { dark } = useDropContext()
   const [errors, setErrors] = useState({
     email: "",
     username: "",
@@ -132,14 +135,14 @@ const SignUpForm = () => {
 
 
   return (
-    <form className='SignUpForm_form' onSubmit={onSignUp}>
-      <h1 className='SignUpForm_title'>Sign Up for a Free Account</h1>
-      <div className='SignUpForm_subtitle'>Please join Crunchyscroll! It's only one click away!</div>
-      <div className='SignUpForm_innerFormGrid'>
-        <div className='SignUpForm_inputWrap'>
-          <label className='SignUpForm_label'>User Name</label>
+    <form className={dark ? 'SignUpForm_form' : 'LIGHTSignUpForm_form'} onSubmit={onSignUp}>
+      <h1 className={dark ? 'SignUpForm_title' : 'LIGHTSignUpForm_title'}>Sign Up for a Free Account</h1>
+      <div className={dark ? 'SignUpForm_subtitle' : 'LIGHTSignUpForm_subtitle'}>Please join Crunchyscroll! It's only one click away!</div>
+      <div className={dark ? 'SignUpForm_innerFormGrid' : 'LIGHTSignUpForm_innerFormGrid'}>
+        <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
+          <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>User Name</label>
           <input
-            className='SignUpForm_input'
+            className={dark ? 'SignUpForm_input' : 'LIGHTSignUpForm_input'}
             type='text'
             name='username'
             placeholder='User Name'
@@ -154,10 +157,10 @@ const SignUpForm = () => {
           {usernameError && <div className='SignUpForm_error'>{usernameError}</div>}
           {errors?.username && <div className='SignUpForm_error'>{errors.username}</div>}
         </div>
-        <div className='SignUpForm_inputWrap'>
-          <label className='SignUpForm_label'>Email</label>
+        <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
+          <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>Email</label>
           <input
-            className='SignUpForm_input'
+            className={dark ? 'SignUpForm_input' : 'LIGHTSignUpForm_input'}
             type='text'
             name='email'
             placeholder='Email'
@@ -172,10 +175,10 @@ const SignUpForm = () => {
           {errors?.email && <div className='SignUpForm_error'>{errors.email}</div>}
           {emailError && <div className='SignUpForm_error'>{emailError}</div>}
         </div>
-        <div className='SignUpForm_inputWrap'>
-          <label className='SignUpForm_label'>Password</label>
+        <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
+          <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>Password</label>
           <input
-            className='SignUpForm_input'
+            className={dark ? 'SignUpForm_input' : 'LIGHTSignUpForm_input'}
             type='password'
             name='password'
             placeholder='Password'
@@ -187,12 +190,12 @@ const SignUpForm = () => {
             value={password}
           // required={true}
           ></input>
-          {errors?.password && <div className='SignUpForm_error'>{errors.password}</div>}
+          {errors?.password && <div className={dark ? 'SignUpForm_error' : 'LIGHTSignUpForm_error'}>{errors.password}</div>}
         </div>
-        <div className='SignUpForm_inputWrap'>
-          <label className='SignUpForm_label'>Confirm Password</label>
+        <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
+          <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>Confirm Password</label>
           <input
-            className='SignUpForm_input'
+            className={dark ? 'SignUpForm_input' : 'LIGHTSignUpForm_input'}
             type='password'
             name='repeat_password'
             placeholder='Confirm Password'
@@ -204,9 +207,9 @@ const SignUpForm = () => {
             value={repeatPassword}
           // required={true}
           ></input>
-          {errors?.repeatPassword && <div className='SignUpForm_error'>{errors.repeatPassword}</div>}
+          {errors?.repeatPassword && <div className={dark ? 'SignUpForm_error' : 'LIGHTSignUpForm_error'}>{errors.repeatPassword}</div>}
         </div>
-        <button className='SignUpForm_submit' type='submit'>Create Account</button>
+        <button className={dark ? 'SignUpForm_submit' : 'LIGHTSignUpForm_submit'} type='submit'>Create Account</button>
       </div>
     </form >
 

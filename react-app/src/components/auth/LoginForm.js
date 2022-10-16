@@ -3,8 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../CSS/LoginForm.css'
+import '../CSS/Light/LIGHTLoginForm.css'
+import { useDropContext } from '../../context/Dropdown';
 
 const LoginForm = () => {
+  const { dark } = useDropContext()
   const [errors, setErrors] = useState("");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,18 +43,18 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='LoginForm_formWrap'>
-      <form className='LoginForm_form' onSubmit={onLogin}>
-        <div className='LoginForm_topformWrap'>
-          <h1 className='LoginForm_title'>Log In</h1>
-          <div className='LoginForm_subtitle'>Already have an account? Log in below.</div>
+    <div className={dark ? 'LoginForm_formWrap' : 'LIGHTLoginForm_formWrap'}>
+      <form className={dark ? 'LoginForm_form' : 'LIGHTLoginForm_form'} onSubmit={onLogin}>
+        <div className={dark ? 'LoginForm_topformWrap' : 'LIGHTLoginForm_topformWrap'}>
+          <h1 className={dark ? 'LoginForm_title' : 'LIGHTLoginForm_title'}>Log In</h1>
+          <div className={dark ? 'LoginForm_subtitle' : 'LIGHTLoginForm_subtitle'}>Already have an account? Log in below.</div>
         </div>
-        {errors && <div className='LoginForm_error'>Incorrect login information</div>}
-        <div className='LoginForm_grid'>
-          <div className='LoginForm_inputWrap'>
-            <label className='LoginForm_label' htmlFor='email'>Email</label>
+        {errors && <div className={dark ? 'LoginForm_error' : 'LIGHTLoginForm_error'}>Incorrect login information</div>}
+        <div className={dark ? 'LoginForm_grid' : 'LIGHTLoginForm_grid'}>
+          <div className={dark ? 'LoginForm_inputWrap' : 'LIGHTLoginForm_inputWrap'}>
+            <label className={dark ? 'LoginForm_label' : 'LIGHTLoginForm_label'} htmlFor='email'>Email</label>
             <input
-              className='LoginForm_input'
+              className={dark ? 'LoginForm_input' : 'LIGHTLoginForm_input'}
               name='email'
               type='text'
               placeholder='Email'
@@ -60,10 +63,10 @@ const LoginForm = () => {
             // required={true}
             />
           </div>
-          <div className='LoginForm_inputWrap'>
-            <label className='LoginForm_label' htmlFor='password'>Password</label>
+          <div className={dark ? 'LoginForm_inputWrap' : 'LIGHTLoginForm_inputWrap'}>
+            <label className={dark ? 'LoginForm_label' : 'LIGHTLoginForm_label'} htmlFor='password'>Password</label>
             <input
-              className='LoginForm_input'
+              className={dark ? 'LoginForm_input' : 'LIGHTLoginForm_input'}
               name='password'
               type='password'
               placeholder='Password'
@@ -72,8 +75,8 @@ const LoginForm = () => {
             // required={true}
             />
           </div>
-          <button className='LoginForm_submit' type='submit'>Login</button>
-          <button className='LoginForm_demo' onClick={(e) => demoLogin(e)}>Demo</button>
+          <button className={dark ? 'LoginForm_submit' : 'LIGHTLoginForm_submit'} type='submit'>Login</button>
+          <button className={dark ? 'LoginForm_demo' : 'LIGHTLoginForm_demo'} onClick={(e) => demoLogin(e)}>Demo</button>
         </div>
       </form>
     </div>

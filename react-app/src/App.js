@@ -11,10 +11,10 @@ import FourOhFour from './components/FourOhFour'
 import Lists from './components/Lists'
 import ListByID from './components/ListByID'
 import { authenticate } from './store/session';
-
+import { useDropContext } from './context/Dropdown';
 
 function App() {
-
+  const { dark } = useDropContext()
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
 
@@ -34,48 +34,48 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/login-signup' exact={true}>
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <LoginSignupPage />
             <Footer />
           </div>
         </Route>
         <Route path='/' exact={true} >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <Homepage />
             <Footer />
           </div>
         </Route>
         <Route path='/lists' exact={true} >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <Lists />
             <Footer />
           </div>
         </Route>
         <Route path='/lists/:id' exact={true} >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <ListByID />
             <Footer />
           </div>
         </Route>
         <Route path='/mystories' exact={true} >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <MyStories />
             <Footer />
           </div>
         </Route>
         <Route path='/stories/:id' exact={true}  >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <StoryByID />
             <Footer />
           </div>
         </Route>
         <Route  >
-          <div className='pageWrap'>
+          <div className={dark ? 'pageWrap' : 'LIGHTpageWrap'}>
             <NavBar />
             <FourOhFour />
             <Footer />

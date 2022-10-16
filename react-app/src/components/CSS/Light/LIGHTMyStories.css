@@ -1,0 +1,186 @@
+.LIGHTMyStories_storyTitle {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+    font-weight: bold;
+    word-wrap: break-word;
+    width: 300px;
+
+}
+
+.LIGHTMyStories_storyTitle:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.LIGHTMyStories_mapGrid {
+
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 100px;
+    row-gap: 50px;
+}
+
+@media screen and (max-width:1400px) {
+    .LIGHTMyStories_mapGrid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 100px;
+        row-gap: 50px;
+    }
+
+}
+
+.LIGHTMyStories_contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 600px;
+}
+
+.LIGHTMyStories_storyImage {
+    object-fit: cover;
+    height: 270px;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.LIGHTMyStories_storyImage:hover {
+    box-shadow: 0px 0px 10px 5px rgba(52, 52, 52, 0.2);
+    cursor: pointer;
+}
+
+.LIGHTMyStories_storyWrap {
+    display: flex;
+    margin-top: 20px;
+}
+
+.LIGHTMyStories_storyBody {
+    color: rgba(0, 0, 0, 0.8);
+    width: 300px;
+    margin-top: 5px;
+    padding-bottom: 20px;
+    border-bottom: solid 1.5px #c1c0c0;
+    word-wrap: break-word;
+
+}
+
+.LIGHTMyStories_storyTextWrap {
+    margin-left: 20px;
+}
+
+.LIGHTMyStories_storyReviews {
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #23252bd6;
+    width: 170px;
+    padding: 10px;
+    border: 1px solid rgb(46, 46, 46);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.LIGHTMyStories_storyLists {
+    color: #ffffff;
+    width: 170px;
+    border: 1px solid rgb(46, 46, 46);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    background-color: #23252bd6;
+}
+
+.LIGHTMyStories_storyDelete,
+.LIGHTMyStories_storyEdit {
+    background-color: #f47521;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+    margin-bottom: 2px;
+    color: black;
+    transition: 0.2s;
+
+}
+
+.LIGHTMyStories_storyEdit:hover,
+.LIGHTMyStories_addStory:hover {
+    background-color: #f59e65;
+    cursor: pointer;
+}
+
+.LIGHTMyStories_storyDelete:hover {
+    background-color: rgb(182, 35, 35);
+    cursor: pointer;
+    color: rgb(91, 1, 1);
+}
+
+
+.LIGHTMyStories_storyrightBottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.LIGHTMyStories_storyrightBottomButtons {
+    margin-top: 21px;
+    margin-left: 25px;
+}
+
+.LIGHTMyStories_h1 {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width:1400px) {
+    .LIGHTMyStories_h1 {
+        color: rgba(0, 0, 0, 0.8);
+        margin-left: 50px;
+    }
+
+}
+
+.LIGHTMyStories_addStory {
+    background-color: #f47521;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+    margin-bottom: 2px;
+    color: black;
+    margin-right: 50px;
+    transition: 0.2s;
+}
+
+.LIGHTMyStories_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1300px;
+    border-bottom: solid 1.5px #c1c0c0;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width:1400px) {
+    .LIGHTMyStories_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 700px;
+        border-bottom: solid 1.5px #c1c0c0;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+
+    }
+
+}

@@ -9,7 +9,7 @@ import starFull from './images/stars/star-full.png'
 
 
 const StarsSmall = ({ avgRating, reviews }) => {
-
+    //no need to toggle light or dark, same either way
 
     if (Object.values(reviews).length === 0) { return <div className="StarsSmall_noRatings"> No ratings yet</div> }
     return (
