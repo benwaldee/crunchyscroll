@@ -1,4 +1,5 @@
 import "./CSS/Lists.css"
+import "./CSS/Light/LIGHTLists.css"
 import { useHistory } from 'react-router-dom';
 import { useDropContext } from '../context/Dropdown';
 import { getAllStoriesThunk } from '../store/stories'
@@ -9,6 +10,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import more from './images/more.png'
 import whitemore from './images/whitemore.png'
+import blackmore from './images/blackmore.png'
 import heart from './images/heart.png'
 import { useState } from "react";
 import CreateListModal from './CreateListModal'
@@ -213,7 +215,7 @@ const Lists = () => {
                                     <div className={dark ? 'Lists_crunchylistTop' : 'LIGHTLists_crunchylistTop'}>
                                         <div className={dark ? 'Lists_crunchylistName' : 'LIGHTLists_crunchylistName'}>{list.name}</div>
                                         <div className={dark ? 'Lists_crunchylistMoreWrap' : 'LIGHTLists_crunchylistMoreWrap'}>
-                                            <img id={list.id} src={moreToggle === list.id ? whitemore : more} className={dark ? 'Lists_crunchylistMore' : 'LIGHTLists_crunchylistMore'}></img>
+                                            <img id={list.id} src={dark ? (moreToggle === list.id ? whitemore : more) : (moreToggle === list.id ? blackmore : more)} className={dark ? 'Lists_crunchylistMore' : 'LIGHTLists_crunchylistMore'}></img>
                                             {moreToggle === list.id &&
                                                 <div className={dark ? "Lists_morePop" : "LIGHTLists_morePop"}>
                                                     <EditListModal setMoreToggle={setMoreToggle} list={list} user={user} />

@@ -1,38 +1,42 @@
-.LIGHTEditStoryForm_form {
-    background-color: #ffffff;
+.LIGHTEditListForm_form {
+    background-color: white;
     border: none;
-    width: 500px
+    width: 500px;
+
 }
 
-.LIGHTEditStoryForm_formTitle {
+.LIGHTEditListForm_formTitle {
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 4px;
     margin-top: 10px;
 }
 
-.LIGHTEditStoryForm_formSubTitle {
+.LIGHTEditListForm_formSubTitle {
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: solid 1.5px #c1c0c0;
     width: 400px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.8);
     font-size: 16px;
 }
 
-.LIGHTEditStoryForm_formInputLabel {
-    color: rgba(255, 255, 255, 0.7);
+.LIGHTEditListForm_formInputLabel {
+    color: rgba(0, 0, 0, 0.8);
     font-size: 16px;
     margin-bottom: 2px;
 }
 
-.LIGHTEditStoryForm_formInputWrap {
+.LIGHTEditListForm_formInputWrap {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.LIGHTEditListForm_formInputWrapTextArea {
     margin-top: 12px;
 }
 
-.LIGHTEditStoryForm_formInputWrapTextArea {
-    margin-top: 12px;
-}
-
-.LIGHTEditStoryForm_formInput {
+.LIGHTEditListForm_formInput {
     width: 450px;
     height: 30px;
     padding: 10px 10px;
@@ -41,7 +45,7 @@
     outline: none;
 }
 
-.LIGHTEditStoryForm_formInputTextArea {
+.LIGHTEditListForm_formInputTextArea {
     width: 450px;
     padding: 10px 10px;
     height: 100px;
@@ -51,16 +55,16 @@
 
 }
 
-.LIGHTEditStoryForm_formInput:hover,
-.LIGHTEditStoryForm_formInput:focus,
-.LIGHTEditStoryForm_formInputTextArea:hover,
-.LIGHTEditStoryForm_formInputTextArea:focus {
+.LIGHTEditListForm_formInput:hover,
+.LIGHTEditListForm_formInput:focus,
+.LIGHTEditListForm_formInputTextArea:hover,
+.LIGHTEditListForm_formInputTextArea:focus {
     border: 1px solid #f47521
 }
 
-.LIGHTEditStoryForm_formSubmit {
+.LIGHTEditListForm_formSubmit {
     background-color: #f47521;
-    color: white;
+    color: black;
     border-left: none;
     border-top: none;
     border-right: none;
@@ -70,23 +74,25 @@
     border-radius: 5px;
     height: 50px;
     width: 170px;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
-.LIGHTEditStoryForm_formSubmit:hover {
+.LIGHTEditListForm_formSubmit:hover {
     background-color: #f47521b9;
     cursor: pointer;
 }
 
-.LIGHTEditStoryForm_formInputWrapButton {
+.LIGHTEditListForm_formInputWrapButton {
     margin: 0px;
+    height: fit-content;
 }
 
-.LIGHTEditStoryForm_error {
+.LIGHTEditListForm_error {
     color: #c32f2d;
     background-color: rgba(195, 47, 45, .2);
     width: 472px;
     margin-top: 7px;
+    margin-bottom: 10px;
     padding: 5px, 5px;
     height: 30px;
     display: flex;
@@ -94,32 +100,35 @@
     justify-content: center;
 }
 
-.LIGHTEditStoryForm_bodyTop {
+.LIGHTEditListForm_bodyTop {
     display: flex;
     justify-content: space-between;
 }
 
-.LIGHTEditStoryForm_charCount {
-    color: #dadada87;
-    margin-right: 30px;
+.LIGHTEditListForm_charCount {
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 3px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-right: 31px;
+
 }
 
-.LIGHTEditStoryForm_close {
-    color: white;
+.LIGHTEditListForm_close {
+    color: rgba(0, 0, 0, 0.8);
     font-weight: bold;
     font-size: 24px;
     display: flex;
     cursor: pointer;
     justify-content: flex-end;
     height: fit-content;
-    transition: 0.2s;
 }
 
-.LIGHTEditStoryForm_close:hover {
-    color: rgba(255, 255, 255, 0.576);
+.LIGHTEditListForm_close:hover {
+    color: rgba(0, 0, 0, 1);
 }
 
-.LIGHTEditStoryForm_formHeaderWrap {
+.LIGHTEditListForm_formHeaderWrap {
     display: flex;
     justify-content: space-between;
 }

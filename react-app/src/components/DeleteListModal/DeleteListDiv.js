@@ -1,4 +1,5 @@
 import './DeleteListDiv.css'
+import './LIGHTDeleteListDiv.css'
 import { useDispatch } from 'react-redux';
 import { useDropContext } from '../../context/Dropdown';
 import { deleteListThunk } from '../../store/lists'

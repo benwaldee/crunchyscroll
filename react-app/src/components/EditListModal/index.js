@@ -6,7 +6,7 @@ import { useDropContext } from '../../context/Dropdown';
 function EditListModal({ list, setMoreToggle }) {
     const { showEditListModal, setShowEditListModal, dark } = useDropContext();
 
-    console.log("INEDITLISTMODAL")
+
 
     return (
         <>
