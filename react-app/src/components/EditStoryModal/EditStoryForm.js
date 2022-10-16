@@ -25,7 +25,7 @@ const EditStoryForm = ({ setShowEditStoryModal, story }) => {
         let newErr = {}
 
         if (body.length < 100 && body.length > 0) {
-            setBody('')
+            // setBody('')
             newErr.body = 'Body must be at least 100 characters'
         }
 

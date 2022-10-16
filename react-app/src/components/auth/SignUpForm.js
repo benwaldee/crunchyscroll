@@ -15,6 +15,8 @@ const SignUpForm = () => {
     password: "",
     repeatPassword: ""
   });
+  const [emailError, setEmailError] = useState("")
+  const [usernameError, setUsernameError] = useState("")
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,6 +27,8 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
 
+    setEmailError('')
+    setUsernameError('')
     let newErr = {}
 
     if (username.length < 3 || username.length > 30) {
@@ -32,8 +36,8 @@ const SignUpForm = () => {
       newErr.username = "Username must be 3-30 characters"
     }
     if (!email.includes("@") || !email.includes(".")) {
-      setEmail("")
-      newErr.email = "Email in use or invalid."
+      // setEmail("")
+      newErr.email = "Email invalid."
 
     }
 
@@ -83,9 +87,18 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
-      if (data === 'bad news') {
-        setErrors({ email: "Email in use or invalid." })
+      if (data.errors) {
+        console.log(data.errors)
+        if (data.errors.email) {
+          console.log('email in use')
+          setEmailError('Email is in use.')
+        }
+        if (data.errors.username) {
+          console.log('username in use')
+          setUsernameError('Username is in use.')
+        }
         return
+
       }
       else {
         dispatch(createListThunk({
@@ -141,7 +154,8 @@ const SignUpForm = () => {
             value={username}
           // required={true}
           ></input>
-          {errors?.username && <div className={dark ? 'SignUpForm_error' : 'LIGHTSignUpForm_error'}>{errors.username}</div>}
+          {usernameError && <div className='SignUpForm_error'>{usernameError}</div>}
+          {errors?.username && <div className='SignUpForm_error'>{errors.username}</div>}
         </div>
         <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
           <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>Email</label>
@@ -158,7 +172,8 @@ const SignUpForm = () => {
             value={email}
           // required={true}
           ></input>
-          {errors?.email && <div className={dark ? 'SignUpForm_error' : 'LIGHTSignUpForm_error'}>{errors.email}</div>}
+          {errors?.email && <div className='SignUpForm_error'>{errors.email}</div>}
+          {emailError && <div className='SignUpForm_error'>{emailError}</div>}
         </div>
         <div className={dark ? 'SignUpForm_inputWrap' : 'LIGHTSignUpForm_inputWrap'}>
           <label className={dark ? 'SignUpForm_label' : 'LIGHTSignUpForm_label'}>Password</label>
