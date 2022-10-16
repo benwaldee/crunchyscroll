@@ -1,4 +1,5 @@
 import "./CSS/FourOhFour.css"
+import "./CSS/Light/LIGHTFourOhFour.css"
 import { useHistory } from 'react-router-dom';
 import { useDropContext } from '../context/Dropdown';
 
