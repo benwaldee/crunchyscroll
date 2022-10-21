@@ -70,10 +70,10 @@
 ### List-by-id Page
 * If you added the new story to your new crunchylist, it should be there!
 * Click on each story to navigate to the specic story page, or delete some of them to watch them disappear from your list!
-* Congrats! You have now finished a basic walkthrough of some of the features on the site. Feel free to click around to explore more features or just to try to break it :)
+* Congrats! You have now finished a basic walkthrough of some of the features on the site. Feel free to click around to explore more features, click on the sun for light mode, or just to try to break it :)
 
 ![image](https://cdn.discordapp.com/attachments/586690728751661146/1027319265235320932/unknown.png)
 
 ## Future Plans
 
-* I would like to implement the bonus features I had planned out. Light mode would be a great option for a dark themed application, and a search bar would be a neat component to add functionality to the site.
+* A search bar would be a neat component to add functionality to the site. I would also like to switch from image URLs to AWS.
