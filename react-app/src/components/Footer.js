@@ -10,6 +10,8 @@ const Footer = () => {
         setIsLoaded(true)
     }, [])
 
+    //caution check for loading
+
     if (!isLoaded) { return (<div></div>) }
     return (
         <footer className={dark ? 'Footer_outer' : 'LIGHTFooter_outer'}>
