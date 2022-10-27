@@ -31,7 +31,7 @@ const CreateListForm = ({ setShowAddListForm }) => {
             watchlist: false,
         }
 
-        console.log(newList)
+        // console.log(newList)
 
         dispatch(createListThunk(newList))
 

@@ -88,13 +88,13 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data.errors) {
-        console.log(data.errors)
+        // console.log(data.errors)
         if (data.errors.email) {
-          console.log('email in use')
+          // console.log('email in use')
           setEmailError('Email is in use.')
         }
         if (data.errors.username) {
-          console.log('username in use')
+          // console.log('username in use')
           setUsernameError('Username is in use.')
         }
         return
