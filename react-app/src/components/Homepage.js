@@ -12,6 +12,7 @@ const Homepage = () => {
     const { dark, setDark } = useDropContext()
     const dispatch = useDispatch()
     const storiesArr = Object.values(useSelector((state) => state?.stories?.allStories))
+        .sort((a, b) => Number(b.id) - Number(a.id))
     const history = useHistory()
 
     useEffect(() => {
