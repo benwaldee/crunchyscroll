@@ -37,7 +37,7 @@ const AddToListPop = ({ setShowAddToListModal, listsDict, id, story }) => {
         setShowAddToListModal(false)
     }
 
-    console.log(listsDict)
+    // console.log(listsDict)
 
     return (
         <div className={dark ? 'AddToListPop_wrap' : 'LIGHTAddToListPop_wrap'}>

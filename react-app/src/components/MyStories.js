@@ -24,7 +24,7 @@ const MyStories = () => {
         .filter((story) => story?.user_id === user?.id)
         .sort((a, b) => Number(b.id) - Number(a.id))
 
-    console.log(userStoriesArr)
+    // console.log(userStoriesArr)
 
     if (!user) {
         history.replace('/')

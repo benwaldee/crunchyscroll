@@ -92,7 +92,7 @@ export const deleteStoryThunk = (id) => async (dispatch) => {
 let initialState = { allStories: {} }
 const storiesReducer = (state = initialState, action) => {
     let stories
-    console.log('IMA ACTION', action)
+    // console.log('IMA ACTION', action)
     switch (action.type) {
         case ALL_STORIES:
             stories = { ...state, allStories: { ...state.allStories } }

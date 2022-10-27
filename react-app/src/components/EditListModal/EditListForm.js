@@ -32,7 +32,7 @@ const EditListForm = ({ setShowEditListModal, showEditListModal }) => {
             watchlist: false,
         }
 
-        console.log(editList)
+        // console.log(editList)
 
         dispatch(editListThunk(editList, showEditListModal.id))
 
