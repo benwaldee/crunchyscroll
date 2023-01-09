@@ -57,8 +57,6 @@ def remove_story_list():
     story = Story.query.get(story_id)
     lis = List.query.get(list_id)
 
-    print
-
     story.lists.remove(lis)
 
     db.session.commit()
@@ -107,7 +105,6 @@ def edit_list(id):
 
     edit_list["stories"] = stor_list
 
-    print('IM HERERERERR',edit_list)
 
     return edit_list
 

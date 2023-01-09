@@ -114,7 +114,7 @@ const StoryByID = () => {
             <div className={dark ? 'StoryByID_subHeader' : 'LIGHTStoryByID_subHeader'}>
                 <div className={dark ? 'StoryByID_subHeaderLeft' : 'LIGHTStoryByID_subHeaderLeft'}>
                     {story && <h1 className={dark ? 'StoryByID_title' : 'LIGHTStoryByID_title'}>{story?.title}</h1>}
-                    {!story && <h1 className={dark ? 'StoryByID_titleBlank' : 'LIGHTStoryByID_titleBlank'}>Ttitle Coming</h1>}
+                    {!story && <h1 className={dark ? 'StoryByID_titleBlank' : 'LIGHTStoryByID_titleBlank'}>Title Coming</h1>}
                     <div className={dark ? 'StoryByID_ratingWrap' : 'LIGHTStoryByID_ratingWrap'}>
                         <div className={dark ? 'StoryByID_stars' : 'LIGHTStoryByID_stars'}>
                             {story && storyIDs.length > 0 && <Stars avgRating={avgRating} reviews={reviews} />}
